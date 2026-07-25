@@ -57,7 +57,10 @@
   .beta-box{background:rgba(245,165,36,.06);border:1px solid rgba(245,165,36,.28);
             border-radius:14px;padding:1.5rem}
   .two{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-top:1.25rem}
-  .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem}
+  html{scroll-behavior:smooth}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem;
+        scroll-margin-top:1.5rem}
+  .step:target{border-color:var(--accent);box-shadow:0 0 0 2px rgba(245,165,36,.25)}
   .step h3{margin:0 0 .6rem;font-size:1.05rem}
   .step ol{margin:0 0 1rem;padding-left:1.15rem;color:var(--dim);font-size:.95rem}
   .step ol li{margin:.4rem 0}
@@ -78,8 +81,8 @@
     <h1>Zero Considerations</h1>
     <p class="tag">Photograph your target. Get the exact clicks. Works with no signal.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="https://testflight.apple.com/join/mzpWTVKy">Join the iPhone beta</a>
-      <a class="btn btn-primary" href="#beta">Join the Android beta</a>
+      <a class="btn btn-primary" href="#beta-ios">Join the iPhone beta</a>
+      <a class="btn btn-primary" href="#beta-android">Join the Android beta</a>
       <a class="btn btn-ghost" href="#targets">Free printable targets</a>
     </div>
     <p class="note">Free for testers, everything unlocked. Android takes one extra step &mdash; it's right below.</p>
@@ -94,7 +97,7 @@
         and there's no account to create.</p>
 
       <div class="two">
-        <div class="step">
+        <div class="step" id="beta-ios">
           <h3>iPhone / iPad</h3>
           <ol>
             <li>Install <strong>TestFlight</strong> from the App Store &mdash; it's Apple's free app for betas.</li>
@@ -105,7 +108,7 @@
           <p class="note brk" style="margin-top:.6rem">testflight.apple.com/join/mzpWTVKy</p>
         </div>
 
-        <div class="step">
+        <div class="step" id="beta-android">
           <h3>Android</h3>
           <ol>
             <li><strong>Join the tester group first.</strong> Google Play will not show you the app

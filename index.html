@@ -66,6 +66,10 @@
   .step ol li{margin:.4rem 0}
   .step .btn{padding:.6rem 1rem;font-size:.92rem;margin:.2rem .35rem .2rem 0}
   .brk{word-break:break-word}
+  /* Visible full URLs under each button: subordinate to the button, but still tappable */
+  a.plain{color:var(--dim);text-decoration:underline;text-underline-offset:2px;
+          display:inline-block;padding:.15rem 0}
+  a.plain:hover,a.plain:focus{color:var(--accent)}
 
   footer{border-top:1px solid var(--line);padding:2.5rem 0 4rem;color:var(--dim);font-size:.9rem}
   footer a{color:var(--dim)}
@@ -105,7 +109,8 @@
             <li>Tap <strong>Install</strong>. Zero Considerations appears on your home screen.</li>
           </ol>
           <a class="btn btn-primary" href="https://testflight.apple.com/join/mzpWTVKy">Open the TestFlight invite</a>
-          <p class="note brk" style="margin-top:.6rem">testflight.apple.com/join/mzpWTVKy</p>
+          <p class="note brk" style="margin-top:.6rem">
+            <a class="plain" href="https://testflight.apple.com/join/mzpWTVKy">testflight.apple.com/join/mzpWTVKy</a></p>
         </div>
 
         <div class="step" id="beta-android">
@@ -119,8 +124,8 @@
           <a class="btn btn-primary" href="https://groups.google.com/g/zeroconsiderations-testers">1. Join the tester group</a>
           <a class="btn btn-ghost" href="https://play.google.com/apps/testing/com.zeroconsiderations.app">2. Opt in on Play</a>
           <p class="note brk" style="margin-top:.6rem">
-            groups.google.com/g/zeroconsiderations-testers<br>
-            play.google.com/apps/testing/com.zeroconsiderations.app</p>
+            <a class="plain" href="https://groups.google.com/g/zeroconsiderations-testers">groups.google.com/g/zeroconsiderations-testers</a><br>
+            <a class="plain" href="https://play.google.com/apps/testing/com.zeroconsiderations.app">play.google.com/apps/testing/com.zeroconsiderations.app</a></p>
         </div>
       </div>
 

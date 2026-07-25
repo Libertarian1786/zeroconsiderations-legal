@@ -52,6 +52,18 @@
   ul.clean li{padding:.4rem 0 .4rem 1.6rem;position:relative}
   ul.clean li:before{content:"—";position:absolute;left:0;color:var(--accent)}
 
+  /* Beta quick-start */
+  #beta{border-top:none;padding-top:1.5rem}
+  .beta-box{background:rgba(245,165,36,.06);border:1px solid rgba(245,165,36,.28);
+            border-radius:14px;padding:1.5rem}
+  .two{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-top:1.25rem}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem}
+  .step h3{margin:0 0 .6rem;font-size:1.05rem}
+  .step ol{margin:0 0 1rem;padding-left:1.15rem;color:var(--dim);font-size:.95rem}
+  .step ol li{margin:.4rem 0}
+  .step .btn{padding:.6rem 1rem;font-size:.92rem;margin:.2rem .35rem .2rem 0}
+  .brk{word-break:break-word}
+
   footer{border-top:1px solid var(--line);padding:2.5rem 0 4rem;color:var(--dim);font-size:.9rem}
   footer a{color:var(--dim)}
   .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);
@@ -67,13 +79,58 @@
     <p class="tag">Photograph your target. Get the exact clicks. Works with no signal.</p>
     <div class="cta">
       <a class="btn btn-primary" href="https://testflight.apple.com/join/mzpWTVKy">Join the iPhone beta</a>
+      <a class="btn btn-primary" href="#beta">Join the Android beta</a>
       <a class="btn btn-ghost" href="#targets">Free printable targets</a>
     </div>
-    <p class="note">Android version in testing. Beta is free for testers.</p>
+    <p class="note">Free for testers, everything unlocked. Android takes one extra step &mdash; it's right below.</p>
   </header>
 </div>
 
 <div class="wrap">
+  <section id="beta">
+    <div class="beta-box">
+      <h2>Join the beta &mdash; the short version</h2>
+      <p class="lede" style="margin-bottom:0">Takes about two minutes. It's free, nothing is locked,
+        and there's no account to create.</p>
+
+      <div class="two">
+        <div class="step">
+          <h3>iPhone / iPad</h3>
+          <ol>
+            <li>Install <strong>TestFlight</strong> from the App Store &mdash; it's Apple's free app for betas.</li>
+            <li>Open the invite link and tap <strong>Accept</strong>.</li>
+            <li>Tap <strong>Install</strong>. Zero Considerations appears on your home screen.</li>
+          </ol>
+          <a class="btn btn-primary" href="https://testflight.apple.com/join/mzpWTVKy">Open the TestFlight invite</a>
+          <p class="note brk" style="margin-top:.6rem">testflight.apple.com/join/mzpWTVKy</p>
+        </div>
+
+        <div class="step">
+          <h3>Android</h3>
+          <ol>
+            <li><strong>Join the tester group first.</strong> Google Play will not show you the app
+              until you're in it &mdash; this is the step people miss.</li>
+            <li>Open the opt-in link and tap <strong>Become a tester</strong>.</li>
+            <li>Tap <strong>Download it on Google Play</strong> and install as normal.</li>
+          </ol>
+          <a class="btn btn-primary" href="https://groups.google.com/g/zeroconsiderations-testers">1. Join the tester group</a>
+          <a class="btn btn-ghost" href="https://play.google.com/apps/testing/com.zeroconsiderations.app">2. Opt in on Play</a>
+          <p class="note brk" style="margin-top:.6rem">
+            groups.google.com/g/zeroconsiderations-testers<br>
+            play.google.com/apps/testing/com.zeroconsiderations.app</p>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:1.25rem"><strong style="color:var(--ink)">If Play says
+        &ldquo;item not found&rdquo;:</strong> you're either not in the tester group yet, or your phone's
+        Play Store is signed in to a different Google account than the one you joined the group with.
+        Use the same account for both, then reopen the opt-in link.</p>
+
+      <p class="note">Questions or problems &mdash;
+        <a href="mailto:davidmccoybiz@gmail.com">davidmccoybiz@gmail.com</a>.</p>
+    </div>
+  </section>
+
   <section>
     <h2>Stop guessing at the bench</h2>
     <p class="lede">Shoot a group, photograph it, and the app measures it in real inches and tells you

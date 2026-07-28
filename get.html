@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get Zero Considerations</title>
+  <meta name="description" content="Zero Considerations — offline firearm zeroing and ballistics. Photograph your target, get your turret clicks.">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0; padding: 2rem 1.25rem; min-height: 100vh; box-sizing: border-box;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center;
+      background: #101418; color: #e8eaed;
+    }
+    h1 { font-size: 1.5rem; margin: 0 0 .4rem; letter-spacing: .04em; }
+    p  { margin: .3rem 0 1.4rem; color: #9aa3ab; max-width: 30rem; }
+    .btn {
+      display: block; width: 16rem; max-width: 90vw; margin: .5rem auto; padding: .9rem 1rem;
+      border-radius: .6rem; text-decoration: none; font-weight: 600; font-size: 1rem;
+      background: #e8eaed; color: #101418;
+    }
+    .btn.secondary { background: #232a31; color: #e8eaed; border: 1px solid #3a434c; }
+    .fine { font-size: .78rem; color: #6b747d; margin-top: 1.6rem; }
+    .fine a { color: #9aa3ab; }
+  </style>
+  <script>
+    // Printed QR codes on the range targets land here. The page — not the QR —
+    // decides where to send the visitor, so store URLs can change forever
+    // without reprinting a single target. Auto-forward on phones; on anything
+    // ambiguous (desktop, tablets, unknown UA) show both buttons instead.
+    (function () {
+      var ua = navigator.userAgent || '';
+      var ios = /iPhone|iPod/.test(ua);
+      var android = /Android/.test(ua);
+      var APPLE = 'https://apps.apple.com/app/id6792565250';
+      var PLAY  = 'https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile';
+      if (ios) location.replace(APPLE);
+      else if (android) location.replace(PLAY);
+    })();
+  </script>
+</head>
+<body>
+  <h1>ZERO CONSIDERATIONS</h1>
+  <p>Offline firearm zeroing &amp; ballistics. Photograph your target — get your turret clicks. No account, no tracking, works with no signal.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6792565250">App&nbsp;Store&nbsp;(iPhone)</a>
+  <a class="btn secondary" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Google&nbsp;Play&nbsp;(Android)</a>
+  <p class="fine">Not live in your store yet? Launch is rolling out — check back shortly, or read the <a href="/privacy.html">privacy policy</a>.</p>
+</body>
+</html>

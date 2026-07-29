@@ -14,14 +14,13 @@
       font-family: -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center;
       background: #101418; color: #e8eaed;
     }
-    h1 { font-size: 1.5rem; margin: 0 0 .4rem; letter-spacing: .04em; }
-    p  { margin: .3rem 0 1.2rem; color: #9aa3ab; max-width: 30rem; }
+    h1 { font-size: 1.4rem; margin: 0 0 .3rem; letter-spacing: .04em; }
+    .sub { margin: 0 0 1.2rem; color: #9aa3ab; font-size: .9rem; }
     .step {
-      width: 20rem; max-width: 92vw; margin: .6rem auto; padding: 1rem;
-      border-radius: .7rem; background: #171d23; border: 1px solid #2a323b; text-align: left;
+      width: 19rem; max-width: 92vw; margin: .5rem auto; padding: .9rem;
+      border-radius: .7rem; background: #171d23; border: 1px solid #2a323b;
     }
-    .step h2 { font-size: .95rem; margin: 0 0 .5rem; color: #e8eaed; }
-    .step p  { font-size: .82rem; margin: 0 0 .7rem; }
+    .step h2 { font-size: .9rem; margin: 0 0 .6rem; color: #e8eaed; font-weight: 600; }
     .btn {
       display: block; text-align: center; padding: .8rem 1rem; border-radius: .6rem;
       text-decoration: none; font-weight: 600; font-size: .95rem;
@@ -29,63 +28,49 @@
     }
     .code {
       display: block; text-align: center; font-family: ui-monospace, Consolas, monospace;
-      font-size: 1.05rem; letter-spacing: .06em; padding: .7rem .5rem; margin: 0 0 .7rem;
+      font-size: 1rem; letter-spacing: .06em; padding: .65rem .5rem; margin: 0 0 .6rem;
       border-radius: .5rem; background: #0b0e11; border: 1px dashed #3a434c; color: #e8eaed;
       user-select: all; word-break: break-all;
     }
-    .warn { font-size: .78rem; color: #c9a227; max-width: 20rem; }
-    .fine { font-size: .78rem; color: #6b747d; margin-top: 1.4rem; }
+    .fine { font-size: .78rem; color: #6b747d; margin-top: 1.3rem; }
     .fine a { color: #9aa3ab; }
-    .hidden { display: none; }
   </style>
 </head>
 <body>
-  <h1>ZERO CONSIDERATIONS — BETA</h1>
-  <p>Android early access. Three steps, same Google account for all of them.</p>
+  <h1>ZERO CONSIDERATIONS BETA</h1>
+  <p class="sub">Three taps, in order — same Google account for all three.</p>
 
   <div class="step">
-    <h2>1 · Join the test group</h2>
-    <p>Opt in as a tester first — the store listing stays hidden until you do.</p>
-    <a class="btn" href="https://play.google.com/apps/testing/com.zeroconsiderations.mobile">Become a tester</a>
+    <h2>1 · Become a tester</h2>
+    <a class="btn" href="https://play.google.com/apps/testing/com.zeroconsiderations.mobile">Join the test</a>
   </div>
 
-  <!-- The code NEVER lives in this page — it arrives per person in the ?c=
-       query of the link David sends, so the public page leaks nothing. -->
-  <div class="step hidden" id="codeStep">
-    <h2>2 · Your personal code</h2>
-    <p>One-time use, tied to you. It makes the app free at checkout.</p>
-    <span class="code" id="codeText"></span>
-    <a class="btn" id="redeemBtn" href="#">Redeem on Google Play</a>
-  </div>
-
-  <div class="step hidden" id="noCodeStep">
+  <!-- Visible without JS so the numbering never gaps; JS upgrades it in place
+       with the personal code from ?c= (codes never live in this page). -->
+  <div class="step">
     <h2>2 · Redeem your code</h2>
-    <p>Your personal code came with the message that sent you here. Tap below and enter it.</p>
-    <a class="btn" href="https://play.google.com/redeem">Open Google Play redeem</a>
+    <span class="code" id="codeText" hidden></span>
+    <a class="btn" id="redeemBtn" href="https://play.google.com/redeem">Redeem on Google Play</a>
   </div>
 
   <div class="step">
     <h2>3 · Install</h2>
-    <p>After redeeming, open the listing — the price shows as paid until the code is applied at checkout.</p>
-    <a class="btn" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Open the Play listing</a>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Get the app</a>
   </div>
 
-  <p class="warn">⚠ Use the SAME Google account for the tester opt-in, the redeem, and the install — mixing accounts is the #1 reason the app "doesn't show up."</p>
-  <p class="fine">On iPhone? The beta runs on <a href="https://testflight.apple.com/join/mzpWTVKy">TestFlight</a> instead. · <a href="/privacy.html">Privacy</a></p>
+  <p class="fine">Code shows as $0 at checkout after redeeming.<br>
+    iPhone? Use <a href="https://testflight.apple.com/join/mzpWTVKy">TestFlight</a> instead. · <a href="/privacy.html">Privacy</a></p>
 
   <script>
-    // Per-tester links carry ?c=<one-time code>. Show the code + a redeem
-    // deep link that prefills it (documented Play format). No param → generic
-    // "enter your code" step.
     (function () {
       var m = /[?&]c=([A-Za-z0-9]{8,32})\b/.exec(location.search);
       if (m) {
-        document.getElementById('codeText').textContent = m[1];
+        var code = m[1];
+        var el = document.getElementById('codeText');
+        el.textContent = code;
+        el.hidden = false;
         document.getElementById('redeemBtn').href =
-          'https://play.google.com/redeem?code=' + encodeURIComponent(m[1]);
-        document.getElementById('codeStep').classList.remove('hidden');
-      } else {
-        document.getElementById('noCodeStep').classList.remove('hidden');
+          'https://play.google.com/redeem?code=' + encodeURIComponent(code);
       }
     })();
   </script>

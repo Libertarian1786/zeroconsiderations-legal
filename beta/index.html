@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zero Considerations — Beta</title>
+  <title>Zero Considerations — Android Beta</title>
   <meta name="robots" content="noindex">
   <meta name="description" content="Join the Zero Considerations Android beta.">
   <style>
@@ -15,12 +15,14 @@
       background: #101418; color: #e8eaed;
     }
     h1 { font-size: 1.4rem; margin: 0 0 .3rem; letter-spacing: .04em; }
-    .sub { margin: 0 0 1.2rem; color: #9aa3ab; font-size: .9rem; }
+    .sub { margin: 0 0 .4rem; color: #9aa3ab; font-size: .9rem; }
+    .eta { margin: 0 0 1.2rem; color: #3DDC84; font-size: .82rem; font-weight: 600; }
     .step {
       width: 19rem; max-width: 92vw; margin: .5rem auto; padding: .9rem;
       border-radius: .7rem; background: #171d23; border: 1px solid #2a323b;
     }
-    .step h2 { font-size: .9rem; margin: 0 0 .6rem; color: #e8eaed; font-weight: 600; }
+    .step h2 { font-size: .9rem; margin: 0 0 .35rem; color: #e8eaed; font-weight: 600; }
+    .step .when { font-size: .74rem; color: #9aa3ab; margin: 0 0 .6rem; }
     .btn {
       display: block; text-align: center; padding: .8rem 1rem; border-radius: .6rem;
       text-decoration: none; font-weight: 600; font-size: .95rem;
@@ -32,50 +34,65 @@
       border-radius: .5rem; background: #0b0e11; border: 1px dashed #3a434c; color: #e8eaed;
       user-select: all; word-break: break-all;
     }
+    .free { font-size: .8rem; color: #9aa3ab; margin: .55rem 0 0; }
+    .free b { color: #3DDC84; }
     .fine { font-size: .78rem; color: #6b747d; margin-top: 1.3rem; }
     .fine a { color: #9aa3ab; }
   </style>
 </head>
 <body>
   <h1>ZERO CONSIDERATIONS BETA</h1>
-  <p class="sub">Four taps, in order — same Google account for all of them.</p>
+  <p class="sub">Three taps, in order — same Google account for all of them.</p>
+  <p class="eta">Takes about 2 minutes. You're usually in within the hour.</p>
 
   <div class="step">
     <h2>1 · Join the tester group</h2>
+    <p class="when">Instant — this puts your account on the tester list.</p>
     <a class="btn" href="https://groups.google.com/g/zeroconsiderations-testers">Join the group</a>
   </div>
 
   <div class="step">
     <h2>2 · Become a tester</h2>
+    <p class="when">Instant — accept the invite on this page. If it says you're not a
+      tester yet, Google is still syncing step 1: wait 15&ndash;60 minutes and reload.</p>
     <a class="btn" href="https://play.google.com/apps/testing/com.zeroconsiderations.mobile">Join the test</a>
   </div>
 
-  <!-- Visible without JS so the numbering never gaps; JS upgrades it in place
-       with the personal code from ?c= (codes never live in this page). -->
-  <div class="step">
-    <h2>3 · Redeem your code</h2>
-    <span class="code" id="codeText" hidden></span>
+  <!-- The personal-code block only appears for ?c= links (codes are single-use,
+       so they never live in this public page). Everyone else installs from the
+       beta listing directly. -->
+  <div class="step" id="codeStep" hidden>
+    <h2 id="codeHeading">3 · Redeem your personal code</h2>
+    <p class="when">One tap — the code below is yours alone and prefills at Google Play.</p>
+    <span class="code" id="codeText"></span>
     <a class="btn" id="redeemBtn" href="https://play.google.com/redeem">Redeem on Google Play</a>
   </div>
 
   <div class="step">
-    <h2>4 · Install</h2>
+    <h2 id="installHeading">3 · Install from Google Play</h2>
+    <p class="when">The beta listing opens once Google recognizes you as a tester
+      (usually minutes, occasionally up to an hour).</p>
     <a class="btn" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Get the app</a>
+    <p class="free">During beta windows the price shows <b>$0</b> — if it shows $9.99 and
+      you weren't given a code, the current free window has filled or ended; email
+      <a href="mailto:davidmccoybiz@gmail.com" style="color:#9aa3ab">davidmccoybiz@gmail.com</a>
+      and you'll get a personal code.</p>
   </div>
 
-  <p class="fine">Code shows as $0 at checkout after redeeming.<br>
-    iPhone? Use <a href="https://testflight.apple.com/join/mzpWTVKy">TestFlight</a> instead. · <a href="/privacy.html">Privacy</a></p>
+  <p class="fine">
+    iPhone? The full app is live on the
+    <a href="https://apps.apple.com/app/id6792565250">App&nbsp;Store</a>. · <a href="/privacy.html">Privacy</a></p>
 
   <script>
     (function () {
       var m = /[?&]c=([A-Za-z0-9]{8,32})\b/.exec(location.search);
       if (m) {
         var code = m[1];
-        var el = document.getElementById('codeText');
-        el.textContent = code;
-        el.hidden = false;
+        document.getElementById('codeText').textContent = code;
+        document.getElementById('codeStep').hidden = false;
         document.getElementById('redeemBtn').href =
           'https://play.google.com/redeem?code=' + encodeURIComponent(code);
+        document.getElementById('installHeading').textContent = '4 · Install from Google Play';
       }
     })();
   </script>

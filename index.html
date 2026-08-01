@@ -73,6 +73,22 @@
           display:inline-block;padding:.15rem 0}
   a.plain:hover,a.plain:focus{color:var(--accent)}
 
+
+  /* Platform badges — unmistakable store identity without looking like clip-art */
+  .badges{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;align-items:stretch}
+  .badge{display:inline-flex;align-items:center;gap:.65rem;padding:.65rem 1.15rem;border-radius:12px;
+         text-decoration:none;border:1px solid var(--line);min-height:56px}
+  .badge svg{flex:0 0 auto}
+  .badge .b-lines{display:flex;flex-direction:column;line-height:1.15;text-align:left}
+  .badge .b-top{font-size:.72rem;color:var(--dim);letter-spacing:.02em}
+  .badge .b-main{font-size:1.08rem;font-weight:700;color:var(--ink)}
+  .badge-apple{background:#000;border-color:#3a3f45}
+  .badge-apple .b-top{color:#c7cdd4}
+  .badge-apple .b-main{color:#fff}
+  .badge-android{background:var(--card)}
+  .badge-android .b-main{color:var(--ink)}
+  .badge-android .b-top{color:#3DDC84}
+
   footer{border-top:1px solid var(--line);padding:2.5rem 0 4rem;color:var(--dim);font-size:.9rem}
   footer a{color:var(--dim)}
   .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);
@@ -88,8 +104,17 @@
     <p class="tag">Photograph your target. Get the exact clicks. Works with no signal.</p>
     <p class="price"><b>$9.99</b> one-time</p>
     <p class="note" style="margin-top:-.4rem">No subscription. No ads. No account. Buy it once, keep it.</p>
-    <div class="cta">
-      <a class="btn btn-primary" href="#get">Get the app</a>
+    <div class="badges" style="margin:2rem 0 .9rem">
+      <a class="badge badge-apple" href="https://apps.apple.com/app/id6792565250">
+        <svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><path fill="#fff" d="M21.6 15.9c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-.9 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM18.6 6.6c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
+        <span class="b-lines"><span class="b-top">Out now on the</span><span class="b-main">App&nbsp;Store</span></span>
+      </a>
+      <a class="badge badge-android" href="/beta">
+        <svg width="28" height="26" viewBox="0 0 28 26" aria-hidden="true"><g fill="#3DDC84"><path d="M20.4 4.6l1.7-2.9c.1-.2 0-.4-.2-.5-.2-.1-.4 0-.5.2l-1.7 3C18.2 3.6 16.2 3.2 14 3.2s-4.2.4-5.7 1.2l-1.7-3c-.1-.2-.3-.3-.5-.2-.2.1-.3.3-.2.5l1.7 2.9C4.6 6.3 2.5 9.4 2.2 13h23.6c-.3-3.6-2.4-6.7-5.4-8.4zM9.2 9.9c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1zm9.6 0c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1z"/></g></svg>
+        <span class="b-lines"><span class="b-top">Android &middot; free closed beta</span><span class="b-main">Join on Google&nbsp;Play</span></span>
+      </a>
+    </div>
+    <div class="cta" style="margin-top:.25rem">
       <a class="btn btn-ghost" href="#targets">Free printable targets</a>
     </div>
   </header>
@@ -118,8 +143,16 @@
           <p style="margin:.2rem 0 1rem;color:var(--dim);font-size:.95rem">
             <strong>Out now on the App&nbsp;Store.</strong> Android is in closed testing on
             Google&nbsp;Play &mdash; join the beta and get it free before the paid launch.</p>
-          <a class="btn btn-primary" href="https://apps.apple.com/app/id6792565250">Get it on the App&nbsp;Store</a>
-          <a class="btn btn-ghost" href="/beta">Join the Android beta</a>
+          <div class="badges" style="justify-content:flex-start">
+            <a class="badge badge-apple" href="https://apps.apple.com/app/id6792565250">
+              <svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><path fill="#fff" d="M21.6 15.9c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-.9 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM18.6 6.6c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
+              <span class="b-lines"><span class="b-top">iPhone &middot; out now</span><span class="b-main">App&nbsp;Store</span></span>
+            </a>
+            <a class="badge badge-android" href="/beta">
+              <svg width="28" height="26" viewBox="0 0 28 26" aria-hidden="true"><g fill="#3DDC84"><path d="M20.4 4.6l1.7-2.9c.1-.2 0-.4-.2-.5-.2-.1-.4 0-.5.2l-1.7 3C18.2 3.6 16.2 3.2 14 3.2s-4.2.4-5.7 1.2l-1.7-3c-.1-.2-.3-.3-.5-.2-.2.1-.3.3-.2.5l1.7 2.9C4.6 6.3 2.5 9.4 2.2 13h23.6c-.3-3.6-2.4-6.7-5.4-8.4zM9.2 9.9c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1zm9.6 0c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1z"/></g></svg>
+              <span class="b-lines"><span class="b-top">Android &middot; free beta</span><span class="b-main">Google&nbsp;Play</span></span>
+            </a>
+          </div>
           <p class="note brk" style="margin-top:.6rem">
             <a class="plain" href="https://apps.apple.com/app/id6792565250">apps.apple.com/app/id6792565250</a></p>
         </div>

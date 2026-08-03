@@ -60,12 +60,11 @@
     <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/apps/testing/com.zeroconsiderations.mobile">Join the test</a>
   </div>
 
-  <!-- The personal-code block only appears for ?c= links (codes are single-use,
-       so they never live in this public page). Everyone else installs from the
-       beta listing directly. -->
+  <!-- Personal code: prefilled from a ?c= link, otherwise vended live by the
+       dispenser (Google Apps Script, one single-use code per visitor). -->
   <div class="step" id="codeStep" hidden>
     <h2 id="codeHeading">3 · Redeem your personal code</h2>
-    <p class="when">One tap — the code below is yours alone and prefills at Google Play.</p>
+    <p class="when">One tap — the code below is yours alone and makes the app free at checkout.</p>
     <span class="code" id="codeText"></span>
     <a class="btn" id="redeemBtn" target="_blank" rel="noopener" href="https://play.google.com/redeem">Redeem on Google Play</a>
   </div>
@@ -75,10 +74,10 @@
     <p class="when">The beta listing opens once Google recognizes you as a tester
       (usually minutes, occasionally up to an hour).</p>
     <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Get the app</a>
-    <p class="free">During beta windows the price shows <b>$0</b> — if it shows $9.99 and
-      you weren't given a code, the current free window has filled or ended; email
+    <p class="free">Your code above makes it <b>$0</b> at checkout. If no code appeared,
+      today's batch ran out — email
       <a href="mailto:davidmccoybiz@gmail.com" style="color:#9aa3ab">davidmccoybiz@gmail.com</a>
-      and you'll get a personal code.</p>
+      and you'll get one personally.</p>
   </div>
 
   <p class="fine">
@@ -87,15 +86,27 @@
 
   <script>
     (function () {
-      var m = /[?&]c=([A-Za-z0-9]{8,32})\b/.exec(location.search);
-      if (m) {
-        var code = m[1];
+      var DISPENSER =
+        'https://script.google.com/macros/s/AKfycbwKfcpaI5uuBTlnkRsRYbGIL35AlB_lCvBNHureoG9zEYrMS5IEnVAESBWFyzejlkQ22Q/exec';
+
+      function showCode(code) {
         document.getElementById('codeText').textContent = code;
         document.getElementById('codeStep').hidden = false;
         document.getElementById('redeemBtn').href =
           'https://play.google.com/redeem?code=' + encodeURIComponent(code);
         document.getElementById('installHeading').textContent = '4 · Install from Google Play';
       }
+
+      // Personal ?c= link wins; otherwise ask the dispenser for a fresh code.
+      var m = /[?&]c=([A-Za-z0-9]{8,32})\b/.exec(location.search);
+      if (m) {
+        showCode(m[1]);
+        return;
+      }
+      fetch(DISPENSER + '?action=code')
+        .then(function (r) { return r.json(); })
+        .then(function (d) { if (d && d.code) showCode(d.code); })
+        .catch(function () { /* fall back to the email line */ });
     })();
   </script>
 </body>

@@ -153,8 +153,9 @@
           .then(function (r) { return r.json(); })
           .then(function (d) {
             if (d && d.ok) {
-              input.hidden = true;
-              btn.hidden = true;
+              // inline display:none — the hidden attribute loses to .btn/.emailin's display:block
+              input.style.display = 'none';
+              btn.style.display = 'none';
               msg.innerHTML =
                 '✅ <b>Done — you’re in.</b> Your code and a one-tap link ' +
                 'will arrive from davidmccoybiz@gmail.com within the hour ' +

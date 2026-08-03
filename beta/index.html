@@ -34,6 +34,11 @@
       border-radius: .5rem; background: #0b0e11; border: 1px dashed #3a434c; color: #e8eaed;
       user-select: all; word-break: break-all;
     }
+    .emailin {
+      display: block; width: 100%; box-sizing: border-box; margin: 0 0 .6rem;
+      padding: .7rem .8rem; border-radius: .5rem; font-size: .95rem;
+      background: #0b0e11; border: 1px solid #3a434c; color: #e8eaed;
+    }
     .free { font-size: .8rem; color: #9aa3ab; margin: .55rem 0 0; }
     .free b { color: #3DDC84; }
     .fine { font-size: .78rem; color: #6b747d; margin-top: 1.3rem; }
@@ -42,8 +47,8 @@
 </head>
 <body>
   <h1>ZERO CONSIDERATIONS BETA</h1>
-  <p class="sub">Three taps, in order — same Google account for all of them.</p>
-  <p class="eta">Takes about 2 minutes. You're usually in within the hour.</p>
+  <p class="sub">Four quick steps — same Google account for all of them.</p>
+  <p class="eta">Two minutes now, and your free code lands in your inbox within the hour.</p>
 
   <div class="step">
     <h2>1 · Join the tester group</h2>
@@ -60,8 +65,19 @@
     <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/apps/testing/com.zeroconsiderations.mobile">Join the test</a>
   </div>
 
-  <!-- Personal code: prefilled from a ?c= link, otherwise vended live by the
-       dispenser (Google Apps Script, one single-use code per visitor). -->
+  <!-- Email-first signup: the dispenser binds a single-use code to the address
+       and emails it once Google's tester sync has had time (~30-60 min). -->
+  <div class="step" id="emailStep">
+    <h2>3 · Get your free code by email</h2>
+    <p class="when">Type the same Gmail. Your personal code arrives within the hour
+      &mdash; that's how long Google takes to unlock new testers &mdash; with one
+      link that finishes everything.</p>
+    <input class="emailin" id="emailIn" type="email" placeholder="you@gmail.com" autocomplete="email">
+    <a class="btn" id="emailBtn" href="#">Email me my code</a>
+    <p class="free" id="emailMsg" hidden></p>
+  </div>
+
+  <!-- Personal code block: shown for ?c= links (from the email or a handout). -->
   <div class="step" id="codeStep" hidden>
     <h2 id="codeHeading">3 · Redeem your personal code</h2>
     <p class="when">One tap — the code below is yours alone and makes the app free at checkout.</p>
@@ -73,14 +89,12 @@
   </div>
 
   <div class="step">
-    <h2 id="installHeading">3 · Install from Google Play</h2>
+    <h2 id="installHeading">4 · Install from Google Play</h2>
     <p class="when">The beta listing opens once Google recognizes you as a tester
       (usually minutes, occasionally up to an hour).</p>
     <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Get the app</a>
-    <p class="free">Your code above makes it <b>$0</b> at checkout. If no code appeared,
-      today's batch ran out — email
-      <a href="mailto:davidmccoybiz@gmail.com" style="color:#9aa3ab">davidmccoybiz@gmail.com</a>
-      and you'll get one personally.</p>
+    <p class="free">Your personal code makes it <b>$0</b> at checkout — it's in the
+      email (or shown above if you came from your personal link).</p>
   </div>
 
   <p class="fine">
@@ -95,9 +109,9 @@
       function showCode(code) {
         document.getElementById('codeText').textContent = code;
         document.getElementById('codeStep').hidden = false;
+        document.getElementById('emailStep').hidden = true;
         document.getElementById('redeemBtn').href =
           'https://play.google.com/redeem?code=' + encodeURIComponent(code);
-        document.getElementById('installHeading').textContent = '4 · Install from Google Play';
         var perma = 'https://zeroconsiderations.com/beta/?c=' + encodeURIComponent(code);
         var a = document.getElementById('saveLinkA');
         a.href = perma;
@@ -105,16 +119,51 @@
         document.getElementById('saveLink').hidden = false;
       }
 
-      // Personal ?c= link wins; otherwise ask the dispenser for a fresh code.
+      // Personal ?c= link (from the email): show the code, hide signup.
       var m = /[?&]c=([A-Za-z0-9]{8,32})\b/.exec(location.search);
       if (m) {
         showCode(m[1]);
         return;
       }
-      fetch(DISPENSER + '?action=code')
-        .then(function (r) { return r.json(); })
-        .then(function (d) { if (d && d.code) showCode(d.code); })
-        .catch(function () { /* fall back to the email line */ });
+
+      // Email-first signup.
+      var btn = document.getElementById('emailBtn');
+      var input = document.getElementById('emailIn');
+      var msg = document.getElementById('emailMsg');
+      btn.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        var email = input.value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          msg.textContent = "That doesn't look like an email address.";
+          msg.hidden = false;
+          return;
+        }
+        btn.textContent = 'Sending…';
+        fetch(DISPENSER + '?action=signup&email=' + encodeURIComponent(email))
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d && d.ok) {
+              input.hidden = true;
+              btn.hidden = true;
+              msg.innerHTML =
+                '✅ <b>Done — you’re in.</b> Your code and a one-tap link ' +
+                'will arrive from davidmccoybiz@gmail.com within the hour ' +
+                '(check spam the first time).';
+            } else {
+              btn.textContent = 'Email me my code';
+              msg.innerHTML =
+                'Today’s codes ran out — email ' +
+                '<a href="mailto:davidmccoybiz@gmail.com" style="color:#9aa3ab">davidmccoybiz@gmail.com</a> ' +
+                'and you’ll get one personally.';
+            }
+            msg.hidden = false;
+          })
+          .catch(function () {
+            btn.textContent = 'Email me my code';
+            msg.textContent = 'Something hiccuped — try again in a minute.';
+            msg.hidden = false;
+          });
+      });
     })();
   </script>
 </body>

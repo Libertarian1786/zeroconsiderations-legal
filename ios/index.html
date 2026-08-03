@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zero Considerations — Free iPhone Code</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Get a free Zero Considerations code for iPhone.">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0; padding: 2rem 1.25rem; min-height: 100vh; box-sizing: border-box;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center;
+      background: #101418; color: #e8eaed;
+    }
+    h1 { font-size: 1.4rem; margin: 0 0 .3rem; letter-spacing: .04em; }
+    .sub { margin: 0 0 .4rem; color: #9aa3ab; font-size: .9rem; }
+    .eta { margin: 0 0 1.2rem; color: #3DDC84; font-size: .82rem; font-weight: 600; }
+    .step {
+      width: 19rem; max-width: 92vw; margin: .5rem auto; padding: .9rem;
+      border-radius: .7rem; background: #171d23; border: 1px solid #2a323b;
+    }
+    .step h2 { font-size: .9rem; margin: 0 0 .35rem; color: #e8eaed; font-weight: 600; }
+    .step .when { font-size: .74rem; color: #9aa3ab; margin: 0 0 .6rem; }
+    .btn {
+      display: block; text-align: center; padding: .8rem 1rem; border-radius: .6rem;
+      text-decoration: none; font-weight: 700; font-size: .95rem;
+      background: #F59E0B; color: #0B0E11; /* app primary amber + ink */
+    }
+    .emailin {
+      display: block; width: 100%; box-sizing: border-box; margin: 0 0 .6rem;
+      padding: .7rem .8rem; border-radius: .5rem; font-size: .95rem;
+      background: #0b0e11; border: 1px solid #3a434c; color: #e8eaed;
+    }
+    .free { font-size: .8rem; color: #9aa3ab; margin: .55rem 0 0; }
+    .free b { color: #3DDC84; }
+    .fine { font-size: .78rem; color: #6b747d; margin-top: 1.3rem; }
+    .fine a { color: #9aa3ab; }
+  </style>
+</head>
+<body>
+  <h1>ZERO CONSIDERATIONS — iPHONE</h1>
+  <p class="sub">The full app is live on the App&nbsp;Store. Beta supporters get it free.</p>
+  <p class="eta">Your code lands in your inbox within minutes.</p>
+
+  <div class="step">
+    <h2>1 · Get your free code by email</h2>
+    <p class="when">Any email works &mdash; your personal single-use code arrives in
+      minutes, and one tap installs the app free.</p>
+    <input class="emailin" id="iosEmailIn" type="email" placeholder="you@email.com" autocomplete="email">
+    <a class="btn" id="iosEmailBtn" href="#">Email me my code</a>
+    <p class="free" id="iosEmailMsg" hidden></p>
+  </div>
+
+  <div class="step">
+    <h2>2 · Watch your inbox</h2>
+    <p class="when">The email (from davidmccoybiz@gmail.com &mdash; check spam the
+      first time) has one green button: tap it, the App&nbsp;Store opens with your
+      code applied, and the app installs <b style="color:#3DDC84">free</b>.</p>
+  </div>
+
+  <p class="fine">
+    On Android? Get your free beta code at
+    <a href="/beta/">zeroconsiderations.com/beta</a>. · <a href="/privacy.html">Privacy</a></p>
+
+  <script>
+    (function () {
+      var DISPENSER =
+        'https://script.google.com/macros/s/AKfycbwKfcpaI5uuBTlnkRsRYbGIL35AlB_lCvBNHureoG9zEYrMS5IEnVAESBWFyzejlkQ22Q/exec';
+      var btn = document.getElementById('iosEmailBtn');
+      var input = document.getElementById('iosEmailIn');
+      var msg = document.getElementById('iosEmailMsg');
+      btn.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        var email = input.value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          msg.textContent = "That doesn't look like an email address.";
+          msg.hidden = false;
+          return;
+        }
+        btn.textContent = 'Sending…';
+        fetch(DISPENSER + '?action=signup&platform=ios&email=' + encodeURIComponent(email))
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d && d.ok) {
+              input.hidden = true;
+              btn.hidden = true;
+              msg.innerHTML =
+                '✅ <b>Done — you’re in.</b> Your code is on its way from ' +
+                'davidmccoybiz@gmail.com — usually within minutes ' +
+                '(check spam the first time).';
+            } else {
+              btn.textContent = 'Email me my code';
+              msg.innerHTML =
+                'Today’s codes ran out — email ' +
+                '<a href="mailto:davidmccoybiz@gmail.com" style="color:#9aa3ab">davidmccoybiz@gmail.com</a> ' +
+                'and you’ll get one personally.';
+            }
+            msg.hidden = false;
+          })
+          .catch(function () {
+            btn.textContent = 'Email me my code';
+            msg.textContent = 'Something hiccuped — try again in a minute.';
+            msg.hidden = false;
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

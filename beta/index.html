@@ -67,6 +67,9 @@
     <p class="when">One tap — the code below is yours alone and makes the app free at checkout.</p>
     <span class="code" id="codeText"></span>
     <a class="btn" id="redeemBtn" target="_blank" rel="noopener" href="https://play.google.com/redeem">Redeem on Google Play</a>
+    <p class="free" id="saveLink" hidden>Google can take up to an hour after step 1 to unlock
+      steps 3&ndash;4. Your code is saved at <a id="saveLinkA" href="/beta/" style="color:#3DDC84"></a>
+      &mdash; bookmark it and come back if anything says "no access" yet.</p>
   </div>
 
   <div class="step">
@@ -95,6 +98,11 @@
         document.getElementById('redeemBtn').href =
           'https://play.google.com/redeem?code=' + encodeURIComponent(code);
         document.getElementById('installHeading').textContent = '4 · Install from Google Play';
+        var perma = 'https://zeroconsiderations.com/beta/?c=' + encodeURIComponent(code);
+        var a = document.getElementById('saveLinkA');
+        a.href = perma;
+        a.textContent = perma.replace('https://', '');
+        document.getElementById('saveLink').hidden = false;
       }
 
       // Personal ?c= link wins; otherwise ask the dispenser for a fresh code.

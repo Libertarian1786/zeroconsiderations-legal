@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zero Considerations — Android Beta</title>
+  <title>Zero Considerations — Free Beta</title>
   <meta name="robots" content="noindex">
-  <meta name="description" content="Join the Zero Considerations Android beta.">
+  <meta name="description" content="Get Zero Considerations free — Android beta and iPhone codes.">
   <style>
     :root { color-scheme: light dark; }
     body {
@@ -15,8 +15,14 @@
       background: #101418; color: #e8eaed;
     }
     h1 { font-size: 1.4rem; margin: 0 0 .3rem; letter-spacing: .04em; }
-    .sub { margin: 0 0 .4rem; color: #9aa3ab; font-size: .9rem; }
-    .eta { margin: 0 0 1.2rem; color: #3DDC84; font-size: .82rem; font-weight: 600; }
+    .sub { margin: 0 0 1rem; color: #9aa3ab; font-size: .9rem; }
+    .tabs { display: flex; gap: .5rem; margin: 0 0 1rem; }
+    .tab {
+      padding: .55rem 1.4rem; border-radius: .6rem; font-weight: 700; font-size: .9rem;
+      background: #171d23; border: 1px solid #2a323b; color: #9aa3ab; cursor: pointer;
+    }
+    .tab.active { background: #F59E0B; border-color: #F59E0B; color: #0B0E11; }
+    .eta { margin: 0 0 .8rem; color: #3DDC84; font-size: .82rem; font-weight: 600; }
     .step {
       width: 19rem; max-width: 92vw; margin: .5rem auto; padding: .9rem;
       border-radius: .7rem; background: #171d23; border: 1px solid #2a323b;
@@ -48,72 +54,112 @@
 </head>
 <body>
   <h1>ZERO CONSIDERATIONS BETA</h1>
-  <p class="sub">Three quick steps — about two minutes of your time.</p>
-  <p class="eta">Your free code lands in your inbox within the hour.</p>
+  <p class="sub">Get the app free while the beta is open.</p>
 
-  <div class="step">
-    <h2>1 · Join the tester group</h2>
-    <p class="when">Instant — tap <b>Join group</b> on the page that opens. Don't see a
-      Join button? You're signed out of Google: tap <b>Sign in</b> (top right) first
-      and it appears.</p>
-    <a class="btn" target="_blank" rel="noopener" href="https://groups.google.com/g/zeroconsiderations-testers">Join the group</a>
+  <div class="tabs">
+    <div class="tab active" id="tabAndroid">Android</div>
+    <div class="tab" id="tabIos">iPhone</div>
   </div>
 
-  <!-- Shown only on ?c= landings (from the email) — by then Google has synced. -->
-  <div class="step" id="optinStep" hidden>
-    <h2>2 · Become a tester</h2>
-    <p class="when">One tap. If it says you don't have access yet, Google is still
-      syncing &mdash; wait a few minutes and reload.</p>
-    <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/apps/testing/com.zeroconsiderations.mobile">Join the test</a>
+  <!-- ============================= ANDROID ============================= -->
+  <div id="androidFlow">
+    <p class="eta">Three quick steps now — your free code lands in your inbox within the hour.</p>
+
+    <div class="step">
+      <h2>1 · Join the tester group</h2>
+      <p class="when">Instant — tap <b>Join group</b> on the page that opens. Don't see a
+        Join button? You're signed out of Google: tap <b>Sign in</b> (top right) first
+        and it appears.</p>
+      <a class="btn" target="_blank" rel="noopener" href="https://groups.google.com/g/zeroconsiderations-testers">Join the group</a>
+    </div>
+
+    <!-- Shown only on ?c= landings (from the email) — by then Google has synced. -->
+    <div class="step" id="optinStep" hidden>
+      <h2>2 · Become a tester</h2>
+      <p class="when">One tap. If it says you don't have access yet, Google is still
+        syncing &mdash; wait a few minutes and reload.</p>
+      <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/apps/testing/com.zeroconsiderations.mobile">Join the test</a>
+    </div>
+
+    <div class="step" id="emailStep">
+      <h2>2 · Get your free code by email</h2>
+      <p class="when">Any email works. Your personal code arrives within the hour
+        &mdash; that's how long Google takes to unlock new testers &mdash; with one
+        link that finishes everything.</p>
+      <input class="emailin" id="emailIn" type="email" placeholder="you@email.com" autocomplete="email">
+      <a class="btn" id="emailBtn" href="#">Email me my code</a>
+      <p class="free" id="emailMsg" hidden></p>
+    </div>
+
+    <div class="step" id="inboxStep">
+      <h2>3 · Watch your inbox</h2>
+      <p class="when">That's it for now. The email (from davidmccoybiz@gmail.com &mdash;
+        check spam the first time) has your code and the final two taps: redeem, install.
+        The app is <b style="color:#3DDC84">$0</b> with your code.</p>
+    </div>
+
+    <!-- Personal code block: shown for ?c= links (from the email or a handout). -->
+    <div class="step" id="codeStep" hidden>
+      <h2 id="codeHeading">3 · Redeem your personal code</h2>
+      <p class="when">One tap — the code below is yours alone and makes the app free at checkout.</p>
+      <span class="code" id="codeText"></span>
+      <a class="btn" id="redeemBtn" target="_blank" rel="noopener" href="https://play.google.com/redeem">Redeem on Google Play</a>
+      <p class="free" id="saveLink" hidden>Google can take up to an hour after step 1 to unlock
+        steps 3&ndash;4. Your code is saved at <a id="saveLinkA" href="/beta/" style="color:#3DDC84"></a>
+        &mdash; bookmark it and come back if anything says "no access" yet.</p>
+    </div>
+
+    <div class="step" id="installStep" hidden>
+      <h2 id="installHeading">4 · Install from Google Play</h2>
+      <p class="when">The beta listing opens once Google recognizes you as a tester
+        (usually minutes, occasionally up to an hour).</p>
+      <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Get the app</a>
+      <p class="free">Your personal code makes it <b>$0</b> at checkout — it's in the
+        email (or shown above if you came from your personal link).</p>
+    </div>
   </div>
 
-  <!-- Email-first signup: the dispenser binds a single-use code to the address
-       and emails it once Google's tester sync has had time (~30-60 min). -->
-  <div class="step" id="emailStep">
-    <h2>2 · Get your free code by email</h2>
-    <p class="when">Any email works. Your personal code arrives within the hour
-      &mdash; that's how long Google takes to unlock new testers &mdash; with one
-      link that finishes everything.</p>
-    <input class="emailin" id="emailIn" type="email" placeholder="you@email.com" autocomplete="email">
-    <a class="btn" id="emailBtn" href="#">Email me my code</a>
-    <p class="free" id="emailMsg" hidden></p>
+  <!-- ============================== IPHONE ============================= -->
+  <div id="iosFlow" hidden>
+    <p class="eta">One step — your free code lands in your inbox within minutes.</p>
+
+    <div class="step">
+      <h2>1 · Get your free code by email</h2>
+      <p class="when">The full app is live on the App&nbsp;Store. Any email works &mdash;
+        your personal code arrives in minutes, and one tap installs the app free.</p>
+      <input class="emailin" id="iosEmailIn" type="email" placeholder="you@email.com" autocomplete="email">
+      <a class="btn" id="iosEmailBtn" href="#">Email me my code</a>
+      <p class="free" id="iosEmailMsg" hidden></p>
+    </div>
+
+    <div class="step">
+      <h2>2 · Watch your inbox</h2>
+      <p class="when">The email (from davidmccoybiz@gmail.com &mdash; check spam the
+        first time) has one green button: tap it, the App&nbsp;Store opens with your
+        code applied, and the app installs <b style="color:#3DDC84">free</b>.</p>
+    </div>
   </div>
 
-  <div class="step" id="inboxStep">
-    <h2>3 · Watch your inbox</h2>
-    <p class="when">That's it for now. The email (from davidmccoybiz@gmail.com &mdash;
-      check spam the first time) has your code and the final two taps: redeem, install.
-      The app is <b style="color:#3DDC84">$0</b> with your code.</p>
-  </div>
-
-  <!-- Personal code block: shown for ?c= links (from the email or a handout). -->
-  <div class="step" id="codeStep" hidden>
-    <h2 id="codeHeading">3 · Redeem your personal code</h2>
-    <p class="when">One tap — the code below is yours alone and makes the app free at checkout.</p>
-    <span class="code" id="codeText"></span>
-    <a class="btn" id="redeemBtn" target="_blank" rel="noopener" href="https://play.google.com/redeem">Redeem on Google Play</a>
-    <p class="free" id="saveLink" hidden>Google can take up to an hour after step 1 to unlock
-      steps 3&ndash;4. Your code is saved at <a id="saveLinkA" href="/beta/" style="color:#3DDC84"></a>
-      &mdash; bookmark it and come back if anything says "no access" yet.</p>
-  </div>
-
-  <div class="step" id="installStep" hidden>
-    <h2 id="installHeading">4 · Install from Google Play</h2>
-    <p class="when">The beta listing opens once Google recognizes you as a tester
-      (usually minutes, occasionally up to an hour).</p>
-    <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Get the app</a>
-    <p class="free">Your personal code makes it <b>$0</b> at checkout — it's in the
-      email (or shown above if you came from your personal link).</p>
-  </div>
-
-  <p class="fine">
-    iPhone? The full app is live on the
-    <a target="_blank" rel="noopener" href="https://apps.apple.com/app/id6792565250">App&nbsp;Store</a>. · <a href="/privacy.html">Privacy</a></p>
+  <p class="fine"><a href="/privacy.html">Privacy</a></p>
 
   <script>
     (function () {
       var DISPENSER =
         'https://script.google.com/macros/s/AKfycbwKfcpaI5uuBTlnkRsRYbGIL35AlB_lCvBNHureoG9zEYrMS5IEnVAESBWFyzejlkQ22Q/exec';
+
+      // --- Platform tabs (default from device) ---
+      var tabAndroid = document.getElementById('tabAndroid');
+      var tabIos = document.getElementById('tabIos');
+      var androidFlow = document.getElementById('androidFlow');
+      var iosFlow = document.getElementById('iosFlow');
+      function showTab(ios) {
+        iosFlow.hidden = !ios;
+        androidFlow.hidden = ios;
+        tabIos.className = ios ? 'tab active' : 'tab';
+        tabAndroid.className = ios ? 'tab' : 'tab active';
+      }
+      tabAndroid.addEventListener('click', function () { showTab(false); });
+      tabIos.addEventListener('click', function () { showTab(true); });
 
       function showCode(code) {
         document.getElementById('codeText').textContent = code;
@@ -131,51 +177,62 @@
         document.getElementById('saveLink').hidden = false;
       }
 
-      // Personal ?c= link (from the email): show the code, hide signup.
+      // Personal ?c= link (Android email or handout): show the code, hide signup.
       var m = /[?&]c=([A-Za-z0-9]{8,32})\b/.exec(location.search);
       if (m) {
+        showTab(false);
         showCode(m[1]);
         return;
       }
 
-      // Email-first signup.
-      var btn = document.getElementById('emailBtn');
-      var input = document.getElementById('emailIn');
-      var msg = document.getElementById('emailMsg');
-      btn.addEventListener('click', function (ev) {
-        ev.preventDefault();
-        var email = input.value.trim();
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          msg.textContent = "That doesn't look like an email address.";
-          msg.hidden = false;
-          return;
-        }
-        btn.textContent = 'Sending…';
-        fetch(DISPENSER + '?action=signup&email=' + encodeURIComponent(email))
-          .then(function (r) { return r.json(); })
-          .then(function (d) {
-            if (d && d.ok) {
-              input.hidden = true;
-              btn.hidden = true;
-              msg.innerHTML =
-                '✅ <b>Done — you’re in.</b> Your code and a one-tap link ' +
-                'will arrive from davidmccoybiz@gmail.com within the hour ' +
-                '(check spam the first time).';
-            } else {
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) showTab(true);
+
+      // --- Shared email-first signup ---
+      function wireSignup(platform, inputId, btnId, msgId, okText) {
+        var btn = document.getElementById(btnId);
+        var input = document.getElementById(inputId);
+        var msg = document.getElementById(msgId);
+        btn.addEventListener('click', function (ev) {
+          ev.preventDefault();
+          var email = input.value.trim();
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            msg.textContent = "That doesn't look like an email address.";
+            msg.hidden = false;
+            return;
+          }
+          btn.textContent = 'Sending…';
+          fetch(DISPENSER + '?action=signup&platform=' + platform + '&email=' + encodeURIComponent(email))
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+              if (d && d.ok) {
+                input.hidden = true;
+                btn.hidden = true;
+                msg.innerHTML = okText;
+              } else {
+                btn.textContent = 'Email me my code';
+                msg.innerHTML =
+                  'Today’s codes ran out — email ' +
+                  '<a href="mailto:davidmccoybiz@gmail.com" style="color:#9aa3ab">davidmccoybiz@gmail.com</a> ' +
+                  'and you’ll get one personally.';
+              }
+              msg.hidden = false;
+            })
+            .catch(function () {
               btn.textContent = 'Email me my code';
-              msg.innerHTML =
-                'Today’s codes ran out — email ' +
-                '<a href="mailto:davidmccoybiz@gmail.com" style="color:#9aa3ab">davidmccoybiz@gmail.com</a> ' +
-                'and you’ll get one personally.';
-            }
-            msg.hidden = false;
-          })
-          .catch(function () {
-            btn.textContent = 'Email me my code';
-            msg.textContent = 'Something hiccuped — try again in a minute.';
-            msg.hidden = false;
-          });
-      });
+              msg.textContent = 'Something hiccuped — try again in a minute.';
+              msg.hidden = false;
+            });
+        });
+      }
+
+      wireSignup('android', 'emailIn', 'emailBtn', 'emailMsg',
+        '✅ <b>Done — you’re in.</b> Your code and a one-tap link ' +
+        'will arrive from davidmccoybiz@gmail.com within the hour ' +
+        '(check spam the first time).');
+      wireSignup('ios', 'iosEmailIn', 'iosEmailBtn', 'iosEmailMsg',
+        '✅ <b>Done — you’re in.</b> Your code is on its way from ' +
+        'davidmccoybiz@gmail.com — usually within minutes ' +
+        '(check spam the first time).');
     })();
   </script>
 </body>

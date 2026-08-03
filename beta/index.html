@@ -47,8 +47,8 @@
 </head>
 <body>
   <h1>ZERO CONSIDERATIONS BETA</h1>
-  <p class="sub">Four quick steps — same Google account for all of them.</p>
-  <p class="eta">Two minutes now, and your free code lands in your inbox within the hour.</p>
+  <p class="sub">Three quick steps — about two minutes of your time.</p>
+  <p class="eta">Your free code lands in your inbox within the hour.</p>
 
   <div class="step">
     <h2>1 · Join the tester group</h2>
@@ -58,23 +58,31 @@
     <a class="btn" target="_blank" rel="noopener" href="https://groups.google.com/g/zeroconsiderations-testers">Join the group</a>
   </div>
 
-  <div class="step">
+  <!-- Shown only on ?c= landings (from the email) — by then Google has synced. -->
+  <div class="step" id="optinStep" hidden>
     <h2>2 · Become a tester</h2>
-    <p class="when">Instant — accept the invite on this page. If it says you're not a
-      tester yet, Google is still syncing step 1: wait 15&ndash;60 minutes and reload.</p>
+    <p class="when">One tap. If it says you don't have access yet, Google is still
+      syncing &mdash; wait a few minutes and reload.</p>
     <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/apps/testing/com.zeroconsiderations.mobile">Join the test</a>
   </div>
 
   <!-- Email-first signup: the dispenser binds a single-use code to the address
        and emails it once Google's tester sync has had time (~30-60 min). -->
   <div class="step" id="emailStep">
-    <h2>3 · Get your free code by email</h2>
-    <p class="when">Type the same Gmail. Your personal code arrives within the hour
+    <h2>2 · Get your free code by email</h2>
+    <p class="when">Any email works. Your personal code arrives within the hour
       &mdash; that's how long Google takes to unlock new testers &mdash; with one
       link that finishes everything.</p>
-    <input class="emailin" id="emailIn" type="email" placeholder="you@gmail.com" autocomplete="email">
+    <input class="emailin" id="emailIn" type="email" placeholder="you@email.com" autocomplete="email">
     <a class="btn" id="emailBtn" href="#">Email me my code</a>
     <p class="free" id="emailMsg" hidden></p>
+  </div>
+
+  <div class="step" id="inboxStep">
+    <h2>3 · Watch your inbox</h2>
+    <p class="when">That's it for now. The email (from davidmccoybiz@gmail.com &mdash;
+      check spam the first time) has your code and the final two taps: redeem, install.
+      The app is <b style="color:#3DDC84">$0</b> with your code.</p>
   </div>
 
   <!-- Personal code block: shown for ?c= links (from the email or a handout). -->
@@ -88,7 +96,7 @@
       &mdash; bookmark it and come back if anything says "no access" yet.</p>
   </div>
 
-  <div class="step">
+  <div class="step" id="installStep" hidden>
     <h2 id="installHeading">4 · Install from Google Play</h2>
     <p class="when">The beta listing opens once Google recognizes you as a tester
       (usually minutes, occasionally up to an hour).</p>
@@ -109,7 +117,10 @@
       function showCode(code) {
         document.getElementById('codeText').textContent = code;
         document.getElementById('codeStep').hidden = false;
+        document.getElementById('optinStep').hidden = false;
+        document.getElementById('installStep').hidden = false;
         document.getElementById('emailStep').hidden = true;
+        document.getElementById('inboxStep').hidden = true;
         document.getElementById('redeemBtn').href =
           'https://play.google.com/redeem?code=' + encodeURIComponent(code);
         var perma = 'https://zeroconsiderations.com/beta/?c=' + encodeURIComponent(code);

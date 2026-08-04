@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zero Considerations — Android Beta</title>
   <meta name="robots" content="noindex">
-  <meta name="description" content="Join the Zero Considerations Android beta — free with a personal code.">
+  <meta name="description" content="Join the Zero Considerations Android beta — free during the beta window.">
   <style>
     :root { color-scheme: light dark; }
     body {
@@ -28,7 +28,7 @@
       text-decoration: none; font-weight: 700; font-size: .95rem;
       background: #F59E0B; color: #0B0E11; /* app primary amber + ink */
     }
-    #redeemBtn { background: #22C55E; } /* app success green for the money tap */
+    #installBtn, #redeemBtn { background: #22C55E; } /* app success green for the money tap */
     .code {
       display: block; text-align: center; font-family: ui-monospace, Consolas, monospace;
       font-size: 1rem; letter-spacing: .06em; padding: .65rem .5rem; margin: 0 0 .6rem;
@@ -48,8 +48,8 @@
 </head>
 <body>
   <h1>ZERO CONSIDERATIONS — ANDROID BETA</h1>
-  <p class="sub">Three quick steps — about two minutes of your time.</p>
-  <p class="eta">Your free code lands in your inbox within the hour.</p>
+  <p class="sub">Three taps — no code, no payment.</p>
+  <p class="eta">FREE for beta testers Aug 5&ndash;18. Full app, yours to keep.</p>
 
   <div class="step">
     <h2>1 · Join the tester group</h2>
@@ -59,49 +59,38 @@
     <a class="btn" target="_blank" rel="noopener" href="https://groups.google.com/g/zeroconsiderations-testers">Join the group</a>
   </div>
 
-  <!-- Shown only on ?c= landings (from the email) — by then Google has synced. -->
-  <div class="step" id="optinStep" hidden>
+  <div class="step">
     <h2>2 · Become a tester</h2>
-    <p class="when">One tap. If it says you don't have access yet, Google is still
-      syncing &mdash; wait a few minutes and reload.</p>
+    <p class="when">One tap on the page that opens. If it says you don't have access
+      yet, Google is still syncing step 1 &mdash; wait 15&ndash;60 minutes and reload.</p>
     <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/apps/testing/com.zeroconsiderations.mobile">Join the test</a>
   </div>
 
-  <div class="step" id="emailStep">
-    <h2>2 · Get your free code by email</h2>
-    <p class="when">Any email works. Your personal code arrives within the hour
-      &mdash; that's how long Google takes to unlock new testers &mdash; with one
-      link that finishes everything.</p>
+  <div class="step">
+    <h2>3 · Install — it's free</h2>
+    <p class="when">During the beta window (Aug 5&ndash;18) the price shows
+      <b style="color:#3DDC84">$0.00</b> &mdash; just tap Install. You keep the app
+      forever. (Before Aug 5 it still shows $9.99 &mdash; come back when the window opens.)</p>
+    <a class="btn" id="installBtn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Install free from Google Play</a>
+  </div>
+
+  <div class="step">
+    <h2>Optional · Get the steps by email</h2>
+    <p class="when">We'll send you these three taps and a heads-up when things change.
+      No spam, no code needed.</p>
     <input class="emailin" id="emailIn" type="email" placeholder="you@email.com" autocomplete="email">
-    <a class="btn" id="emailBtn" href="#">Email me my code</a>
+    <a class="btn" id="emailBtn" href="#">Email me the steps</a>
     <p class="free" id="emailMsg" hidden></p>
   </div>
 
-  <div class="step" id="inboxStep">
-    <h2>3 · Watch your inbox</h2>
-    <p class="when">That's it for now. The email (from davidmccoybiz@gmail.com &mdash;
-      check spam the first time) has your code and the final two taps: redeem, install.
-      The app is <b style="color:#3DDC84">$0</b> with your code.</p>
-  </div>
-
-  <!-- Personal code block: shown for ?c= links (from the email or a handout). -->
+  <!-- Personal code block: legacy ?c= links from earlier emails still work. -->
   <div class="step" id="codeStep" hidden>
-    <h2 id="codeHeading">3 · Redeem your personal code</h2>
-    <p class="when">One tap — the code below is yours alone and makes the app free at checkout.</p>
+    <h2 id="codeHeading">Your personal code</h2>
+    <p class="when">Good news — during the beta window (Aug 5&ndash;18) you don't even
+      need it: the app is simply free once you've done steps 1&ndash;2. Keep the code
+      as a backup for after the window.</p>
     <span class="code" id="codeText"></span>
     <a class="btn" id="redeemBtn" target="_blank" rel="noopener" href="https://play.google.com/redeem">Redeem on Google Play</a>
-    <p class="free" id="saveLink" hidden>Google can take up to an hour after step 1 to unlock
-      steps 3&ndash;4. Your code is saved at <a id="saveLinkA" href="/beta/" style="color:#3DDC84"></a>
-      &mdash; bookmark it and come back if anything says "no access" yet.</p>
-  </div>
-
-  <div class="step" id="installStep" hidden>
-    <h2 id="installHeading">4 · Install from Google Play</h2>
-    <p class="when">The beta listing opens once Google recognizes you as a tester
-      (usually minutes, occasionally up to an hour).</p>
-    <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Get the app</a>
-    <p class="free">Your personal code makes it <b>$0</b> at checkout — it's in the
-      email (or shown above if you came from your personal link).</p>
   </div>
 
   <p class="fine">
@@ -113,30 +102,17 @@
       var DISPENSER =
         'https://script.google.com/macros/s/AKfycbwKfcpaI5uuBTlnkRsRYbGIL35AlB_lCvBNHureoG9zEYrMS5IEnVAESBWFyzejlkQ22Q/exec';
 
-      function showCode(code) {
-        document.getElementById('codeText').textContent = code;
-        document.getElementById('codeStep').hidden = false;
-        document.getElementById('optinStep').hidden = false;
-        document.getElementById('installStep').hidden = false;
-        document.getElementById('emailStep').hidden = true;
-        document.getElementById('inboxStep').hidden = true;
-        document.getElementById('redeemBtn').href =
-          'https://play.google.com/redeem?code=' + encodeURIComponent(code);
-        var perma = 'https://zeroconsiderations.com/beta/?c=' + encodeURIComponent(code);
-        var a = document.getElementById('saveLinkA');
-        a.href = perma;
-        a.textContent = perma.replace('https://', '');
-        document.getElementById('saveLink').hidden = false;
-      }
-
-      // Personal ?c= link (from the email): show the code, hide signup.
+      // Legacy ?c= links (from pre-sale emails): show the code as a backup.
       var m = /[?&]c=([A-Za-z0-9]{8,32})\b/.exec(location.search);
       if (m) {
-        showCode(m[1]);
-        return;
+        document.getElementById('codeText').textContent = m[1];
+        document.getElementById('codeStep').hidden = false;
+        document.getElementById('redeemBtn').href =
+          'https://play.google.com/redeem?code=' + encodeURIComponent(m[1]);
       }
 
-      // Email-first signup.
+      // Optional email capture — sale mode: no code is vended, the dispenser
+      // just emails the three steps and keeps the tester list growing.
       var btn = document.getElementById('emailBtn');
       var input = document.getElementById('emailIn');
       var msg = document.getElementById('emailMsg');
@@ -153,24 +129,18 @@
           .then(function (r) { return r.json(); })
           .then(function (d) {
             if (d && d.ok) {
-              // inline display:none — the hidden attribute loses to .btn/.emailin's display:block
               input.style.display = 'none';
               btn.style.display = 'none';
               msg.innerHTML =
-                '✅ <b>Done — you’re in.</b> Your code and a one-tap link ' +
-                'will arrive from davidmccoybiz@gmail.com within the hour ' +
-                '(check spam the first time).';
+                '✅ <b>Sent.</b> Check your inbox (davidmccoybiz@gmail.com — spam folder the first time).';
             } else {
-              btn.textContent = 'Email me my code';
-              msg.innerHTML =
-                'Today’s codes ran out — email ' +
-                '<a href="mailto:davidmccoybiz@gmail.com" style="color:#9aa3ab">davidmccoybiz@gmail.com</a> ' +
-                'and you’ll get one personally.';
+              btn.textContent = 'Email me the steps';
+              msg.textContent = 'Something hiccuped — try again in a minute.';
             }
             msg.hidden = false;
           })
           .catch(function () {
-            btn.textContent = 'Email me my code';
+            btn.textContent = 'Email me the steps';
             msg.textContent = 'Something hiccuped — try again in a minute.';
             msg.hidden = false;
           });

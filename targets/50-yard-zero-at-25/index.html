@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>50-Yard Zero at a 25-Yard Range — Zero Considerations</title>
+<meta name="description" content="Stuck at 25 yards? Set a true 50-yard zero anyway — the group should print slightly low. The proxy-offset logic and how the app computes your number.">
+<link rel="canonical" href="https://zeroconsiderations.com/targets/50-yard-zero-at-25/">
+<meta property="og:title" content="50-Yard Zero at a 25-Yard Range — Zero Considerations">
+<meta property="og:description" content="The proxy-zero method: aim center, print deliberately low at 25, and leave with a real 50-yard zero.">
+<meta property="og:url" content="https://zeroconsiderations.com/targets/50-yard-zero-at-25/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How low should my group print at 25 yards for a 50-yard zero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a typical AR-height optic around 2.5 inches over the bore, roughly 1 to 1.5 inches below your point of aim at 25 yards. The exact number depends on your sight height and load; a ballistics app can compute it precisely for your setup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I set a 100-yard zero at a 25-yard range the same way?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the same proxy-offset idea works for any zero-distance and range-distance pair. For a 100-yard zero, the group should also print low at 25 — slightly lower than for a 50-yard zero on the same rifle, closer to an inch and a half with an AR-height optic. Compute the exact offset for your sight height and load, and confirm at real distance when you can."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a proxy zero as good as zeroing at the real distance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It gets you very close, but small errors at 25 yards grow with distance — an aiming or measurement error of a quarter inch at 25 becomes about an inch at 100. Shoot careful groups from a rest and confirm at the true distance when you get the chance."
+      }
+    }
+  ]
+}
+</script>
+<style>
+  :root{--bg:#0B0E11;--card:#141920;--line:#232a33;--ink:#E8EDF2;--dim:#9AA6B2;--accent:#F5A524;--accent-ink:#0B0E11}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+  h1{font-size:clamp(1.7rem,5vw,2.4rem);letter-spacing:-.02em;margin:0 0 .5rem}
+  h2{font-size:1.35rem;margin:2.4rem 0 .6rem}
+  h3{font-size:1.05rem;margin:1.4rem 0 .4rem}
+  p,li{color:var(--dim)}
+  strong{color:var(--ink)}
+  a{color:var(--accent)}
+  .btn{display:inline-block;padding:.85rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;background:var(--accent);color:var(--accent-ink);margin:.4rem .5rem .4rem 0}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;font-size:.93rem;margin:1.5rem 0}
+  ul.clean{list-style:none;padding:0;margin:0;color:var(--dim)}
+  ul.clean li{padding:.4rem 0 .4rem 1.6rem;position:relative}
+  ul.clean li:before{content:"—";position:absolute;left:0;color:var(--accent)}
+  .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);border-radius:12px;padding:1rem 1.25rem;color:var(--dim);font-size:.92rem;margin-top:1.5rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p><a href="/">&larr; zeroconsiderations.com</a></p>
+  <h1>How to Set a 50-Yard Zero at a 25-Yard Range</h1>
+  <p>Plenty of shooters want the 50-yard zero and only have an indoor range that stops at 25. That's
+    fine. You don't need 50 yards of dirt to set a 50-yard zero — you need to know <strong>where a
+    50-yard-zeroed rifle prints at 25</strong>, and then deliberately put your group there. That's a
+    proxy zero, and it's an old, sound trick.</p>
+
+  <h2>The logic: your group should print low at 25</h2>
+  <p>With an AR-height optic — roughly <strong>2.5 inches above the bore</strong> — the bullet leaves
+    the muzzle 2.5 inches below your line of sight and climbs toward it, crossing at 50 yards if that's
+    your zero. At 25 yards it's still on the way up. Over a distance that short the bullet has barely
+    begun to drop, so it sits close to halfway through its climb: for many 5.56 carbine setups,
+    <strong>roughly 1 to 1.5 inches below your point of aim</strong>.</p>
+  <p>So the procedure inverts the usual instinct. You do <em>not</em> chase point of aim = point of
+    impact at 25. A rifle that's dead-on at 25 has a 25-yard zero — a different trajectory that prints
+    high at 100 (covered in our <a href="/targets/25-yard-zero-100-yard/">25/100 guide</a>). You want
+    the group centered on a spot <em>below</em> the aim point, and the whole game is knowing that
+    offset precisely.</p>
+  <p>Notice what drives the number: it's mostly sight geometry, not ballistics. That's why the offset
+    changes meaningfully between a standard AR mount, a lower-third co-witness, and a bolt gun with a
+    low scope — and why "an inch low at 25" is a starting point, not your number.</p>
+
+  <h2>Getting your exact offset</h2>
+  <p>The <a href="/">Zero Considerations</a> proxy-zero mode does this arithmetic for your actual
+    setup: enter your load, your measured sight height, and the zero you want (50/200, 100, whatever),
+    and it computes the exact point-of-impact offset for the distance you're actually shooting at.
+    The app can also derive sight height for you from your optic and mount instead of making you
+    measure it with calipers.</p>
+  <p>Our free <a href="/targets/">printable target set</a> includes a sheet built for exactly this job:
+    the <strong>Proxy Dot</strong> target pairs a point-of-aim diamond with a vertical inch ladder, so
+    "1.2 inches low" is a mark on the paper, not a judgment call.</p>
+
+  <h2>The procedure</h2>
+  <ol>
+    <li>Print the Proxy Dot (or 1-inch grid) target at 100% scale and hang it at 25 yards.</li>
+    <li>Get your offset from the app's proxy-zero mode — say it comes back 1.2 inches low for your
+      rifle and load.</li>
+    <li>Aim at the diamond. Shoot a careful 3&ndash;5-round group from a rest. Keep aiming at the
+      diamond even though you want the hits below it.</li>
+    <li>Photograph the target. The coded corner markers set true scale and correct camera tilt, the
+      app finds the holes, and — because it knows you're proxy zeroing — it computes the clicks that
+      move your group onto the <em>offset</em> point, not onto the aim point.</li>
+    <li>Dial, shoot a confirmation group, and check it lands on the ladder mark.</li>
+  </ol>
+
+  <div class="note"><strong>Why careful groups matter more here:</strong> proxy zeroing multiplies
+    error. Sights adjust in angle, so a quarter-inch mistake at 25 yards is half an inch at 50 and
+    about an inch at 100. Shoot from a rest, take your time, and when you do get access to 50 or 100
+    yards, confirm there. The proxy gets you very close; live fire at distance makes it a zero.</div>
+
+  <h2>The same trick covers other zeros</h2>
+  <p>Nothing about this is specific to the 50/200. The identical method sets up a
+    <a href="/targets/25-yard-zero-100-yard/">100-yard zero from 25</a> (a slightly larger offset), or a
+    <a href="/targets/36-yard-zero/">36-yard zero</a> when your range has no 36-yard line. Pistol
+    shooters use the same reasoning at even shorter distances — see the
+    <a href="/targets/red-dot-pistol-zero/">pistol red dot guide</a>. Pick the zero you want, let the
+    app compute where that trajectory sits at the distance you have, and shoot to that spot.</p>
+
+  <h2>Common questions</h2>
+  <h3>How low at 25 for a 50-yard zero?</h3>
+  <p>Roughly 1 to 1.5 inches for a typical AR-height optic; less with a lower-mounted sight. The exact
+    figure depends on sight height and load — compute it, don't guess it.</p>
+  <h3>Is the 50-yard zero really a 200-yard zero too?</h3>
+  <p>For many 5.56 carbine loads the far crossing lands in the neighborhood of 200 yards, which is why
+    you'll hear "50/200." It's load- and velocity-dependent, so treat 200 as a nickname until you've
+    confirmed it.</p>
+  <h3>Can I skip the offset and just zero dead-on at 25?</h3>
+  <p>You can, but you'll own a 25-yard zero, which rides several inches high at 100 on a carbine.
+    If that's not the trajectory you wanted, the offset is the honest shortcut.</p>
+
+  <h2>More zeroing guides</h2>
+  <ul class="clean">
+    <li><a href="/targets/36-yard-zero/">The 36-yard zero for 5.56 carbines</a></li>
+    <li><a href="/targets/25-yard-zero-100-yard/">The 25-yard zero and what it means at 100</a></li>
+    <li><a href="/targets/red-dot-pistol-zero/">Zeroing a pistol red dot: 10, 15, or 25 yards</a></li>
+  </ul>
+
+  <div class="safety">For education and lawful sporting use. Offset figures here are rough and depend
+    on your sight height and load. Always confirm your zero with live fire — at the true distance when
+    possible — before relying on it, and follow all firearm safety rules and your range's procedures.</div>
+
+  <p style="margin-top:2rem">
+    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
+    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
+  </p>
+</div>
+</body>
+</html>

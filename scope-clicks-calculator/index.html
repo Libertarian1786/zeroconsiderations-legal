@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scope Click Calculator — MOA &amp; MRAD | Zero Considerations</title>
+<meta name="description" content="Free scope click calculator: distance and group offset in, exact MOA or MRAD turret clicks out — with the math shown, worked examples, common mistakes.">
+<link rel="canonical" href="https://zeroconsiderations.com/scope-clicks-calculator/">
+<meta property="og:title" content="Scope Click Calculator — MOA &amp; MRAD">
+<meta property="og:description" content="Enter distance and group offset, get exact turret clicks for any click value — with the math shown.">
+<meta property="og:url" content="https://zeroconsiderations.com/scope-clicks-calculator/">
+<style>
+  :root{--bg:#0B0E11;--card:#141920;--line:#232a33;--ink:#E8EDF2;--dim:#9AA6B2;--accent:#F5A524;--accent-ink:#0B0E11}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+  h1{font-size:clamp(1.7rem,5vw,2.4rem);letter-spacing:-.02em;margin:0 0 .5rem}
+  h2{font-size:1.35rem;margin:2.4rem 0 .6rem}
+  h3{font-size:1.05rem;margin:1.6rem 0 .4rem}
+  p,li{color:var(--dim)}
+  strong{color:var(--ink)}
+  a{color:var(--accent)}
+  .btn{display:inline-block;padding:.85rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;background:var(--accent);color:var(--accent-ink);margin:.4rem .5rem .4rem 0}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;font-size:.93rem;margin:1.5rem 0}
+  .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);border-radius:12px;padding:1rem 1.25rem;color:var(--dim);font-size:.92rem;margin-top:1.5rem}
+  table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:.95rem}
+  th,td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink)}
+  td:first-child{color:var(--ink)}
+  .tblwrap{overflow-x:auto}
+  ul.clean{list-style:none;padding:0;margin:0;color:var(--dim)}
+  ul.clean li{padding:.4rem 0 .4rem 1.6rem;position:relative}
+  ul.clean li:before{content:"—";position:absolute;left:0;color:var(--accent)}
+
+  /* Calculator */
+  .tool{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.4rem;margin:1.75rem 0 1rem}
+  .tool label{display:block;font-size:.82rem;color:var(--dim);margin:0 0 .3rem}
+  .tool input,.tool select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:.6rem .7rem;font:inherit;font-size:1rem}
+  .tool input:focus,.tool select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(245,165,36,.25)}
+  .row{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:1rem}
+  .duo{display:grid;grid-template-columns:1fr 1.1fr;gap:.5rem}
+  .out{background:rgba(245,165,36,.06);border:1px solid rgba(245,165,36,.28);border-radius:12px;padding:1rem 1.25rem;margin-top:1.25rem}
+  .out .big{font-size:1.18rem;color:var(--ink);margin:.15rem 0}
+  .out .big b{color:var(--accent)}
+  .out .exact{color:var(--dim);font-size:.88rem;font-weight:400}
+  .out .math{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.83rem;color:var(--dim);margin:.1rem 0 .9rem}
+  .out .perclick{color:var(--dim);font-size:.88rem;margin:.5rem 0 0;border-top:1px solid var(--line);padding-top:.6rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p><a href="/">&larr; zeroconsiderations.com</a></p>
+  <h1>Scope Click Calculator — MOA &amp; MRAD</h1>
+  <p>Shot a group and need to know what to dial? Enter the distance, how far the group landed from your
+  point of aim, and your turret's click value. Works in <strong>MOA or MRAD, yards or meters, inches or
+  centimeters</strong> — and it shows its math so you can check it against a napkin. Runs entirely in
+  your browser; nothing is sent anywhere.</p>
+
+  <div class="tool">
+    <div class="row">
+      <div>
+        <label for="dist">Distance to target</label>
+        <div class="duo">
+          <input id="dist" type="number" inputmode="decimal" min="0" step="1" value="100">
+          <select id="distUnit">
+            <option value="yd" selected>yards</option>
+            <option value="m">meters</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="clickVal">Turret click value</label>
+        <select id="clickVal">
+          <option value="0.25|moa|1/4 MOA" selected>1/4 MOA (most scopes)</option>
+          <option value="0.125|moa|1/8 MOA">1/8 MOA (target)</option>
+          <option value="0.5|moa|1/2 MOA">1/2 MOA (many red dots)</option>
+          <option value="1|moa|1 MOA">1 MOA (red dots)</option>
+          <option value="0.1|mrad|0.1 MRAD">0.1 MRAD (most mil scopes)</option>
+          <option value="0.05|mrad|0.05 MRAD">0.05 MRAD (fine target)</option>
+          <option value="0.2|mrad|0.2 MRAD">0.2 MRAD</option>
+        </select>
+      </div>
+      <div>
+        <label for="offUnit">Offset measured in</label>
+        <select id="offUnit">
+          <option value="in" selected>inches</option>
+          <option value="cm">centimeters</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="vert">Group hit this far vertically</label>
+        <div class="duo">
+          <input id="vert" type="number" inputmode="decimal" min="0" step="0.1" value="2.5">
+          <select id="vertDir">
+            <option value="low" selected>low (below aim)</option>
+            <option value="high">high (above aim)</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="horiz">Group hit this far horizontally</label>
+        <div class="duo">
+          <input id="horiz" type="number" inputmode="decimal" min="0" step="0.1" value="1.0">
+          <select id="horizDir">
+            <option value="left">left of aim</option>
+            <option value="right" selected>right of aim</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="out" id="out" aria-live="polite"></div>
+  </div>
+
+  <div class="note">
+    Directions assume standard turrets: the arrow marked <strong>U</strong> moves the point of impact up,
+    <strong>R</strong> moves it right — how every modern turret is marked. Measure from your point of aim
+    to the <strong>center of a 3–5 shot group</strong>, not to one hole. And after you dial, shoot a
+    confirmation group. One group is a sample, not a certainty.
+  </div>
+
+  <h2>The math behind the clicks</h2>
+  <p>Scope adjustments are angles, not distances. A click moves your point of impact by a fixed
+  <em>angle</em>, so the distance it moves the bullet grows with range. That's the whole trick: convert
+  your measured miss into an angle, then divide by your click value.</p>
+
+  <h3>MOA — minute of angle</h3>
+  <p>One MOA is 1/60 of a degree. At 100 yards that angle covers <strong>1.047 inches</strong>; at 200
+  yards, 2.094 inches; at 50 yards, 0.524 inches. It scales in a straight line with distance. Most
+  American hunting scopes adjust in 1/4-MOA clicks — about a quarter inch per click at 100 yards.</p>
+  <p>The common shorthand "1 MOA = 1 inch at 100 yards" is close but not exact — the real figure is
+  4.7% bigger. More on when that matters below.</p>
+
+  <h3>MRAD — milliradians</h3>
+  <p>A milliradian (mrad, mil) is 1/1000 of a radian: the angle that covers 1/1000 of the distance to the
+  target. That makes the math base-10 clean — <strong>1 mrad is 10 cm at 100 m</strong>, or 3.6 inches at
+  100 yards. Mil turrets almost always click in 0.1 mrad: <strong>1 cm at 100 m, 0.36 inches at 100
+  yards</strong>.</p>
+  <p>Neither system is more accurate — they're both just angles. A 1/4-MOA click (0.26" at 100 yd) is
+  actually a bit finer than a 0.1-mrad click (0.36"). Conversion, when you need it: <strong>1 mrad =
+  3.44 MOA</strong>.</p>
+
+  <div class="tblwrap">
+  <table>
+    <tr><th>Distance</th><th>1 MOA covers</th><th>1/4-MOA click</th><th>0.1-MRAD click</th></tr>
+    <tr><td>25 yd</td><td>0.26"</td><td>0.065"</td><td>0.09"</td></tr>
+    <tr><td>50 yd</td><td>0.52"</td><td>0.13"</td><td>0.18"</td></tr>
+    <tr><td>100 yd</td><td>1.05"</td><td>0.26"</td><td>0.36"</td></tr>
+    <tr><td>200 yd</td><td>2.09"</td><td>0.52"</td><td>0.72"</td></tr>
+    <tr><td>100 m</td><td>2.91 cm</td><td>0.73 cm</td><td>1.00 cm</td></tr>
+  </table>
+  </div>
+
+  <h3>The formula</h3>
+  <p>Three steps, any units:</p>
+  <ul class="clean">
+    <li><strong>MOA</strong> = offset in inches &divide; (1.047 &times; distance in yards &divide; 100)</li>
+    <li><strong>MRAD</strong> = offset in cm &divide; (10 &times; distance in meters &divide; 100)</li>
+    <li><strong>Clicks</strong> = that angle &divide; your click value — then dial <em>opposite</em> the miss</li>
+  </ul>
+
+  <h3>Worked examples</h3>
+  <p><strong>MOA, imperial.</strong> 100 yards, group centered 2.6" low and 1.3" left, 1/4-MOA turret.
+  Elevation: 2.6 &divide; 1.047 = 2.48 MOA &divide; 0.25 = 9.9 → <strong>dial 10 clicks up</strong>.
+  Windage: 1.3 &divide; 1.047 = 1.24 MOA &divide; 0.25 = 5.0 → <strong>5 clicks right</strong>.</p>
+  <p><strong>MRAD, metric.</strong> 100 meters, group 7 cm high and 3 cm right, 0.1-mrad turret.
+  7 cm at 100 m is 0.7 mrad → <strong>7 clicks down</strong>; 3 cm is 0.3 mrad →
+  <strong>3 clicks left</strong>. This is why mil shooters like metric: no long division.</p>
+  <p><strong>Short range — where people get burned.</strong> 25 yards, group 1" low, 1/4-MOA turret.
+  One MOA at 25 yards is only 0.26", so that inch is 3.82 MOA — <strong>15 clicks up</strong>, not 4.
+  At a quarter of the distance, the same inch costs four times the clicks.</p>
+
+  <h2>Common mistakes</h2>
+  <ul class="clean">
+    <li><strong>Dialing the wrong direction.</strong> The turret arrows tell you which way the
+      <em>impact</em> moves. Group hit low? Dial toward U. Low-left group means up and right. Don't
+      overthink what the reticle or erector is doing internally — trust the arrows.</li>
+    <li><strong>Correcting off one shot.</strong> A single round tells you almost nothing — normal
+      dispersion can put it an inch from where the rifle actually points. Shoot 3–5, correct off the
+      group's center, then confirm.</li>
+    <li><strong>Mixing MOA and MRAD.</strong> Plenty of older and budget scopes pair a mil-dot reticle
+      with MOA turrets. If you measure a miss in mils through the glass and dial MOA clicks, you'll be
+      off by a factor of 3.44. Know which units your reticle and your turret each speak.</li>
+    <li><strong>Treating 1 MOA as exactly 1 inch.</strong> Fine for small corrections at 100 yards. But
+      the shorthand overstates every correction by about 4.7% — by the time a fix needs ten clicks,
+      you're half a click over. Use 1.047 (or this calculator) when the correction is big.</li>
+    <li><strong>Forgetting the distance scaling at 25 or 50 yards.</strong> The most common zeroing-day
+      error: someone dials 4 clicks per inch at 25 yards because that's the 100-yard number, then wonders
+      why the group barely moved. See the worked example above — it's 15.</li>
+    <li><strong>A printer that scaled your target.</strong> If you zero on a printed grid and your printer
+      was set to "fit to page," every square is a lie. Print at 100% and measure the calibration bar —
+      our <a href="/targets/">free targets</a> carry a 1-inch and 50 mm ruler for exactly this check.</li>
+  </ul>
+
+  <h2>Or skip the tape measure entirely</h2>
+  <p>This calculator still assumes you've measured the group offset by hand — walking downrange with a
+  ruler, eyeballing the group center, keeping the tape square to the aim point. That measuring step is
+  where most of the error lives.</p>
+  <p><strong>Zero Considerations</strong> does the whole chain from a photo. Print one of the
+  <a href="/targets/">free targets</a> — the four coded corner markers let the app set the photo's true
+  scale <em>and</em> correct camera tilt and perspective, so a hasty off-angle phone shot still measures
+  straight. Photograph the target before and after your string: the app finds the bullet holes, computes
+  the group center, and converts the offset into clicks for your optic's actual click value from its
+  preset catalog. From there it keeps going — truing your muzzle velocity and BC from observed drop,
+  building DOPE cards, and showing spec-verified holdovers for 215+ reticles. All offline, $9.99 once,
+  no subscription, no account.</p>
+  <p>It never certifies a zero, and neither should you — the app advises a confirmation group after every
+  correction, same as this page does.</p>
+
+  <div class="safety">
+    For education and lawful sporting use. Always confirm your zero and dope with live fire before
+    relying on them. Follow all firearm safety rules and your range's procedures.
+  </div>
+
+  <p style="margin-top:2rem">
+    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
+    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
+  </p>
+</div>
+
+<script>
+(function(){
+  function $(id){return document.getElementById(id)}
+  var RAD_PER_MOA = Math.PI/10800;     // 1 MOA in radians
+  var MOA_PER_RAD = 10800/Math.PI;
+  function fmt(n,d){return n.toFixed(d)}
+
+  function calc(){
+    var out = $('out');
+    var dist = Math.abs(parseFloat($('dist').value));
+    var dU = $('distUnit').value;
+    if(!isFinite(dist) || dist <= 0){
+      out.innerHTML = '<p class="big">Enter a distance above zero.</p>';
+      return;
+    }
+    var distIn = (dU === 'yd') ? dist*36 : dist*39.3700787;
+    var cv = $('clickVal').value.split('|');
+    var clickSize = parseFloat(cv[0]);
+    var clickUnit = cv[1];   // 'moa' | 'mrad'
+    var clickLabel = cv[2];
+    var oU = $('offUnit').value;   // 'in' | 'cm'
+    function toIn(v){return oU === 'in' ? v : v/2.54}
+
+    function axis(name, valId, dirId, dialMap){
+      var v = Math.abs(parseFloat($(valId).value));
+      if(!isFinite(v) || v === 0) return null;
+      var offIn = toIn(v);
+      var rad = offIn/distIn;
+      var moa = rad*MOA_PER_RAD;
+      var mil = rad*1000;
+      var angle = (clickUnit === 'moa') ? moa : mil;
+      var clicks = angle/clickSize;
+      var rounded = Math.round(clicks);
+      var dial = dialMap[$(dirId).value];
+      var head;
+      if(rounded === 0){
+        head = '<p class="big">'+name+': under half a click ('+fmt(clicks,2)+') — leave it.</p>';
+      }else{
+        head = '<p class="big">'+name+': dial <b>'+rounded+' click'+(rounded===1?'':'s')+' '+dial+
+               '</b> <span class="exact">('+fmt(clicks,1)+' exact)</span></p>';
+      }
+      var math = '<p class="math">'+fmt(v,2)+' '+oU+' at '+dist+' '+dU+' = '+fmt(moa,2)+' MOA = '+
+                 fmt(mil,2)+' MRAD → '+fmt(clicks,1)+' clicks of '+clickLabel+'</p>';
+      return head+math;
+    }
+
+    var e = axis('Elevation','vert','vertDir',{low:'UP',high:'DOWN'});
+    var w = axis('Windage','horiz','horizDir',{left:'RIGHT',right:'LEFT'});
+    var html;
+    if(!e && !w){
+      html = '<p class="big">Enter how far the group hit from your point of aim.</p>';
+    }else{
+      html = (e||'')+(w||'');
+    }
+    var clickRad = (clickUnit === 'moa') ? clickSize*RAD_PER_MOA : clickSize/1000;
+    var clickAtDistIn = clickRad*distIn;
+    var clickAtDist = (oU === 'in') ? clickAtDistIn : clickAtDistIn*2.54;
+    html += '<p class="perclick">1 click ('+clickLabel+') = '+
+            fmt(clickAtDist, oU === 'in' ? 3 : 2)+' '+oU+' at '+dist+' '+dU+'</p>';
+    out.innerHTML = html;
+  }
+
+  var ids = ['dist','distUnit','clickVal','offUnit','vert','vertDir','horiz','horizDir'];
+  for(var i=0;i<ids.length;i++){
+    $(ids[i]).addEventListener('input',calc);
+    $(ids[i]).addEventListener('change',calc);
+  }
+  calc();
+})();
+</script>
+</body>
+</html>

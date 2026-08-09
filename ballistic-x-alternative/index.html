@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ballistic-X Alternative (2026) — Zero Considerations</title>
+<meta name="description" content="Ballistic-X vs Zero Considerations: hole detection, tilt correction, and what happens after the group is measured — clicks, truing, DOPE.">
+<link rel="canonical" href="https://zeroconsiderations.com/ballistic-x-alternative/">
+<meta property="og:title" content="Ballistic-X Alternative (2026) — Zero Considerations">
+<meta property="og:description" content="A straight comparison of the two photo group-measurement workflows: hole marking, tilt correction, and what happens after the group is measured.">
+<meta property="og:url" content="https://zeroconsiderations.com/ballistic-x-alternative/">
+<style>
+  :root{--bg:#0B0E11;--card:#141920;--line:#232a33;--ink:#E8EDF2;--dim:#9AA6B2;--accent:#F5A524;--accent-ink:#0B0E11}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+  h1{font-size:clamp(1.7rem,5vw,2.4rem);letter-spacing:-.02em;margin:0 0 .5rem}
+  h2{font-size:1.35rem;margin:2.4rem 0 .6rem}
+  h3{font-size:1.06rem;margin:1.6rem 0 .4rem}
+  p,li{color:var(--dim)}
+  strong{color:var(--ink)}
+  a{color:var(--accent)}
+  .btn{display:inline-block;padding:.85rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;background:var(--accent);color:var(--accent-ink);margin:.4rem .5rem .4rem 0}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;font-size:.93rem;margin:1.5rem 0}
+  .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);border-radius:12px;padding:1rem 1.25rem;color:var(--dim);font-size:.92rem;margin-top:1.5rem}
+  ul.clean{list-style:none;padding:0;margin:0;color:var(--dim)}
+  ul.clean li{padding:.4rem 0 .4rem 1.6rem;position:relative}
+  ul.clean li:before{content:"—";position:absolute;left:0;color:var(--accent)}
+  table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:.95rem}
+  th,td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink)}
+  td:first-child{color:var(--ink)}
+  .tblwrap{overflow-x:auto}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Ballistic-X still being updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. After a quiet stretch following version 3.0.3 (June 2025) — the release that added its BX auto-reference targets — Ballistic-X shipped a complete v4 rewrite in spring 2026 and has continued updating since (version 4.0.6 as of August 2026). It remains available on both stores."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to buy special targets for Zero Considerations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The printable targets with coded corner markers are free PDFs at zeroconsiderations.com/targets/ — print them at 100% on any home printer. Without a marked target you can still set the photo's scale from a known-size reference, and every step has a manual fallback."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does automatic hole detection always work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No detector is perfect. Torn paper, overlapping holes, and dark backers can hide a hole from any computer-vision system. Zero Considerations lets you add or remove holes with a tap, so a missed hole costs you one tap, not the workflow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will either app guarantee my zero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No app can. Both work from a photographed group, and a group is a sample, not a certainty. Zero Considerations converts your measured offset into turret clicks for your optic, but you should always fire a confirmation group after adjusting before you trust the zero."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use both apps together?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Both are one-time purchases with no subscription, so owning both costs little. Some shooters keep Ballistic-X for quick group scoring and use Zero Considerations when the goal is dialing a zero, truing velocity, or building DOPE."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+  <p><a href="/">&larr; zeroconsiderations.com</a></p>
+  <h1>Ballistic-X Alternative: Photo Group Measurement Compared (2026)</h1>
+  <p>Ballistic-X put photo group measurement on the map for most shooters. Without an app like it, measuring a group means walking downrange with calipers or a ruler and doing the point-of-impact math by hand. If you shoot regularly, you've probably used it or seen it at the bench. This page is a straight comparison with <strong>Zero Considerations</strong> — what each app does, where the workflows actually differ, and who each one fits. Both are one-time purchases. Neither runs a subscription.</p>
+
+  <h2>What Ballistic-X does well</h2>
+  <p>Credit where it's due: Ballistic-X is fast, focused, and does its one job cleanly. Photograph your target, mark the holes, and it gives you group size and the offset from your point of aim in inches, MOA, or MIL. For a lot of shooters that's exactly the tool they wanted, at a one-time price.</p>
+  <p>It also solved the scale problem. Any photo-measurement app needs to know how big things are in the frame, and since <strong>version 3.0.3 (June 2025)</strong> Ballistic-X ships its own BX auto-reference targets — print one and the app picks up the photo's scale from the target itself instead of asking you to mark a known dimension. That's the right design, and it's the same basic approach Zero Considerations uses.</p>
+  <p>It's also actively maintained: after a quiet stretch following that June 2025 release, Ballistic-X shipped a complete v4 rewrite in spring 2026 and has kept updating since.</p>
+
+  <h2>Where the workflows differ</h2>
+
+  <h3>Marking holes: tap each one vs. auto-detect</h3>
+  <p>In Ballistic-X you mark each bullet hole by tapping it, per its own store description. That's precise and it works, but on a 10- or 20-round string it's real thumb time, and it's easy to fat-finger a mark half a caliber off on a small phone screen.</p>
+  <p>Zero Considerations <strong>detects the holes automatically</strong> from the photo, then shows you what it found so you can add a hole it missed or remove a false hit with a tap. No detector is 100% — torn paper and overlapping holes are hard for any computer-vision system — which is why manual correction is built in as a first-class step, not an afterthought. In practice you confirm a detection instead of placing every mark from scratch.</p>
+
+  <h3>Scale is half the problem. Perspective is the other half.</h3>
+  <p>Both apps read scale off their own printed targets. The difference is what else the target tells the app. The four corner markers on Zero Considerations' targets are <strong>coded</strong> — each corner is individually identifiable, like a QR code's finder patterns. Because the app knows exactly which corner is which and where each one sits in the frame, it can correct <strong>camera tilt and perspective</strong>, not just scale.</p>
+  <p>That matters more than it sounds. Nobody photographs a stapled target perfectly square-on. Shoot the photo from a bench at an angle and the image compresses the group along one axis — a photo taken 20 degrees off-axis will read a vertical string short. With four coded corners, the app flattens the photo back to true before it measures anything. Your group is measured as it exists on paper, not as the camera happened to see it.</p>
+  <p>The targets are <a href="/targets/">free printable PDFs</a> (Letter and A4) with a calibration ruler on every sheet so you can confirm your printer didn't scale the page. You don't need the app to use them.</p>
+
+  <h3>What happens after the measurement</h3>
+  <p>This is the real fork in the road. Ballistic-X's job ends when it hands you the numbers: group size and offset from point of aim. What you do with those numbers — click values, dialing direction, distance conversion — is on you, or on a second app.</p>
+  <p>Zero Considerations treats the measurement as step one:</p>
+  <ul class="clean">
+    <li><strong>Turret clicks</strong> — the offset is converted into exact clicks for your optic's click value and turret direction, at your zeroing distance. No MOA-to-clicks math at the bench.</li>
+    <li><strong>Truing</strong> — a photographed group at known distance can work backwards to true your muzzle velocity and BC, so the solver matches your rifle instead of the box flap.</li>
+    <li><strong>DOPE</strong> — build drop cards from the trued numbers for the distances you actually shoot.</li>
+    <li><strong>Reticle holdovers</strong> — 215+ spec-verified reticles rendered to scale, so you can see your holds on your reticle before you shoot.</li>
+    <li><strong>Full ballistics solver</strong> — drop, wind, and energy in MOA, MIL, or clicks, plus height-over-bore computed from your optic and mount, offset and laser zeroing, and a photo rangefinder.</li>
+  </ul>
+  <p>All of it in the same $9.99 one-time purchase, fully offline, with no account and no ads.</p>
+
+  <h2>Feature comparison</h2>
+  <div class="tblwrap">
+  <table>
+    <tr><th>Feature</th><th>Ballistic-X</th><th>Zero Considerations</th></tr>
+    <tr><td>Group size &amp; POI offset from photo</td><td>Yes</td><td>Yes</td></tr>
+    <tr><td>Auto-scale reference targets</td><td>BX targets (since v3.0.3, June 2025)</td><td>Free printable targets with coded corner markers</td></tr>
+    <tr><td>Hole marking</td><td>Tap each hole (per store description)</td><td>Automatic detection, tap to add/remove</td></tr>
+    <tr><td>Camera tilt / perspective correction</td><td>Not advertised</td><td>Yes, from the four coded corners</td></tr>
+    <tr><td>Turret clicks for your specific optic</td><td>Outside its scope</td><td>Yes — your click value and direction</td></tr>
+    <tr><td>Velocity / BC truing from drop</td><td>Outside its scope</td><td>Yes</td></tr>
+    <tr><td>DOPE cards</td><td>Outside its scope</td><td>Yes</td></tr>
+    <tr><td>Reticle holdovers</td><td>Outside its scope</td><td>215+ spec-verified reticles, to scale</td></tr>
+    <tr><td>Full ballistics solver</td><td>Outside its scope</td><td>Yes — drop, wind, energy</td></tr>
+    <tr><td>Height over bore from optic + mount</td><td>Outside its scope</td><td>Yes</td></tr>
+    <tr><td>Price model</td><td>One-time purchase</td><td>$9.99 one-time, no subscription</td></tr>
+    <tr><td>Account required</td><td>&mdash;</td><td>No account, no ads, fully offline</td></tr>
+    <tr><td>Platforms</td><td>iOS and Android</td><td>iOS (live); Android free beta, production ~Sept 2026</td></tr>
+    <tr><td>Most recent update</td><td>Actively updated (v4 rewrite, 2026)</td><td>Actively updated</td></tr>
+  </table>
+  </div>
+  <p class="note" style="margin-top:.5rem">Ballistic-X entries reflect its public app store listings as of this writing. "Outside its scope" isn't a knock — it's a group-measurement app, and it doesn't pretend otherwise.</p>
+
+  <h2>Who should stick with Ballistic-X</h2>
+  <p>If all you want is group measurement — you score groups, log them, and do your own dope your own way — and Ballistic-X is already doing that for you, there's no compelling reason to switch. It's a solid tool at its one job, you've already paid for it once, and switching apps for the sake of switching is how you end up re-learning a workflow at the range for nothing.</p>
+
+  <h2>Who Zero Considerations fits</h2>
+  <p>If the group measurement is the <strong>middle</strong> of your process rather than the end of it. You're photographing the target because you want to dial the correction, true your velocity, build a DOPE card, or check your holdovers — and today that means carrying the measurement from one app into another, or into a notebook. Zero Considerations runs that whole chain in one place: photograph before and after, get the group, get the clicks, true the numbers, keep the DOPE. One $9.99 purchase, offline, no account.</p>
+  <p>It also fits anyone starting fresh who'd rather buy one app than two.</p>
+
+  <h2>Common questions</h2>
+
+  <h3>Is Ballistic-X still being updated?</h3>
+  <p>Yes. After a quiet stretch following version 3.0.3 (June 2025) — the release that added the BX auto-reference targets — it shipped a complete v4 rewrite in spring 2026 and has continued updating since. It remains available on both stores.</p>
+
+  <h3>Do I need to buy special targets for Zero Considerations?</h3>
+  <p>No. The marker targets are <a href="/targets/">free PDFs</a> — five styles, Letter and A4, printed at 100% on any home printer. Without a marked target you can still set scale from a known-size reference in the photo, and every step has a manual fallback.</p>
+
+  <h3>Does automatic hole detection always work?</h3>
+  <p>No detector is perfect, and any app that claims 100% is selling you something. Torn paper, ragged overlapping holes, and dark backers can hide a hole. When that happens you add or remove holes with a tap — a missed hole costs one tap, not the workflow.</p>
+
+  <h3>Will either app guarantee my zero?</h3>
+  <p>No app can, and you should distrust one that claims to. A group is a sample: it includes you, the wind, and the ammo. Zero Considerations gives you the exact clicks for the offset it measured, but the click adjustment is a correction, not a certificate — always fire a confirmation group after dialing.</p>
+
+  <h3>Can I use both?</h3>
+  <p>Sure. Both are one-time purchases, so owning both is cheap. Some shooters keep Ballistic-X for quick group scoring and open Zero Considerations when the job is a zero, a truing session, or dope.</p>
+
+  <div class="safety">
+    For education and lawful sporting use. Always confirm your zero and dope with live fire before
+    relying on them. Follow all firearm safety rules and your range's procedures.
+  </div>
+
+  <h2>Try it</h2>
+  <p>Zero Considerations is $9.99 once — no subscription, no ads, no account, works with no signal. iPhone now; Android production release ~Sept 2026. The zeroing targets are free either way.</p>
+  <p style="margin-top:1.25rem">
+    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
+    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
+  </p>
+</div>
+</body>
+</html>

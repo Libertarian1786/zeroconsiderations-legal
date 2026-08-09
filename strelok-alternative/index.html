@@ -3,75 +3,406 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Strelok Alternative (2026) — Zero Considerations, Offline Zeroing &amp; Ballistic Calculator</title>
-<meta name="description" content="Looking for a Strelok Pro alternative? Strelok left the app stores in 2023 and can't be downloaded by new users. Zero Considerations is a one-time-purchase, fully offline zeroing and ballistics app with 215 spec-verified reticles — plus photo zeroing Strelok never had.">
+<title>Strelok Pro Alternatives (2026) — Zero Considerations</title>
+<meta name="description" content="What happened to Strelok Pro, what replaces its reticle view in 2026, and an honest comparison: AB Quantum, Hornady 4DOF, Shooter, Ballistic-X, and more.">
 <link rel="canonical" href="https://zeroconsiderations.com/strelok-alternative/">
-<meta property="og:title" content="Strelok Alternative — Zero Considerations">
-<meta property="og:description" content="One-time purchase, fully offline, 215 spec-verified reticles, and photo zeroing. The practical replacement for orphaned Strelok users.">
+<meta property="og:title" content="Strelok Pro Alternatives (2026) — The Honest Guide">
+<meta property="og:description" content="The sanctions story, the reticle database everyone misses, and a straight comparison of every serious replacement — including where ours falls short.">
+<meta property="og:url" content="https://zeroconsiderations.com/strelok-alternative/">
 <style>
   :root{--bg:#0B0E11;--card:#141920;--line:#232a33;--ink:#E8EDF2;--dim:#9AA6B2;--accent:#F5A524;--accent-ink:#0B0E11}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
   .wrap{max-width:820px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
   h1{font-size:clamp(1.7rem,5vw,2.4rem);letter-spacing:-.02em;margin:0 0 .5rem}
-  h2{font-size:1.35rem;margin:2.4rem 0 .6rem}
+  h2{font-size:1.35rem;margin:2.6rem 0 .6rem;letter-spacing:-.01em}
+  h3{font-size:1.08rem;margin:1.8rem 0 .4rem}
   p,li{color:var(--dim)}
   strong{color:var(--ink)}
   a{color:var(--accent)}
   .btn{display:inline-block;padding:.85rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;background:var(--accent);color:var(--accent-ink);margin:.4rem .5rem .4rem 0}
   .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-  table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:.95rem}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;font-size:.93rem;margin:1.5rem 0}
+  .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);border-radius:12px;padding:1rem 1.25rem;color:var(--dim);font-size:.92rem;margin-top:1.5rem}
+  .tablewrap{overflow-x:auto;margin:1.25rem 0}
+  table{width:100%;min-width:760px;border-collapse:collapse;font-size:.92rem}
   th,td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--line);vertical-align:top}
   th{color:var(--ink)}
-  td:first-child{color:var(--ink)}
-  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;font-size:.93rem;margin:1.5rem 0}
+  td:first-child{color:var(--ink);white-space:nowrap}
+  .tnote{font-size:.85rem;color:var(--dim);margin-top:-.5rem}
+  ul.clean{list-style:none;padding:0;margin:0;color:var(--dim)}
+  ul.clean li{padding:.4rem 0 .4rem 1.6rem;position:relative}
+  ul.clean li:before{content:"—";position:absolute;left:0;color:var(--accent)}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Strelok Pro still available in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on Google Play or the Apple App Store — it was removed from both in 2023 and has not returned. On Android, Strelok Pro is still listed on the Samsung Galaxy Store and Huawei AppGallery, so Samsung owners have a path. On iPhone there is no way for a new user to get it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was Strelok banned for gun content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Ballistic calculators remain freely available on both app stores. Strelok's developer is Russian, and after sanctions were imposed on Russia, Apple and Google could no longer legally process payments to the developer. The removal was a payments and sanctions-compliance matter, not a content decision."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What replaces Strelok's reticle view?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is the hardest gap to fill. Most major ballistic apps (AB Quantum, Hornady 4DOF, Shooter, GeoBallistics) output numeric firing solutions rather than drawing your reticle. Zero Considerations draws 215 reticles verified against manufacturer subtension figures and shows holdovers on the reticle at your magnification, which is the closest current equivalent to Strelok's signature feature."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best free Strelok alternative?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hornady 4DOF. It is completely free, runs offline, and uses Doppler-radar-derived drag modeling that is genuinely excellent for the bullets in its library. AB Quantum also has a free Ultralite tier. Neither draws your reticle the way Strelok did."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Strelok Pro still work if I already have it installed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally yes — an installed copy keeps calculating. But it no longer receives updates through Google Play or the App Store, and iPhone users in particular are one lost or replaced phone away from losing it for good, since it cannot be re-downloaded from the App Store."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which ballistic apps measure shot groups from a photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The two best-known in the zeroing space are Ballistic-X ($7.99, you tap each bullet hole on the photo) and Zero Considerations ($9.99, holes are auto-detected and coded corner markers correct camera tilt and set scale, then the app converts the group into turret clicks and can true your muzzle velocity and BC from the same photo). Target-scoring apps such as TargetScan also recognize shots from a photo for score and group statistics."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="wrap">
   <p><a href="/">&larr; zeroconsiderations.com</a></p>
-  <h1>Looking for a Strelok alternative?</h1>
-  <p><strong>Strelok and Strelok Pro were removed from Google Play and the App Store in March 2023</strong>
-    and have never returned — new users can't buy or download them, and existing users are stranded on
-    old installs that die with each phone upgrade. If you're here, you're probably one of the million-plus
-    shooters who relied on it.</p>
 
-  <p><strong>Zero Considerations</strong> was built by a shooter for the same job — and for the part
-    Strelok users miss most: <strong>seeing your actual reticle, with real subtensions, at your
-    magnification.</strong></p>
+  <h1>Strelok Pro alternatives (2026): the honest guide</h1>
 
-  <a class="btn" href="https://apps.apple.com/app/id6792565250">Get it on the App&nbsp;Store — $9.99 once</a>
-  <a class="btn ghost" href="/beta">Android beta (free)</a>
+  <p><strong>Strelok and Strelok Pro have been gone from Google Play and the Apple App Store since 2023</strong>,
+    and the million-plus shooters who relied on them are still asking the same question in every long-range
+    forum: what do I use now?</p>
 
-  <h2>How it compares</h2>
-  <table>
-    <tr><th></th><th>Strelok Pro (2023, discontinued)</th><th>Zero Considerations (2026)</th></tr>
-    <tr><td>Available today</td><td>No — removed from both stores</td><td>Yes — App Store now, Google Play in beta</td></tr>
-    <tr><td>Price model</td><td>One-time</td><td>One-time, $9.99 — no subscription</td></tr>
-    <tr><td>Reticle views</td><td>Large catalog (its signature feature)</td><td>215 reticles, each verified against the manufacturer's subtension figures</td></tr>
-    <tr><td>Ballistic solver</td><td>Full solver</td><td>Full solver — drop, wind, energy, MOA/MIL/clicks, environment from phone sensors</td></tr>
-    <tr><td>Works offline</td><td>Yes</td><td>Yes — 100%, no account, no tracking</td></tr>
-    <tr><td>Photo zeroing</td><td>No</td><td><strong>Yes — photograph your group, get the exact turret clicks</strong>, then true MV/BC from the same photo</td></tr>
-    <tr><td>Printable targets</td><td>No</td><td>Free scale-calibrated targets the app reads automatically — <a href="/targets/">download them here</a>, no app required</td></tr>
-  </table>
+  <p>This page is our attempt at a straight answer. We make one of the apps below, so read with that in
+    mind — but we'll tell you plainly when a competitor is the better pick for your use case, because a
+    shooter who buys the wrong app doesn't come back.</p>
 
-  <div class="note">Strelok® is the work of its own developer, Igor Borisov, and this page isn't affiliated
-    with it — it exists because "what do I use now?" is the most common question in every long-range forum
-    since 2023, and we think we've built the honest answer.</div>
+  <h2>What actually happened to Strelok</h2>
 
-  <h2>What Strelok users notice first</h2>
-  <ul>
-    <li><strong>Your reticle is really there.</strong> 215 reticles drawn to the manufacturer's published
-      subtensions — not approximations — with holdover points on your actual reticle at your magnification.</li>
-    <li><strong>Zeroing became measurement, not arithmetic.</strong> Print a marker target (or lay a
-      cartridge on any target for scale), shoot, photograph — the app measures the group in real inches
-      and says exactly what to dial.</li>
-    <li><strong>Everything on the phone.</strong> 793 firearm presets, 596 optics, 512 factory loads,
-      full solver — zero bars of signal required.</li>
+  <p>In early 2023, Strelok, Strelok Pro, and Strelok+ disappeared from both major app stores and never
+    came back.</p>
+
+  <p><strong>The reason was not gun content.</strong> This gets repeated wrong in comment sections
+    constantly, so it's worth being precise: ballistic calculators are still all over both stores, and
+    nothing about the category was restricted. Strelok's developer, Igor Borisov, is Russian. After
+    sanctions were imposed on Russia following the invasion of Ukraine, Apple and Google could no longer
+    legally process payments to Russian developers. Pulling the apps was a payments-and-compliance
+    decision forced by sanctions law — not a policy statement about shooting apps.</p>
+
+  <p>That distinction matters practically, not just as trivia. If the category had been banned, every app
+    on this page would be at risk. It wasn't, and they aren't.</p>
+
+  <p>Where that leaves you depends on your phone:</p>
+
+  <ul class="clean">
+    <li><strong>iPhone: a dead end.</strong> New users can't buy Strelok Pro at all, and it can't be
+      re-downloaded from the App Store. If you still have it installed, it keeps working — until a phone
+      replacement or a migration hiccup strands you, with no updates coming.</li>
+    <li><strong>Android: a side door exists.</strong> Strelok Pro is still listed on the
+      <strong>Samsung Galaxy Store</strong> and <strong>Huawei AppGallery</strong>. If you run a Samsung
+      phone and are comfortable buying through the Galaxy Store, you can still get the genuine article.
+      But you're outside the mainstream update path, a Google Play purchase from years past can't be
+      restored there, and the long-term maintenance picture is anyone's guess.</li>
   </ul>
 
-  <p style="margin-top:2rem">
-    <a class="btn" href="https://apps.apple.com/app/id6792565250">App Store — $9.99</a>
+  <div class="note">Strelok&reg; is the work of its own developer and this page isn't affiliated with it.
+    Credit where due: for over a decade it was the best value in ballistic software, and much of what's
+    below is measured against the standard it set.</div>
+
+  <h2>Still have Strelok installed? Rescue your data first</h2>
+
+  <p>Whichever replacement you pick, do this before your old install dies, because the data inside it is
+    worth more than the app at this point. Years of trued velocities don't come back on their own. Ten
+    minutes now saves a season of re-zeroing later:</p>
+
+  <ul class="clean">
+    <li><strong>Screenshot every rifle profile.</strong> Every screen of it — cartridge, bullet, scope,
+      atmosphere defaults. Screenshots survive a dead app; an internal database doesn't.</li>
+    <li><strong>Write down the trued muzzle velocity for each load.</strong> This is the single most
+      valuable number you own. If you ever calibrated Strelok against real drops, the MV it settled on is
+      the product of live fire, not a box-flap guess.</li>
+    <li><strong>Record the BC (and whether it's G1 or G7)</strong> plus bullet weight for each load.
+      Mixing up the drag model when re-entering data is the classic migration error, and it quietly
+      wrecks solutions past 300 yards.</li>
+    <li><strong>Note each scope's click value, reticle, and focal plane</strong>, and your sight height
+      and twist rate. Sight height especially — people measure it once, forget it, and then guess wrong
+      in the new app.</li>
+    <li><strong>Capture your confirmed zeroes</strong> — distance, load, and the conditions you zeroed
+      in.</li>
+  </ul>
+
+  <p>Every app in the table below will take those numbers. None of them can recover the data for you
+    once the old install is gone.</p>
+
+  <h2>What Strelok users say they miss most</h2>
+
+  <p>Read any "Strelok replacement" thread — Sniper's Hide, AccurateShooter, Rokslide, the Reddit
+    long-range subs — and the same answer comes up first, almost every time: <strong>the reticle
+    database.</strong></p>
+
+  <p>Strelok Pro drew thousands of reticles to scale. You picked your exact scope, set your magnification,
+    and saw your drop and wind hold overlaid on the actual hash marks of the actual reticle in front of
+    your eye. No other mainstream app matched it then, and most still don't try.</p>
+
+  <p>Why it matters at the range: a numeric solver tells you "come up 1.7 mil, hold 0.4 left." That's
+    useful if you're dialing. But if you're holding over — hunting, positional stages, anything where
+    there's no time to spin a turret — you need to know what 1.7 mil looks like <em>in your reticle</em>,
+    at <em>your</em> magnification. On a second-focal-plane scope the subtensions change with power, and
+    doing that conversion in your head at the moment of truth is how misses happen.</p>
+
+  <p>For BDC reticle owners it's even more important. The yardage numbers etched into a BDC reticle are
+    only true for one load, at one velocity, in one atmosphere. A proper reticle view re-maps those marks
+    to what your load actually does — which is the difference between a BDC being a tool and being a
+    decoration.</p>
+
+  <p>After the reticle view, the misses people name are simpler: Strelok was <strong>cheap</strong>,
+    <strong>one-time purchase</strong>, and <strong>fully offline</strong>. Keep those three in mind as
+    you read the table below — the industry has drifted toward subscriptions since 2023, and not everyone
+    has followed.</p>
+
+  <h2>The field, compared</h2>
+
+  <div class="tablewrap">
+  <table>
+    <tr>
+      <th>App</th><th>Price model</th><th>Reticle database</th><th>Offline</th>
+      <th>Photo group measurement</th><th>Truing (MV/BC)</th><th>Platforms</th>
+    </tr>
+    <tr>
+      <td>Strelok Pro</td>
+      <td>One-time (where still sold)</td>
+      <td>Yes — thousands, its signature</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>MV from observed drops</td>
+      <td>Android via Samsung/Huawei stores; iOS gone</td>
+    </tr>
+    <tr>
+      <td>AB Quantum</td>
+      <td>Free tier + Elite subscription ($2.99/mo or $19.99/yr; AB devices unlock tiers)</td>
+      <td>No — numeric solutions</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes — MV calibration + drop-scale-factor truing</td>
+      <td>iOS + Android</td>
+    </tr>
+    <tr>
+      <td>Hornady 4DOF</td>
+      <td>Free</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Not a headline feature</td>
+      <td>iOS + Android</td>
+    </tr>
+    <tr>
+      <td>Shooter</td>
+      <td>$19.99 one-time</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Not a headline feature</td>
+      <td>iOS + Android</td>
+    </tr>
+    <tr>
+      <td>GeoBallistics</td>
+      <td>Free + one-time Pro unlock ($14.99)</td>
+      <td>No</td>
+      <td>Yes (solver)</td>
+      <td>No</td>
+      <td>Not a headline feature</td>
+      <td>iOS + Android</td>
+    </tr>
+    <tr>
+      <td>Ballistic-X</td>
+      <td>$7.99 one-time</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes — tap each hole; BX auto-reference targets set scale</td>
+      <td>No</td>
+      <td>iOS + Android</td>
+    </tr>
+    <tr>
+      <td>Zero Considerations</td>
+      <td>$9.99 one-time</td>
+      <td>215 reticles, spec-verified, with holdover overlay</td>
+      <td>Yes — 100%, no account</td>
+      <td>Yes — holes auto-detected; coded markers set scale and correct camera tilt</td>
+      <td>Yes — MV/BC from photographed drop</td>
+      <td>iOS now; Android in beta (production ~Sept 2026)</td>
+    </tr>
+  </table>
+  </div>
+  <p class="tnote">Prices and models checked August 2026 against each app's store listing or official site.
+    They change; if you spot an error, <a href="mailto:davidmccoybiz@gmail.com">email us</a> and we'll
+    correct the table.</p>
+
+  <h2>The honest mini-reviews</h2>
+
+  <h3>Strelok Pro — if you can still get it</h3>
+  <p>Still an excellent solver attached to the deepest reticle catalog ever shipped. If you're on a
+    Samsung phone, buying it through the Galaxy Store is a legitimate option and we won't pretend
+    otherwise. The trade-offs are real, though: you're on an alternative store, updates are no longer
+    flowing through the channels most people use, and you're investing in software whose future has been
+    uncertain since 2023. For iPhone owners it simply isn't a choice anymore.</p>
+
+  <h3>Applied Ballistics — AB Quantum</h3>
+  <p>The most respected solver in the business, full stop. Bryan Litz's custom drag curves are the
+    reference standard, the same engine runs inside Kestrel wind meters, and serious ELR and PRS
+    competitors trust it for a reason. The current app, AB Quantum, replaced the old one-time-purchase AB
+    Mobile app in late 2024 with a tier model: a free Ultralite level, an Elite subscription at $2.99 a
+    month or $19.99 a year, and free tier unlocks if you own AB-powered hardware like a Kestrel.
+    The honest knocks: it's complex — the depth that competitors love is overhead for a hunter zeroing
+    one rifle — and the subscription era grates on shooters who bought Strelok once and used it for a
+    decade. No Strelok-style reticle drawing; solutions are numeric. If you shoot matches at distance,
+    this is the serious tool and you should probably have it. It just isn't trying to be Strelok.</p>
+
+  <h3>Hornady 4DOF</h3>
+  <p>The best free ballistic app, and it isn't close. Hornady's 4DOF calculator models trajectory from
+    Doppler-radar-derived drag coefficients rather than a ballistic coefficient, accounts for effects like
+    aerodynamic jump, and costs nothing. It runs offline and includes measured data for a wide library of
+    long-range projectiles — Hornady's own plus popular bullets from Sierra, Berger, and others. The
+    limits: the deepest modeling applies to bullets in its library, there's no reticle overlay to speak
+    of, and there are no zeroing or photo tools — it tells you the correction, and the rest is on you.
+    If your bullet is in the library and all you want is a firing solution, get it — it's free
+    on both app stores.</p>
+
+  <h3>Shooter</h3>
+  <p>One of the original serious mobile ballistic apps, around since 2010, with a solver built on Bryan
+    Litz's work. Clean interface, Kestrel and WeatherFlow Bluetooth support, and a straightforward
+    <strong>$19.99 one-time purchase</strong> — no subscription, which earns real respect in 2026. It's a
+    solver in the classic mold: numbers in, firing solution out. No reticle catalog, no photo tools. A
+    solid, proven choice for shooters who want exactly that and nothing else
+    (<a href="https://shooterapp.net/">shooterapp.net</a>).</p>
+
+  <h3>GeoBallistics — BallisticsARC</h3>
+  <p>The mapping app. GeoBallistics' distinctive strength is building range cards on satellite imagery:
+    plot your firing position and targets on the map, and it computes ranges and solutions for the whole
+    stage. Field-match and NRL Hunter shooters swear by it. The base app is free with a one-time $14.99
+    Pro unlock — no subscription, which fits the Strelok-refugee sensibility.
+    It's not a reticle app and it's not a zeroing app; it's the strongest pick when the problem is
+    "unknown distances across a canyon," not "get this scope dialed."</p>
+
+  <h3>Ballistic-X</h3>
+  <p>The focused group-measurement tool, at $7.99. Photograph your target, tap each bullet hole, and it
+    computes group size, distance from point of aim, and a scope correction. Version 3.0.3 (June 2025)
+    added its own BX targets with a printed auto-reference that sets photo scale automatically, which
+    removed its old manual-scale step. It does its one job well and cheap. The differences from our
+    approach, stated plainly: in Ballistic-X you mark each hole by hand (per its own store description),
+    while Zero Considerations auto-detects holes; ZC's four coded corner markers also correct camera
+    tilt and perspective, not just scale; and Ballistic-X hands you a measurement and correction, while
+    ZC carries the same photo on into turret clicks, MV/BC truing, DOPE, and reticle holdovers. After
+    a quiet stretch following the June 2025 release, it shipped a complete v4 rewrite in spring 2026
+    and has kept updating since.</p>
+
+  <h3>Zero Considerations — where we fit</h3>
+  <p>We built <a href="/">Zero Considerations</a> around the two things nothing else on this list
+    combines: <strong>the reticle view Strelok users lost</strong>, and <strong>a photo-zeroing loop
+    nobody else has</strong>.</p>
+  <p>The reticle side: 215 reticles, each drawn from the manufacturer's published subtension figures and
+    verified against them — not approximated from marketing images. Pick your scope, set your
+    magnification, and see your holdovers on the reticle you'll actually be looking through. Where a
+    manufacturer doesn't publish a number, the app says so rather than inventing one.</p>
+  <p>The zeroing side: print a free target with coded corner markers (or lay a cartridge on any target
+    for scale), shoot your group, photograph it. The markers set the photo's true scale and correct
+    camera tilt, the bullet holes are detected automatically, and the app converts your group's offset
+    into exact turret clicks for your optic. From the same photo it can work backwards to true your
+    muzzle velocity and BC, so the solver matches the rifle you actually own — then feed that into DOPE
+    cards and the reticle view. Also in the box: a full ballistic solver, height-over-bore computed from
+    a 793-firearm / 596-optic mount database, offset and laser zeroing, proxy zeroing, and a photo
+    rangefinder. $9.99 once, 100% offline, no account, no ads.</p>
+  <p>The honest limits: our reticle catalog is 215 spec-verified patterns, not Strelok's thousands — we
+    chose verification over volume, and if your reticle isn't covered yet, tell us. Android is in free
+    beta with production planned around September 2026 (iOS is live now). And no app certifies a zero:
+    ZC tells you the correction, and you confirm it with another group, every time.</p>
+
+  <h2>Which one should you get?</h2>
+  <ul class="clean">
+    <li><strong>Best free option:</strong> Hornady 4DOF. Superb physics, zero dollars.</li>
+    <li><strong>Deep competition use:</strong> AB Quantum, and accept the subscription.</li>
+    <li><strong>Field matches and unknown-distance terrain:</strong> GeoBallistics.</li>
+    <li><strong>Only want group measurement:</strong> Ballistic-X does that one thing for $7.99.</li>
+    <li><strong>Classic one-time solver:</strong> Shooter at $19.99.</li>
+    <li><strong>On Samsung and want literal Strelok:</strong> the Galaxy Store still sells it.</li>
+    <li><strong>Reticle holdovers plus a start-to-finish zeroing workflow, one-time price:</strong>
+      that's the gap we built <a href="/">Zero Considerations</a> to fill.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+
+  <h3>Is Strelok Pro still available in 2026?</h3>
+  <p>Not on Google Play or the Apple App Store — it was removed from both in 2023 and hasn't returned.
+    On Android it's still listed on the Samsung Galaxy Store and Huawei AppGallery. On iPhone there's no
+    way for a new user to get it.</p>
+
+  <h3>Was Strelok banned for gun content?</h3>
+  <p>No. Ballistic calculators remain freely available on both stores. The removal happened because
+    sanctions on Russia made it illegal for Apple and Google to process payments to the app's Russian
+    developer. It was a compliance matter, not a content decision.</p>
+
+  <h3>What replaces Strelok's reticle view?</h3>
+  <p>That's the hard one — most big-name solvers (AB Quantum, 4DOF, Shooter, GeoBallistics) give numeric
+    solutions and don't draw your reticle. Zero Considerations draws 215 reticles verified against
+    manufacturer subtension figures with holdovers overlaid at your magnification, which is the closest
+    current equivalent to what Strelok did.</p>
+
+  <h3>What's the best free Strelok alternative?</h3>
+  <p>Hornady 4DOF — free, offline, and built on Doppler-derived drag data that's genuinely excellent for
+    the bullets in its library. AB Quantum's Ultralite tier is also free. Neither shows your reticle.</p>
+
+  <h3>Does Strelok Pro still work if I already have it?</h3>
+  <p>An installed copy generally keeps calculating. But it can't be updated through the mainstream
+    stores, and on iPhone it can't be re-downloaded — one phone replacement can end it for good. Worth
+    planning your exit before that day rather than after.</p>
+
+  <h3>Which apps measure shot groups from a photo?</h3>
+  <p>The two best-known in the zeroing space: Ballistic-X ($7.99 — you tap each hole yourself) and
+    Zero Considerations ($9.99 — holes auto-detected, coded markers correct tilt and scale, and the
+    same photo flows into turret clicks, truing, and DOPE). Target-scoring apps like TargetScan also
+    read shots from a photo for scoring.</p>
+
+  <div class="safety">
+    For education and lawful sporting use. No app — ours included — certifies a zero. Whatever software
+    you choose, confirm every zero and every dope change with live fire before relying on it, and follow
+    all firearm safety rules and your range's procedures.
+  </div>
+
+  <h2>Try the modern version of the Strelok idea</h2>
+  <p>One-time price, fully offline, your actual reticle on screen — plus the photo-zeroing loop Strelok
+    never had. iOS is on the <a href="https://apps.apple.com/app/id6792565250">App Store</a> now;
+    Android is in free beta ahead of production. And the printable marker targets are free for anyone,
+    app or no app.</p>
+
+  <p style="margin-top:1.5rem">
+    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
     <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
   </p>
 </div>

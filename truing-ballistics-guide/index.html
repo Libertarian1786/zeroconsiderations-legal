@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Truing MV and BC from Real Impacts — Zero Considerations</title>
+<meta name="description" content="How to true a ballistic calculator: correct muzzle velocity at mid-range first, then BC at long range, from real impacts — and the mistakes that ruin it.">
+<link rel="canonical" href="https://zeroconsiderations.com/truing-ballistics-guide/">
+<meta property="og:title" content="Truing Your Ballistic Calculator: MV and BC from Real Impacts">
+<meta property="og:description" content="Why solvers miss, the two-stage truing discipline (MV at mid-range, BC at long range), how many shots you need, and the errors that poison a truing session.">
+<meta property="og:url" content="https://zeroconsiderations.com/truing-ballistics-guide/">
+<style>
+  :root{--bg:#0B0E11;--card:#141920;--line:#232a33;--ink:#E8EDF2;--dim:#9AA6B2;--accent:#F5A524;--accent-ink:#0B0E11}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+  h1{font-size:clamp(1.7rem,5vw,2.4rem);letter-spacing:-.02em;margin:0 0 .5rem}
+  h2{font-size:1.35rem;margin:2.4rem 0 .6rem}
+  h3{font-size:1.08rem;margin:1.6rem 0 .4rem}
+  p,li{color:var(--dim)}
+  strong{color:var(--ink)}
+  a{color:var(--accent)}
+  .btn{display:inline-block;padding:.85rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;background:var(--accent);color:var(--accent-ink);margin:.4rem .5rem .4rem 0}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;font-size:.93rem;margin:1.5rem 0}
+  .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);border-radius:12px;padding:1rem 1.25rem;color:var(--dim);font-size:.92rem;margin-top:1.5rem}
+  ul.clean{list-style:none;padding:0;margin:1rem 0;color:var(--dim)}
+  ul.clean li{padding:.4rem 0 .4rem 1.6rem;position:relative}
+  ul.clean li:before{content:"—";position:absolute;left:0;color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p><a href="/">&larr; zeroconsiderations.com</a></p>
+  <h1>Truing Your Ballistic Calculator: MV and BC from Real Impacts</h1>
+
+  <p>You built a profile in a ballistics app, typed in the numbers off the ammo box, and got a clean
+  drop chart. Then you shot at 450 yards and hit four inches low. The rifle didn't lie — the inputs did.</p>
+
+  <p><strong>Truing</strong> (some solvers call it calibration) means reconciling what the calculator
+  predicts with what the bullet actually does. You shoot at known distances, measure where the impacts
+  really land, and adjust the two inputs you can't cheaply measure to high precision — <strong>muzzle
+  velocity</strong> and <strong>ballistic coefficient</strong> — until the predicted curve passes
+  through your observed hits. Done right, it turns a generic firing solution into one that matches
+  your barrel, your ammo lot, and your air. Every serious long-range shooter does it, whatever their
+  software calls the button.</p>
+
+  <h2>Why a correct solver still misses</h2>
+
+  <p><strong>The box velocity is not your velocity.</strong> Factory velocity figures come from test
+  barrels that are usually longer and tighter than the barrel you're running. Differences of 50&ndash;100&nbsp;fps
+  between the box number and what the same ammo does in your rifle are routine, and lot-to-lot variation
+  adds more on top. An MV error you'd never notice at 100 yards becomes a miss at 500.</p>
+
+  <p><strong>Published BC is an average, at best.</strong> Drag changes with velocity, so a single G1
+  number is really an average over whatever speed band the manufacturer measured — which may not be the
+  band your bullet flies through. Some published BCs also run optimistic. G7 referencing fits modern
+  boat-tail bullets better across the band, but no single number is exact. Your effective BC even
+  depends on your rifle: a bullet that's only marginally stabilized in your twist flies with more drag
+  than the book says.</p>
+
+  <p><strong>The air changes.</strong> Density altitude moves with temperature, pressure, and elevation.
+  A solver handles that fine — if you actually feed it current conditions instead of whatever was
+  saved last month.</p>
+
+  <p><strong>And the system around the solver lies too.</strong> Turrets don't always track at exactly
+  their nominal click value. Sight height gets measured with a guess. "The 500 berm" is sometimes 460.
+  None of that is a ballistics problem, but all of it shows up as one — and if you don't rule it out
+  first, you'll "true" a scope problem into your velocity number.</p>
+
+  <h2>The two-stage discipline: MV first, then BC</h2>
+
+  <p>The order is the whole trick. Muzzle velocity and BC both affect drop, but not equally at every
+  distance. At mid-range, drop is governed mostly by time of flight, and time of flight is governed
+  mostly by muzzle velocity — the bullet hasn't flown far enough for drag differences to separate a
+  good BC guess from a bad one. At long range the roles flip: velocity has bled off, drag has been
+  acting on the bullet for a long time, and BC error dominates the miss.</p>
+
+  <p>So you isolate one variable at a time, in the range where it dominates.</p>
+
+  <h3>Stage 1 — true muzzle velocity at mid-range (~300&ndash;600 yards)</h3>
+
+  <p>Pick a verified distance far enough that drop is substantial and cleanly measurable — a couple of
+  mils, not a half inch — but short enough that BC barely matters. For most rifle cartridges that's
+  somewhere in the 300&ndash;600 yard window. Dial the solver's predicted correction, shoot a group at a
+  clear aim point, and measure the vertical distance between the group's <strong>center</strong> and
+  the point of aim. Then adjust MV in the solver until predicted drop matches actual drop at that
+  distance.</p>
+
+  <p>Sanity-check the result. Trued MV should land reasonably near your chronograph reading or the box
+  number. If the solver needs a wild velocity to fit your impacts, the problem isn't velocity — go find
+  the bad zero, the mis-ranged target, or the turret that doesn't track true.</p>
+
+  <h3>Stage 2 — true BC at long range</h3>
+
+  <p>With MV locked in, move as far out as you can get a verified distance and readable impacts —
+  well past your MV-truing distance, and ideally while the bullet is still comfortably supersonic.
+  Shoot a group, measure the vertical error of its center, and adjust BC (leaving MV alone) until the
+  prediction matches. If the fit is good at both your mid and long distances, the whole curve between
+  them is now trustworthy.</p>
+
+  <p>Don't try to true through the transonic zone. As the bullet approaches the speed of sound, drag
+  behavior changes in ways a single BC tweak can't represent. True BC at your farthest reliably
+  supersonic distance and treat anything beyond that as its own project.</p>
+
+  <p>Do it in the wrong order and you bake velocity error into your drag number. The solver will bend
+  the curve until it agrees with you at one distance — and disagrees everywhere else. That's the
+  classic "my dope is right at 600 but off at 350 and 800" signature.</p>
+
+  <h2>How many shots, at what distances</h2>
+
+  <ul class="clean">
+    <li><strong>Confirm zero first, that day.</strong> Every downrange measurement is stacked on top of
+    your zero. A zero that's a couple clicks off reads as a velocity error at 400 yards, and you'll
+    chase it in the wrong variable. Shoot a confirmation group at your zero distance before truing
+    anything.</li>
+    <li><strong>Groups, not single shots — 3 to 5 rounds per distance.</strong> One round can land
+    anywhere inside your rifle's cone of dispersion. At 500 yards that cone is several inches tall for
+    most rifles, which is bigger than the effect you're trying to measure. Always work from the group
+    center.</li>
+    <li><strong>Two distances minimum, three is better.</strong> One mid-range distance for MV, one
+    long distance for BC. A third distance in between, shot after truing, is cheap insurance that the
+    curve fits everywhere and not just at the two points you forced it through.</li>
+    <li><strong>Verified distances only.</strong> Laser the target or use a measured range. Range
+    error at distance translates directly into drop error, and it gets silently absorbed into whichever
+    number you're truing.</li>
+    <li><strong>A calm day.</strong> More on that below.</li>
+  </ul>
+
+  <h2>The mistakes that ruin a truing session</h2>
+
+  <p><strong>Truing on a windy day.</strong> Wind doesn't just move bullets sideways. A crosswind also
+  produces a small vertical deflection (aerodynamic jump), and gusty conditions smear the group so its
+  center is less trustworthy. Vertical error you blame on drop may be wind. If you must shoot in wind,
+  at least keep it steady and log it — but the honest answer is to true on a calm morning.</p>
+
+  <p><strong>Truing BC before MV.</strong> Covered above, and it's the most common ordering error.
+  MV first, always.</p>
+
+  <p><strong>A bad zero underneath.</strong> The second most common. Truing assumes your zero is
+  perfect; every bit of zero error becomes phantom ballistic error downrange.</p>
+
+  <p><strong>Truing off one impact.</strong> You just calibrated your solver to a random draw from
+  your rifle's dispersion. Group centers or nothing.</p>
+
+  <p><strong>Trusting the turret blindly.</strong> If your scope's actual click value is a few percent
+  off nominal, every dialed correction is scaled wrong, and truing will absorb the scope error into
+  MV. A tall-target test — dialing a known adjustment at 100 yards and measuring the actual shift on
+  paper — separates scope error from ballistic error. Do it once per scope.</p>
+
+  <p><strong>Ignoring temperature.</strong> Powder burns faster when it's hot. A muzzle velocity trued
+  in August is not your January velocity. Log the conditions you trued in, and re-true (or keep
+  seasonal profiles) when the temperature swings far from them.</p>
+
+  <h2>How Zero Considerations trues from a photograph</h2>
+
+  <p>Zero Considerations builds this workflow into the same photo loop it uses for zeroing. Print one
+  of the <a href="/targets/">free targets</a> — the corner markers are coded, so a photo of the target
+  gives the app true scale <em>and</em> lets it correct camera tilt and perspective. Shoot your group at
+  a verified distance, photograph the target, and the app finds the holes, computes the group center,
+  and compares actual drop against the prediction for your rifle and load. From that difference it
+  backs out trued muzzle velocity (at mid-range) or trued BC (at long range) — the same two-stage
+  order described above, enforced in the app.</p>
+
+  <p>The trued numbers then feed everything downstream: the drop table, DOPE cards, turret clicks, and
+  reticle holdovers for your specific optic. It all runs offline at the range, and it's a one-time
+  $9.99 purchase — no subscription, no account.</p>
+
+  <div class="note">
+    Honest limits: truing from observed drop is a practical estimate, not a chronograph reading, and
+    the app never certifies a result. After truing, shoot a confirmation group at a distance you
+    care about before you trust the new numbers.
+  </div>
+
+  <div class="safety">
+    For education and lawful sporting use. A trued profile is a better prediction, not a guarantee —
+    always confirm your dope with live fire at the distances you intend to shoot, and follow all
+    firearm safety rules and your range's procedures.
+  </div>
+
+  <h2>Put it to work</h2>
+  <p>Print a target, shoot a group, photograph it, and let the app do the measuring and the math.</p>
+  <p style="margin-top:1rem">
+    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
+    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
+  </p>
+</div>
+</body>
+</html>

@@ -29,6 +29,12 @@
   th{color:var(--ink)}
   td:first-child{color:var(--ink)}
   .tblwrap{overflow-x:auto}
+  /* --- standard CTA block (see scripts/seo_cta_retrofit.py) --- */
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:14px;
+       padding:1.25rem 1.35rem;margin:2.25rem 0 0}
+  .cta p{margin:0 0 .9rem;color:var(--dim)}
+  .cta p.cta-btns{margin:0}
+  .cta strong{color:var(--ink)}
 </style>
 <script type="application/ld+json">
 {
@@ -229,12 +235,21 @@
 
   <h2>Zero it once, keep the data</h2>
   <p>Zero Considerations does this whole page's work in one flow: photograph the target before and
-    after, get the measured group, the exact clicks, and a confirmation check — then your DOPE and
-    reticle holdovers, all offline, for a one-time $9.99.</p>
-  <p style="margin-top:1.5rem">
-    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
-    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
-  </p>
+    after, get the measured group, the click correction for your optic, and a prompt to confirm it with
+    another group — then your DOPE and reticle holdovers, at the bench with no signal, for a one-time
+    $9.99.</p>
+  <!-- cta:start -->
+  <div class="cta">
+    <p><strong>Zero Considerations</strong> — photograph the target, get the measured group
+      and the clicks to dial, then keep the DOPE. One-time <strong>$9.99</strong>, no
+      subscription, no account, works with no signal.</p>
+    <p class="cta-btns">
+      <a class="btn" href="https://apps.apple.com/app/id6792565250">Get it on the App&nbsp;Store — $9.99 once</a>
+      <a class="btn ghost" href="/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=how-to-zero-a-rifle">What it does</a>
+      <a class="btn ghost" href="/targets/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=how-to-zero-a-rifle">Free printable targets</a>
+    </p>
+  </div>
+  <!-- cta:end -->
 </div>
 </body>
 </html>

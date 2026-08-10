@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scope Click Calculator — MOA &amp; MRAD | Zero Considerations</title>
-<meta name="description" content="Free scope click calculator: distance and group offset in, exact MOA or MRAD turret clicks out — with the math shown, worked examples, common mistakes.">
+<meta name="description" content="Free scope click calculator: distance and group offset in, MOA or MRAD turret clicks out — with the math shown, worked examples, common mistakes.">
 <link rel="canonical" href="https://zeroconsiderations.com/scope-clicks-calculator/">
 <meta property="og:title" content="Scope Click Calculator — MOA &amp; MRAD">
-<meta property="og:description" content="Enter distance and group offset, get exact turret clicks for any click value — with the math shown.">
+<meta property="og:description" content="Enter distance and group offset, get your turret clicks for any click value — with the math shown.">
 <meta property="og:url" content="https://zeroconsiderations.com/scope-clicks-calculator/">
 <style>
   :root{--bg:#0B0E11;--card:#141920;--line:#232a33;--ink:#E8EDF2;--dim:#9AA6B2;--accent:#F5A524;--accent-ink:#0B0E11}
@@ -46,6 +46,12 @@
   .out .exact{color:var(--dim);font-size:.88rem;font-weight:400}
   .out .math{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.83rem;color:var(--dim);margin:.1rem 0 .9rem}
   .out .perclick{color:var(--dim);font-size:.88rem;margin:.5rem 0 0;border-top:1px solid var(--line);padding-top:.6rem}
+  /* --- standard CTA block (see scripts/seo_cta_retrofit.py) --- */
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:14px;
+       padding:1.25rem 1.35rem;margin:2.25rem 0 0}
+  .cta p{margin:0 0 .9rem;color:var(--dim)}
+  .cta p.cta-btns{margin:0}
+  .cta strong{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -204,8 +210,9 @@
   straight. Photograph the target before and after your string: the app finds the bullet holes, computes
   the group center, and converts the offset into clicks for your optic's actual click value from its
   preset catalog. From there it keeps going — truing your muzzle velocity and BC from observed drop,
-  building DOPE cards, and showing spec-verified holdovers for 215+ reticles. All offline, $9.99 once,
-  no subscription, no account.</p>
+  building DOPE cards, and showing holdovers on 215 reticles drawn from published manufacturer
+  subtension data. $9.99 once, no subscription, no account; it runs at the bench with no signal, and
+  the only network call in the app is the optional weather auto-fill you tap.</p>
   <p>It never certifies a zero, and neither should you — the app advises a confirmation group after every
   correction, same as this page does.</p>
 
@@ -214,10 +221,18 @@
     relying on them. Follow all firearm safety rules and your range's procedures.
   </div>
 
-  <p style="margin-top:2rem">
-    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
-    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
-  </p>
+  <!-- cta:start -->
+  <div class="cta">
+    <p><strong>Zero Considerations</strong> — photograph the target, get the measured group
+      and the clicks to dial, then keep the DOPE. One-time <strong>$9.99</strong>, no
+      subscription, no account, works with no signal.</p>
+    <p class="cta-btns">
+      <a class="btn" href="https://apps.apple.com/app/id6792565250">Get it on the App&nbsp;Store — $9.99 once</a>
+      <a class="btn ghost" href="/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=scope-clicks-calculator">What it does</a>
+      <a class="btn ghost" href="/targets/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=scope-clicks-calculator">Free printable targets</a>
+    </p>
+  </div>
+  <!-- cta:end -->
 </div>
 
 <script>

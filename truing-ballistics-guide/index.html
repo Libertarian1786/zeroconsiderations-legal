@@ -27,6 +27,12 @@
   ul.clean{list-style:none;padding:0;margin:1rem 0;color:var(--dim)}
   ul.clean li{padding:.4rem 0 .4rem 1.6rem;position:relative}
   ul.clean li:before{content:"—";position:absolute;left:0;color:var(--accent)}
+  /* --- standard CTA block (see scripts/seo_cta_retrofit.py) --- */
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:14px;
+       padding:1.25rem 1.35rem;margin:2.25rem 0 0}
+  .cta p{margin:0 0 .9rem;color:var(--dim)}
+  .cta p.cta-btns{margin:0}
+  .cta strong{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -180,10 +186,18 @@
 
   <h2>Put it to work</h2>
   <p>Print a target, shoot a group, photograph it, and let the app do the measuring and the math.</p>
-  <p style="margin-top:1rem">
-    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
-    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
-  </p>
+  <!-- cta:start -->
+  <div class="cta">
+    <p><strong>Zero Considerations</strong> — photograph the target, get the measured group
+      and the clicks to dial, then keep the DOPE. One-time <strong>$9.99</strong>, no
+      subscription, no account, works with no signal.</p>
+    <p class="cta-btns">
+      <a class="btn" href="https://apps.apple.com/app/id6792565250">Get it on the App&nbsp;Store — $9.99 once</a>
+      <a class="btn ghost" href="/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=truing-ballistics-guide">What it does</a>
+      <a class="btn ghost" href="/targets/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=truing-ballistics-guide">Free printable targets</a>
+    </p>
+  </div>
+  <!-- cta:end -->
 </div>
 </body>
 </html>

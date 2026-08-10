@@ -32,6 +32,12 @@
   th{color:var(--ink)}
   td:first-child{color:var(--ink)}
   .tblwrap{overflow-x:auto}
+  /* --- standard CTA block (see scripts/seo_cta_retrofit.py) --- */
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:14px;
+       padding:1.25rem 1.35rem;margin:2.25rem 0 0}
+  .cta p{margin:0 0 .9rem;color:var(--dim)}
+  .cta p.cta-btns{margin:0}
+  .cta strong{color:var(--ink)}
 </style>
 <script type="application/ld+json">
 {
@@ -108,13 +114,13 @@
   <p>This is the real fork in the road. Ballistic-X's job ends when it hands you the numbers: group size and offset from point of aim. What you do with those numbers — click values, dialing direction, distance conversion — is on you, or on a second app.</p>
   <p>Zero Considerations treats the measurement as step one:</p>
   <ul class="clean">
-    <li><strong>Turret clicks</strong> — the offset is converted into exact clicks for your optic's click value and turret direction, at your zeroing distance. No MOA-to-clicks math at the bench.</li>
+    <li><strong>Turret clicks</strong> — the offset is converted into a click count for your optic's click value and turret direction, at your zeroing distance. No MOA-to-clicks math at the bench &mdash; dial it, then confirm with a group.</li>
     <li><strong>Truing</strong> — a photographed group at known distance can work backwards to true your muzzle velocity and BC, so the solver matches your rifle instead of the box flap.</li>
     <li><strong>DOPE</strong> — build drop cards from the trued numbers for the distances you actually shoot.</li>
-    <li><strong>Reticle holdovers</strong> — 215+ spec-verified reticles rendered to scale, so you can see your holds on your reticle before you shoot.</li>
+    <li><strong>Reticle holdovers</strong> — 215 reticle patterns rendered to scale from published manufacturer subtension data, so you can see your holds on your reticle before you shoot.</li>
     <li><strong>Full ballistics solver</strong> — drop, wind, and energy in MOA, MIL, or clicks, plus height-over-bore computed from your optic and mount, offset and laser zeroing, and a photo rangefinder.</li>
   </ul>
-  <p>All of it in the same $9.99 one-time purchase, fully offline, with no account and no ads.</p>
+  <p>All of it in the same $9.99 one-time purchase, with no account and no ads. Measurement and ballistics run entirely on the phone; the only network call in the app is the optional weather auto-fill you tap.</p>
 
   <h2>Feature comparison</h2>
   <div class="tblwrap">
@@ -127,11 +133,11 @@
     <tr><td>Turret clicks for your specific optic</td><td>Outside its scope</td><td>Yes — your click value and direction</td></tr>
     <tr><td>Velocity / BC truing from drop</td><td>Outside its scope</td><td>Yes</td></tr>
     <tr><td>DOPE cards</td><td>Outside its scope</td><td>Yes</td></tr>
-    <tr><td>Reticle holdovers</td><td>Outside its scope</td><td>215+ spec-verified reticles, to scale</td></tr>
+    <tr><td>Reticle holdovers</td><td>Outside its scope</td><td>215 reticles drawn to published subtensions</td></tr>
     <tr><td>Full ballistics solver</td><td>Outside its scope</td><td>Yes — drop, wind, energy</td></tr>
     <tr><td>Height over bore from optic + mount</td><td>Outside its scope</td><td>Yes</td></tr>
     <tr><td>Price model</td><td>One-time purchase</td><td>$9.99 one-time, no subscription</td></tr>
-    <tr><td>Account required</td><td>&mdash;</td><td>No account, no ads, fully offline</td></tr>
+    <tr><td>Account required</td><td>&mdash;</td><td>No account, no ads; offline except optional weather</td></tr>
     <tr><td>Platforms</td><td>iOS and Android</td><td>iOS (live); Android free beta, production ~Sept 2026</td></tr>
     <tr><td>Most recent update</td><td>Actively updated (v4 rewrite, 2026)</td><td>Actively updated</td></tr>
   </table>
@@ -157,7 +163,7 @@
   <p>No detector is perfect, and any app that claims 100% is selling you something. Torn paper, ragged overlapping holes, and dark backers can hide a hole. When that happens you add or remove holes with a tap — a missed hole costs one tap, not the workflow.</p>
 
   <h3>Will either app guarantee my zero?</h3>
-  <p>No app can, and you should distrust one that claims to. A group is a sample: it includes you, the wind, and the ammo. Zero Considerations gives you the exact clicks for the offset it measured, but the click adjustment is a correction, not a certificate — always fire a confirmation group after dialing.</p>
+  <p>No app can, and you should distrust one that claims to. A group is a sample: it includes you, the wind, and the ammo. Zero Considerations gives you a click count for the offset it measured and the optic you selected, but that adjustment is a correction, not a certificate — always fire a confirmation group after dialing.</p>
 
   <h3>Can I use both?</h3>
   <p>Sure. Both are one-time purchases, so owning both is cheap. Some shooters keep Ballistic-X for quick group scoring and open Zero Considerations when the job is a zero, a truing session, or dope.</p>
@@ -169,10 +175,18 @@
 
   <h2>Try it</h2>
   <p>Zero Considerations is $9.99 once — no subscription, no ads, no account, works with no signal. iPhone now; Android production release ~Sept 2026. The zeroing targets are free either way.</p>
-  <p style="margin-top:1.25rem">
-    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
-    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
-  </p>
+  <!-- cta:start -->
+  <div class="cta">
+    <p><strong>Zero Considerations</strong> — photograph the target, get the measured group
+      and the clicks to dial, then keep the DOPE. One-time <strong>$9.99</strong>, no
+      subscription, no account, works with no signal.</p>
+    <p class="cta-btns">
+      <a class="btn" href="https://apps.apple.com/app/id6792565250">Get it on the App&nbsp;Store — $9.99 once</a>
+      <a class="btn ghost" href="/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=ballistic-x-alternative">What it does</a>
+      <a class="btn ghost" href="/targets/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=ballistic-x-alternative">Free printable targets</a>
+    </p>
+  </div>
+  <!-- cta:end -->
 </div>
 </body>
 </html>

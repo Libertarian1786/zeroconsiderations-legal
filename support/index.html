@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Zero Considerations</title>
+<meta name="description" content="Get help with Zero Considerations: how to reach a human, what to put in a bug report, and how to send target photos so a detection problem can actually be reproduced.">
+<link rel="canonical" href="https://zeroconsiderations.com/support/">
+<meta property="og:title" content="Zero Considerations — Support">
+<meta property="og:description" content="One person builds this app and answers this mailbox. Here is how to reach him and what to include.">
+<meta property="og:url" content="https://zeroconsiderations.com/support/">
+<style>
+  :root{--bg:#0B0E11;--card:#141920;--line:#232a33;--ink:#E8EDF2;--dim:#9AA6B2;--accent:#F5A524;--accent-ink:#0B0E11;--green:#3DDC84}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+  h1{font-size:clamp(1.7rem,5vw,2.4rem);letter-spacing:-.02em;margin:0 0 .5rem}
+  h2{font-size:1.35rem;margin:2.6rem 0 .6rem;letter-spacing:-.01em}
+  h3{font-size:1.05rem;margin:1.6rem 0 .35rem}
+  p,li{color:var(--dim)}
+  strong{color:var(--ink)}
+  a{color:var(--accent)}
+  .lede{font-size:1.05rem;max-width:62ch}
+  .btn{display:inline-block;padding:.85rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;background:var(--accent);color:var(--accent-ink);margin:.4rem .5rem .4rem 0}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;font-size:.94rem;margin:1.5rem 0}
+  .note p:last-child{margin-bottom:0}
+  .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);border-radius:12px;padding:1rem 1.25rem;color:var(--dim);font-size:.92rem;margin-top:1.5rem}
+  pre{background:#0b0e11;border:1px dashed #3a434c;border-radius:10px;padding:1rem 1.1rem;overflow-x:auto;color:var(--dim);font:13px/1.6 ui-monospace,Consolas,monospace;white-space:pre-wrap}
+  ol,ul{padding-left:1.25rem}
+  li{margin:.4rem 0}
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;font-size:.94rem;margin:1rem 0}
+  .kv dt{color:var(--ink);font-weight:600}
+  .kv dd{margin:0;color:var(--dim)}
+  hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
+  footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.5rem;color:var(--dim);font-size:.9rem}
+  footer a{color:var(--dim)}
+  @media (max-width:520px){.kv{grid-template-columns:1fr}.kv dd{margin-bottom:.5rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Support</h1>
+<p class="lede">Zero Considerations is written and supported by one person. There is no ticket
+  queue, no chatbot, and no call centre — there is an email address, and I read every message
+  that lands in it.</p>
+
+<h2>Email</h2>
+<p style="font-size:1.15rem">
+  <!-- SUPPORT-ADDRESS: this is the ONE place the address appears on this page.
+       When support@zeroconsiderations.com forwarding is live at Porkbun, replace
+       both the href and the link text here (and the identical marker on /faq/
+       and in the homepage footer). See reports/zc_dated_flips.md. -->
+  <a href="mailto:davidmccoybiz@gmail.com?subject=Zero%20Considerations%20support">davidmccoybiz@gmail.com</a>
+</p>
+
+<div class="note">
+  <p><strong>How fast will I hear back?</strong> Usually same day or the next. I aim to answer
+    everything within <strong>two business days</strong>. I am one person with a day job, so
+    a busy week can stretch that — if you have heard nothing after <strong>three business
+    days</strong>, assume the mail got eaten and send it again. Resending is not rude; it is
+    genuinely useful.</p>
+  <p>Sending a bug report costs you nothing and it is the only way I find out something is
+    broken. The app collects no analytics and phones nothing home, so if you do not tell me,
+    I do not know.</p>
+</div>
+
+<hr>
+
+<h2>Reporting a bug</h2>
+<p>Most reports that stall do so for one reason: I cannot reproduce them. Five lines of
+  context usually fixes that. Copy this block into your email and fill it in — anything
+  you cannot answer, leave blank.</p>
+
+<pre>App version and build:   (Settings → About, e.g. "0.14.10 (build 100)")
+Phone and OS:            (e.g. "Pixel 7, Android 15" or "iPhone 13, iOS 18.5")
+Where it happened:       (which screen / which step of the session)
+What you expected:
+What actually happened:
+Detection details text:  (paste it — see below)
+</pre>
+
+<h3>1. The version and build number</h3>
+<p>Open the app → <strong>Settings</strong> → scroll to <strong>About</strong>. The line reads
+  <em>Version 0.14.10 (build 100)</em> or similar. The build number matters more than the
+  version — several fixes have shipped inside the same version string, and it tells me
+  immediately whether you already have the fix.</p>
+
+<h3>2. Your phone model and OS version</h3>
+<p>Camera behaviour, image sizes and the on-device detection models differ enough between
+  handsets that "it does not work" is unanswerable without this.</p>
+
+<h3>3. What the detection actually did</h3>
+<p>This is the important one, and it is the part people usually skip.</p>
+<p>When a photo step fails or gives a result you did not expect, open the
+  <strong>Detection details</strong> disclosure on that screen. It prints exactly what ran —
+  how many of the four corner markers were seen, which decode sizes were tried, how sharp the
+  frame was, and whether each detection engine loaded. Select that text and paste it into
+  your email verbatim.</p>
+<p>It matters because those cases look identical from the outside and are completely different
+  problems. "No corner markers seen" is a framing or lighting problem you can fix in ten
+  seconds. "Marker engine: FAILED TO LOAD" is <em>my</em> bug, on my side, and no amount of
+  retaking the photo will help — that exact failure once masqueraded as a photo problem for
+  weeks. The disclosure is there so you never have to guess which one you are looking at,
+  and so I never have to guess either.</p>
+
+<h3>4. The photos</h3>
+<p>For anything involving the camera, the target, hole detection, scale or markers, the photo
+  <em>is</em> the bug report. Please attach:</p>
+<ul>
+  <li>The <strong>original photo file</strong> from your gallery — not a screenshot of it, and
+    not a crop.</li>
+  <li>If your mail app offers to resize images when attaching, choose
+    <strong>Actual Size / Original</strong>. The compression on "Small" or "Medium" destroys
+    precisely the fine detail the detector works on, so a shrunk photo cannot reproduce a
+    detection bug.</li>
+  <li>If you used the before/after flow, send <strong>both</strong> the blank sheet and the
+    shot sheet.</li>
+  <li>A screenshot of the results screen is a useful extra, but it is not a substitute for the
+    original photo.</li>
+</ul>
+
+<div class="note">
+  <p><strong>On your photos and your privacy.</strong> The app never uploads anything — if I
+    have a photo of yours, it is because you attached it to an email yourself. I use it to
+    reproduce your problem and nothing else. If you would rather not send a photo of your
+    actual target, a photo of a printed sheet with a few holes punched in it reproduces most
+    detection bugs just as well. Please do not send anything you would not want in someone
+    else's inbox.</p>
+</div>
+
+<hr>
+
+<h2>Before you write: three things that fix most problems</h2>
+<ol>
+  <li><strong>Print at 100%.</strong> If you are using the free printable targets, the print
+    dialog must be set to <em>100% / Actual size</em>, never "Fit to page" or "Shrink to fit".
+    Every sheet has a 1-inch and a 50&nbsp;mm ruler printed on it — measure one before you
+    shoot. A page scaled to 94% makes every measurement wrong by 6% and nothing on screen
+    will tell you.</li>
+  <li><strong>Back up, do not zoom in.</strong> If the app cannot find the corner markers, the
+    usual cause is framing too tight. All four corners need to be in the frame with a little
+    white margin around them. Filling the frame with the bull strips the markers' quiet zone
+    and you get zero markers found.</li>
+  <li><strong>Hold the phone square-on.</strong> The corner markers correct for a moderate
+    angle, but an extreme oblique view will be rejected rather than silently guessed at.</li>
+</ol>
+<p><a class="btn ghost" href="/faq/">Read the full FAQ →</a></p>
+
+<hr>
+
+<h2>Things I cannot do</h2>
+<div class="kv">
+  <dt>Issue an App Store refund</dt>
+  <dd>Apple handles every iPhone refund itself; developers have no button for it. Use
+    <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Details on the
+    <a href="/faq/#refunds">FAQ</a>.</dd>
+
+  <dt>See your data</dt>
+  <dd>Your rifles, loads, sessions and photos live only on your phone. There is no account and
+    no server, so I cannot look up your setup, recover a deleted session, or restore anything
+    for you. Settings → Export all sessions (CSV) is your backup.</dd>
+
+  <dt>Tell you what your zero is</dt>
+  <dd>The app is advisory. It measures what you photographed and computes a correction from
+    the specs you selected. It never certifies a zero — dial, then confirm with a follow-up
+    group of live fire.</dd>
+</div>
+
+<h2>Feature requests</h2>
+<p>Send them. The single most useful message I have ever received was a tester telling me one
+  sentence of onboarding copy was confusing; that turned into a rewrite of every instruction
+  in the app. Small, specific complaints are worth more than long wish-lists — tell me the
+  moment you got stuck.</p>
+
+<div class="safety">
+  For education and lawful sporting use. No app — this one included — certifies a zero. Confirm
+  every zero and every dope change with live fire before relying on it, and follow all firearm
+  safety rules and your range's procedures.
+</div>
+
+<footer>
+  <p><a href="/">Zero Considerations</a> &middot;
+     <a href="/faq/">FAQ</a> &middot;
+     <a href="/privacy.html">Privacy policy</a> &middot;
+     <a href="/targets/">Free targets</a></p>
+  <p>&copy; 2026 David McCoy. Not affiliated with, endorsed by, or sponsored by any firearm,
+     optic, or ammunition manufacturer.</p>
+</footer>
+
+</div>
+</body>
+</html>

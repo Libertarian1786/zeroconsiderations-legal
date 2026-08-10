@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — Zero Considerations</title>
+<meta name="description" content="Honest answers about Zero Considerations: why hole detection misses shots, why marker detection fails, printing targets at 100%, offline behaviour, iPhone vs Android, and how refunds actually work on each store.">
+<link rel="canonical" href="https://zeroconsiderations.com/faq/">
+<meta property="og:title" content="Zero Considerations — Frequently Asked Questions">
+<meta property="og:description" content="Including the ones with awkward answers: what the detector misses, and why.">
+<meta property="og:url" content="https://zeroconsiderations.com/faq/">
+<style>
+  :root{--bg:#0B0E11;--card:#141920;--line:#232a33;--ink:#E8EDF2;--dim:#9AA6B2;--accent:#F5A524;--accent-ink:#0B0E11;--green:#3DDC84}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+  h1{font-size:clamp(1.7rem,5vw,2.4rem);letter-spacing:-.02em;margin:0 0 .5rem}
+  h2{font-size:1.22rem;margin:2.8rem 0 .6rem;letter-spacing:-.01em;scroll-margin-top:1rem}
+  h2 .num{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:.5rem}
+  h3{font-size:1.02rem;margin:1.5rem 0 .35rem}
+  p,li{color:var(--dim)}
+  strong{color:var(--ink)}
+  a{color:var(--accent)}
+  .lede{font-size:1.05rem;max-width:64ch}
+  .btn{display:inline-block;padding:.85rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;background:var(--accent);color:var(--accent-ink);margin:.4rem .5rem .4rem 0}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;font-size:.94rem;margin:1.25rem 0}
+  .note p:last-child{margin-bottom:0}
+  .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);border-radius:12px;padding:1rem 1.25rem;color:var(--dim);font-size:.92rem;margin-top:1.5rem}
+  .beta{background:rgba(61,220,132,.06);border:1px solid rgba(61,220,132,.3);border-radius:12px;padding:1.1rem 1.25rem;margin:2rem 0}
+  .beta h2{margin-top:.2rem;font-size:1.1rem}
+  .beta h3{color:var(--ink)}
+  ol,ul{padding-left:1.25rem}
+  li{margin:.4rem 0}
+  .toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;margin:2rem 0}
+  .toc ol{margin:.4rem 0 0;padding-left:1.35rem}
+  .toc li{margin:.25rem 0;font-size:.95rem}
+  code{background:#0b0e11;border:1px solid #2a323b;border-radius:4px;padding:.1rem .35rem;font:13px/1.4 ui-monospace,Consolas,monospace;color:var(--ink)}
+  hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
+  footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.5rem;color:var(--dim);font-size:.9rem}
+  footer a{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Frequently asked questions</h1>
+<p class="lede">Including the ones with awkward answers. If your question is not here,
+  <a href="/support/">email me</a> — that page also explains what to include so I can
+  actually reproduce the problem.</p>
+
+<div class="toc">
+  <strong style="font-size:.95rem">On this page</strong>
+  <ol>
+    <li><a href="#missed-holes">It missed some of my shot holes — is it broken?</a></li>
+    <li><a href="#false-holes">It marked something that is not a hole.</a></li>
+    <li><a href="#markers">It cannot find the corner markers on the target.</a></li>
+    <li><a href="#engine-failed">It says an engine "failed to load".</a></li>
+    <li><a href="#printing">How do I print the targets so the measurements are right?</a></li>
+    <li><a href="#no-printer">Do I have to use your printed targets?</a></li>
+    <li><a href="#offline">Does it really work offline? What leaves my phone?</a></li>
+    <li><a href="#platforms">Is it on iPhone? Is it on Android?</a></li>
+    <li><a href="#refunds">How do I get a refund?</a></li>
+    <li><a href="#subscription">Is there a subscription, or will there be?</a></li>
+  </ol>
+</div>
+
+<h2 id="missed-holes"><span class="num">1</span>It missed some of my shot holes — is it broken?</h2>
+<p>Probably not. Automatic hole detection is a <strong>first pass, not a verdict</strong>, and
+  the app is built on that assumption: every detected hole can be moved or deleted, and you can
+  tap to add one it missed, before anything is measured or converted into clicks.</p>
+<p>Here is the honest number. On our own benchmark — real photographed targets that the
+  detection models were never trained on — the automatic pass finds roughly
+  <strong>two-thirds to four-fifths</strong> of the holes, depending on the target and which
+  build you are running. That is our internal measurement, not an independent test, and it is
+  the reason the correction step exists rather than being hidden.</p>
+<p>The cases that are hardest, measured rather than guessed:</p>
+<ul>
+  <li><strong>Holes inside black or dark printed areas.</strong> A .22 hole in the middle of a
+    black bull is close to invisible to both the classical and the trained detector. This is the
+    single worst case in our bench. If you shoot dark bulls, expect to add holes by hand.</li>
+  <li><strong>Overlapping holes.</strong> Two rounds through nearly the same spot read as one.</li>
+  <li><strong>A soft or shaded photo.</strong> The app tells you when the frame looks blurry;
+    flat, even light and a steady phone beat any amount of processing.</li>
+  <li><strong>Old holes in the backer.</strong> If the paper behind your sheet is already
+    shot up, those can be picked up too.</li>
+</ul>
+<p>Adding a missed hole by hand costs one tap and the result is exactly as accurate as an
+  auto-detected one — the measurement comes from where the hole is, not from who found it.</p>
+
+<h2 id="false-holes"><span class="num">2</span>It marked something that is not a hole.</h2>
+<p>That happens too, and by design it errs toward showing you a candidate rather than silently
+  dropping it. Paper texture, staples, pen marks, tears and old backer holes all get picked up
+  sometimes. In our benchmark, a meaningful share of the marks the automatic pass proposes are
+  not real holes.</p>
+<p>Delete them with a tap. Nothing is computed until you have confirmed the set — the app does
+  not quietly average in a mark you did not want. If a photo produces a lot of junk, a clean
+  backer behind the sheet is the single biggest improvement you can make.</p>
+
+<h2 id="markers"><span class="num">3</span>It cannot find the corner markers on the target.</h2>
+<p>The printed sheets carry four coded corner markers that let the app fix the photo's scale
+  and correct for the angle you were standing at. When it cannot read them, the app tells you
+  <em>how many of the four it saw</em>, because zero and three are completely different
+  problems:</p>
+<ul>
+  <li><strong>Zero markers seen</strong> — almost always framing too tight. Back up so the
+    <em>whole sheet</em> is in frame with a little margin around all four corners. Do not zoom
+    in on the group: filling the frame pushes the markers against the edge and strips the white
+    quiet zone they need, which is what breaks them.</li>
+  <li><strong>One to three markers seen</strong> — a corner is glared out, shadowed, folded, or
+    cropped. Move so the light is not bouncing off the paper, and check no corner is bent or
+    covered by a target stand.</li>
+  <li><strong>All four seen but still rejected</strong> — the view was too oblique. Stand
+    square-on to the sheet and retake. This one is geometry, not light.</li>
+</ul>
+<p>Also worth checking: a sheet printed at "Fit to page" has slightly wrong marker geometry.
+  See <a href="#printing">printing</a>.</p>
+<p>If markers simply are not an option, you are not stuck — see
+  <a href="#no-printer">"Do I have to use your printed targets?"</a></p>
+
+<h2 id="engine-failed"><span class="num">4</span>It says an engine "failed to load".</h2>
+<p>Then it is my bug, not your photo, and no amount of retaking it will help. Open the
+  <strong>Detection details</strong> disclosure on that screen — it lists each detection engine
+  and whether it loaded, with the verbatim failure text if one did not. Please
+  <a href="/support/">send me that text</a>; it names the fault directly.</p>
+<p>In the meantime the manual scale option still works, and the ballistics, reticle and
+  DOPE sides of the app are entirely unaffected.</p>
+<p>This is surfaced deliberately. A loader that had silently died once spent weeks
+  masquerading as "your photo is bad", coaching people to fix something that was never the
+  problem. The status lines exist so that can never happen quietly again.</p>
+
+<h2 id="printing"><span class="num">5</span>How do I print the targets so the measurements are right?</h2>
+<p>Set the print dialog to <strong>100% / Actual size</strong>. Never "Fit to page",
+  "Shrink to fit", or "Scale to paper size" — those silently shrink the sheet by a few percent
+  and every inch the app measures is then wrong by the same few percent.</p>
+<p>Every sheet has a <strong>1-inch and a 50&nbsp;mm ruler printed on it</strong>. Put a real
+  ruler on it once, before you drive to the range. If they match, your printer is set up
+  correctly and you never have to think about it again.</p>
+<p>Match the paper too: use the Letter PDF on Letter paper and the A4 PDF on A4. The
+  <a href="/targets/">targets are free</a> whether or not you use the app.</p>
+
+<h2 id="no-printer"><span class="num">6</span>Do I have to use your printed targets?</h2>
+<p>No. The printed sheets with corner markers are the <em>most accurate</em> path and the one
+  to use if you have a printer, but they are not required.</p>
+<p>On any other target, the app needs one object of known size in the photo to set the scale.
+  The easiest one you already have is <strong>a cartridge of the caliber you are shooting</strong>:
+  lay a single round flat on the target before you shoot, in the same plane as the paper, and
+  photograph it with the target. The round is the size reference — the app knows the case
+  dimensions for the caliber you selected. Failing that, you can enter the scale by hand from
+  any known distance in the photo.</p>
+<p>This got clearer in the app because a tester said the original wording did not explain the
+  alternative properly. He was right, and every instruction screen in the app was rewritten to
+  name both paths and say <em>why</em> the round is there.</p>
+
+<h2 id="offline"><span class="num">7</span>Does it really work offline? What leaves my phone?</h2>
+<p>Yes, genuinely. There is no account, no sign-up, no ads and no analytics. Your rifles,
+  optics, loads, sessions and target photos are stored on the device and are never uploaded —
+  which also means <em>I</em> cannot see them, recover them, or restore them for you. Use
+  Settings → Export all sessions (CSV) as your backup.</p>
+<p>There is exactly <strong>one</strong> outbound network request in the whole app, and it only
+  happens if you tap for it: the optional <strong>"Fill from my location"</strong> weather
+  lookup. That sends your approximate coordinates to MET Norway's public weather API
+  (<code>api.met.no</code>) to fetch temperature, humidity and pressure so you do not have to
+  type them. Nothing else is sent, ever, and if you never tap the button, the app makes no
+  network requests at all. You can also just type the numbers in.</p>
+<p>Full detail in the <a href="/privacy.html">privacy policy</a>.</p>
+
+<h2 id="platforms"><span class="num">8</span>Is it on iPhone? Is it on Android?</h2>
+<p><strong>iPhone and iPad:</strong> out now on the
+  <a href="https://apps.apple.com/app/id6792565250">App Store</a> as a one-time $9.99 purchase.</p>
+<p><strong>Android:</strong> in a free closed beta on Google Play ahead of the public launch.
+  There is no waiting list — see the <a href="/beta">Android beta page</a> for the current way
+  in. The Android and iPhone versions are the same app from the same source; feature parity is
+  the default and anything platform-specific is called out in the release notes.</p>
+<p>Nothing else is planned. There is no web version, no desktop version, and no plan to add
+  either — the whole product depends on the phone's camera and sensors.</p>
+
+<h2 id="refunds"><span class="num">9</span>How do I get a refund?</h2>
+<p>Refunds are handled by the store you bought from, not by me, and the two stores work
+  differently. Both policies below are quoted from the stores themselves.</p>
+
+<h3>App Store (iPhone / iPad)</h3>
+<p>Apple processes every App Store refund. Developers have no mechanism to issue one — I could
+  not refund you if I wanted to. Apple's instructions: <em>"Sign in to reportaproblem.apple.com.
+  Tap or click 'I'd like to,' then choose 'Request a refund.' Choose the reason why you want a
+  refund, then choose Next. Choose the app, subscription, or other item, then choose Submit."</em>
+  Apple then says to <em>"Wait 24 to 48 hours for an update on your request."</em>
+  (<a href="https://support.apple.com/en-us/118223">Apple Support, "Request a refund for apps or
+  content that you bought from Apple"</a>.) Apple's Media Services terms state that
+  <em>"All Transactions are final"</em> and that refunds are at Apple's determination; in
+  countries with statutory consumer protections, those rights still apply.</p>
+
+<h3>Google Play (Android)</h3>
+<p>Google's policy for apps and games: <em>"Within 48 hours: You may be able to get a refund
+  depending on the details of the purchase."</em> and <em>"After 48 hours: Contact the developer
+  to troubleshoot and find out if you can get a refund. The developer can help with purchase
+  issues and can process refunds according to their policies and applicable laws."</em>
+  Google also notes: <em>"You can only return an app or game for a refund once. If you buy it
+  again, you can't get a refund."</em>
+  (<a href="https://support.google.com/googleplay/answer/15574908">Google Play Help, "Apps,
+  games, &amp; in-app purchases refund policies"</a>.)</p>
+<p>So on Android, past 48 hours it comes to me. <a href="/support/">Write to me</a> and say what
+  went wrong. I would rather fix the thing that disappointed you, but if the app is not what you
+  needed, say so and I will not make you argue about it.</p>
+
+<h2 id="subscription"><span class="num">10</span>Is there a subscription, or will there be?</h2>
+<p>No, and no. One purchase, every feature, no second paywall inside the app, and improvements
+  ship as free updates. There is no "Pro" tier holding features back and no plan to add one.</p>
+<p>This is not a launch promotion — it is the reason the app exists. If a future feature is big
+  enough to need paying for, it will be a separate one-time purchase or a paid major version,
+  never a recurring charge on something you already bought.</p>
+
+<!-- BETA-BLOCK-START — remove this whole block when the Android public launch happens.
+     Contents are beta-window specific. See reports/zc_dated_flips.md. -->
+<div class="beta">
+  <h2 style="border:0" id="beta">While Android is still in beta</h2>
+
+  <h3>I joined the tester group but Google Play says I do not have access.</h3>
+  <p>That is Google syncing, not something broken. After you join the group it typically takes
+    <strong>15 to 60 minutes</strong> before Play recognises your account as a tester. Wait,
+    then reload the page. Doing the join today and installing tomorrow is one tap.</p>
+
+  <h3>My promo code will not redeem — it says the code is not valid.</h3>
+  <p>Play promo codes do not work while an app is still in closed testing; this was confirmed the
+    hard way on a known-good code and a fully opted-in account. Codes are not the way in right
+    now and no code is needed — follow the three steps on the
+    <a href="/beta">Android beta page</a> instead. Any code you were sent stays valid for later.</p>
+</div>
+<!-- BETA-BLOCK-END -->
+
+<hr>
+
+<h2 style="margin-top:1.5rem">Still stuck?</h2>
+<p><a class="btn" href="/support/">Contact support</a>
+   <a class="btn ghost" href="/targets/">Free printable targets</a></p>
+
+<div class="safety">
+  For education and lawful sporting use. No app — this one included — certifies a zero. The
+  numbers are estimates from photo measurements and the optic specs you selected: dial, then
+  confirm with a follow-up group of live fire. Follow all firearm safety rules and your range's
+  procedures.
+</div>
+
+<footer>
+  <p><a href="/">Zero Considerations</a> &middot;
+     <a href="/support/">Support</a> &middot;
+     <a href="/privacy.html">Privacy policy</a> &middot;
+     <a href="/targets/">Free targets</a> &middot;
+     <a href="/strelok-alternative/">Strelok alternative</a></p>
+  <p>&copy; 2026 David McCoy. Not affiliated with, endorsed by, or sponsored by any firearm,
+     optic, or ammunition manufacturer. Product names and reticle names are the trademarks of
+     their respective owners.</p>
+</footer>
+
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"It missed some of my shot holes — is it broken?","acceptedAnswer":{"@type":"Answer","text":"Probably not. Automatic hole detection is a first pass, not a verdict, and the app is built on that assumption: every detected hole can be moved or deleted, and you can tap to add one it missed, before anything is measured or converted into clicks. On our own benchmark of real photographed targets the automatic pass finds roughly two-thirds to four-fifths of the holes, depending on the target and the build. Holes inside black or dark printed areas are the hardest case."}},
+    {"@type":"Question","name":"It marked something that is not a hole.","acceptedAnswer":{"@type":"Answer","text":"That happens too, and by design it errs toward showing you a candidate rather than silently dropping it. Paper texture, staples, pen marks, tears and old backer holes all get picked up sometimes. Delete them with a tap — nothing is computed until you have confirmed the set."}},
+    {"@type":"Question","name":"It cannot find the corner markers on the target.","acceptedAnswer":{"@type":"Answer","text":"The app tells you how many of the four markers it saw. Zero markers seen is almost always framing too tight: back up so the whole sheet is in frame with a little margin, and do not zoom in on the group. One to three seen means a corner is glared, shadowed, folded or cropped. All four seen but rejected means the view was too oblique — stand square-on and retake."}},
+    {"@type":"Question","name":"It says an engine failed to load.","acceptedAnswer":{"@type":"Answer","text":"Then it is an app fault, not your photo, and retaking the photo will not help. Open the Detection details disclosure on that screen — it lists each detection engine and whether it loaded, with the verbatim failure text. Send that text to support. The manual scale option still works in the meantime, and the ballistics, reticle and DOPE features are unaffected."}},
+    {"@type":"Question","name":"How do I print the targets so the measurements are right?","acceptedAnswer":{"@type":"Answer","text":"Set the print dialog to 100% / Actual size — never Fit to page or Shrink to fit, which silently shrink the sheet by a few percent and make every measured inch wrong by the same amount. Every sheet has a 1-inch and a 50 mm ruler printed on it; check it once with a real ruler. Use the Letter PDF on Letter paper and the A4 PDF on A4."}},
+    {"@type":"Question","name":"Do I have to use your printed targets?","acceptedAnswer":{"@type":"Answer","text":"No. The printed sheets with corner markers are the most accurate path but are not required. On any other target the app needs one object of known size in the photo: lay a single cartridge of the caliber you are shooting flat on the target, in the same plane as the paper, and photograph it with the target — the round is the size reference. You can also enter the scale by hand."}},
+    {"@type":"Question","name":"Does it really work offline? What leaves my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. There is no account, no sign-up, no ads and no analytics; rifles, optics, loads, sessions and target photos are stored on the device and never uploaded. There is exactly one outbound network request in the whole app and it only happens if you tap for it: the optional Fill from my location weather lookup, which sends approximate coordinates to MET Norway's public weather API to fetch temperature, humidity and pressure. Nothing else is ever sent."}},
+    {"@type":"Question","name":"Is it on iPhone? Is it on Android?","acceptedAnswer":{"@type":"Answer","text":"iPhone and iPad: out now on the App Store as a one-time $9.99 purchase. Android: in a free closed beta on Google Play ahead of the public launch. Both are the same app from the same source. There is no web or desktop version planned."}},
+    {"@type":"Question","name":"How do I get a refund?","acceptedAnswer":{"@type":"Answer","text":"Refunds are handled by the store you bought from. On the App Store, Apple processes every refund and developers have no mechanism to issue one: sign in to reportaproblem.apple.com, choose 'Request a refund', pick the reason and the item, and submit; Apple asks you to wait 24 to 48 hours for an update. On Google Play, within 48 hours you may be able to get a refund through Google; after 48 hours you contact the developer, who can process refunds according to their policies and applicable laws."}},
+    {"@type":"Question","name":"Is there a subscription, or will there be?","acceptedAnswer":{"@type":"Answer","text":"No, and no. One purchase, every feature, no second paywall inside the app, and improvements ship as free updates. There is no Pro tier holding features back and no plan to add one. If a future feature is big enough to need paying for, it will be a separate one-time purchase or a paid major version, never a recurring charge."}}
+  ]
+}
+</script>
+
+</body>
+</html>

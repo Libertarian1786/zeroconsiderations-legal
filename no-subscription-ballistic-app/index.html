@@ -28,6 +28,12 @@
   th{color:var(--ink)}
   td:first-child{color:var(--ink)}
   .tblwrap{overflow-x:auto}
+  /* --- standard CTA block (see scripts/seo_cta_retrofit.py) --- */
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:14px;
+       padding:1.25rem 1.35rem;margin:2.25rem 0 0}
+  .cta p{margin:0 0 .9rem;color:var(--dim)}
+  .cta p.cta-btns{margin:0}
+  .cta strong{color:var(--ink)}
 </style>
 <script type="application/ld+json">
 {
@@ -96,7 +102,7 @@
     <tr><td>Shooter</td><td>$19.99 once, per platform</td><td>Classic trajectory solver, iOS and Android</td></tr>
     <tr><td>GeoBallistics</td><td>Free + $14.99 Pro unlock</td><td>Solver with terrain mapping and range cards</td></tr>
     <tr><td>Ballistic-X</td><td>$7.99 once (base app)</td><td>Photo group measurement and sight correction</td></tr>
-    <tr><td>Zero Considerations</td><td>$9.99 once</td><td>Photo zeroing to turret clicks, full solver, 215+ verified reticles</td></tr>
+    <tr><td>Zero Considerations</td><td>$9.99 once</td><td>Photo zeroing to turret clicks, full solver, 215 spec-drawn reticles</td></tr>
   </table>
   </div>
   <p style="font-size:.9rem">Prices checked August 2026. Store prices change — confirm on the listing before buying.</p>
@@ -176,14 +182,15 @@
 
   <h2 id="zc">Where Zero Considerations fits</h2>
   <p><strong>Zero Considerations is $9.99, once, for everything</strong> — no subscription, no ads,
-    no account, fully offline. The core loop: photograph your target before and after the string,
-    and the app measures the group and converts your point-of-impact error into exact turret clicks
-    for your optic's click value. The <a href="/targets/">free printable targets</a> carry coded
+    no account, and offline for everything except one optional weather lookup you tap. The core loop:
+    photograph your target before and after the string, and the app measures the group and converts
+    your point-of-impact error into a click count for your optic's click value. The <a href="/targets/">free printable targets</a> carry coded
     corner markers that set the photo's scale <em>and</em> correct camera tilt and perspective, and
     bullet holes are detected automatically (you can add or remove any the camera got wrong) —
     against Ballistic-X, its closest one-time neighbor, those are the differences, along with what
     happens next: the same purchase continues into truing your muzzle velocity and BC from observed
-    drop, DOPE cards, a full solver, and holdover points on 215+ spec-verified reticles. What it
+    drop, DOPE cards, a full solver, and holdover points on 215 reticles drawn from published
+    manufacturer subtension data. What it
     won't do is certify your zero — no app can. Confirm with a follow-up group before you trust any
     correction, and treat trued velocity as a good field estimate, not a chronograph reading.</p>
 
@@ -215,10 +222,18 @@
   <h2>Try the one-time model</h2>
   <p>One purchase, every feature, works with zero bars. Start with the free targets — they're
     useful with or without the app.</p>
-  <p style="margin-top:1rem">
-    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
-    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
-  </p>
+  <!-- cta:start -->
+  <div class="cta">
+    <p><strong>Zero Considerations</strong> — photograph the target, get the measured group
+      and the clicks to dial, then keep the DOPE. One-time <strong>$9.99</strong>, no
+      subscription, no account, works with no signal.</p>
+    <p class="cta-btns">
+      <a class="btn" href="https://apps.apple.com/app/id6792565250">Get it on the App&nbsp;Store — $9.99 once</a>
+      <a class="btn ghost" href="/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=no-subscription-ballistic-app">What it does</a>
+      <a class="btn ghost" href="/targets/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=no-subscription-ballistic-app">Free printable targets</a>
+    </p>
+  </div>
+  <!-- cta:end -->
 </div>
 </body>
 </html>

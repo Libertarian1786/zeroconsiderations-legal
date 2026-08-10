@@ -59,6 +59,12 @@
   ul.clean li{padding:.4rem 0 .4rem 1.6rem;position:relative}
   ul.clean li:before{content:"—";position:absolute;left:0;color:var(--accent)}
   .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);border-radius:12px;padding:1rem 1.25rem;color:var(--dim);font-size:.92rem;margin-top:1.5rem}
+  /* --- standard CTA block (see scripts/seo_cta_retrofit.py) --- */
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:14px;
+       padding:1.25rem 1.35rem;margin:2.25rem 0 0}
+  .cta p{margin:0 0 .9rem;color:var(--dim)}
+  .cta p.cta-btns{margin:0}
+  .cta strong{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -100,8 +106,8 @@
     most botched dot zeros come from: people dial 2&ndash;3 clicks, see nothing move, and start
     doubting the optic.</p>
   <p>This is exactly the arithmetic <a href="/">Zero Considerations</a> exists to delete. Photograph
-    your group and the app measures the offset at true scale, then converts it into the exact click
-    count for <em>your</em> dot's click value at <em>your</em> actual distance. No mental MOA
+    your group and the app measures the offset at true scale, then converts it into the click count for
+    <em>your</em> dot's click value at <em>your</em> actual distance. No mental MOA
     conversions at the bench.</p>
 
   <h2>Slide-mounted quirks worth respecting</h2>
@@ -124,7 +130,7 @@
       a fresh 2-inch dot per string, or use the bullseye.</li>
     <li>From a rest at 10 yards, shoot a careful 5-round group at one dot.</li>
     <li>Photograph the target with the app. The coded corner markers set the photo's true scale and
-      correct camera tilt, the holes are detected automatically, and it returns the exact clicks for
+      correct camera tilt, the holes are detected automatically, and it returns the click count for
       your dot.</li>
     <li>Dial, shoot a confirmation group on a fresh dot, and check it centered.</li>
     <li>Move to 25 and confirm. If your range only offers odd distances, the app's proxy-zero mode
@@ -160,10 +166,18 @@
     — treat them as orientation, not dope. Always confirm your zero with live fire before relying on
     it, and follow all firearm safety rules and your range's procedures.</div>
 
-  <p style="margin-top:2rem">
-    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
-    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
-  </p>
+  <!-- cta:start -->
+  <div class="cta">
+    <p><strong>Zero Considerations</strong> — photograph the target, get the measured group
+      and the clicks to dial, then keep the DOPE. One-time <strong>$9.99</strong>, no
+      subscription, no account, works with no signal.</p>
+    <p class="cta-btns">
+      <a class="btn" href="https://apps.apple.com/app/id6792565250">Get it on the App&nbsp;Store — $9.99 once</a>
+      <a class="btn ghost" href="/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=targets-red-dot-pistol-zero">What it does</a>
+      <a class="btn ghost" href="/targets/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=targets-red-dot-pistol-zero">Free printable targets</a>
+    </p>
+  </div>
+  <!-- cta:end -->
 </div>
 </body>
 </html>

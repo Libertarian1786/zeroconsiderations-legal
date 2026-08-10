@@ -33,6 +33,12 @@
   ul.clean{list-style:none;padding:0;margin:0;color:var(--dim)}
   ul.clean li{padding:.4rem 0 .4rem 1.6rem;position:relative}
   ul.clean li:before{content:"—";position:absolute;left:0;color:var(--accent)}
+  /* --- standard CTA block (see scripts/seo_cta_retrofit.py) --- */
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:14px;
+       padding:1.25rem 1.35rem;margin:2.25rem 0 0}
+  .cta p{margin:0 0 .9rem;color:var(--dim)}
+  .cta p.cta-btns{margin:0}
+  .cta strong{color:var(--ink)}
 </style>
 <script type="application/ld+json">
 {
@@ -60,7 +66,7 @@
       "name": "What replaces Strelok's reticle view?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "This is the hardest gap to fill. Most major ballistic apps (AB Quantum, Hornady 4DOF, Shooter, GeoBallistics) output numeric firing solutions rather than drawing your reticle. Zero Considerations draws 215 reticles verified against manufacturer subtension figures and shows holdovers on the reticle at your magnification, which is the closest current equivalent to Strelok's signature feature."
+        "text": "This is the hardest gap to fill. Most major ballistic apps (AB Quantum, Hornady 4DOF, Shooter, GeoBallistics) output numeric firing solutions rather than drawing your reticle. Zero Considerations draws 215 reticle patterns from manufacturers' published subtension figures and shows holdovers on the reticle at your magnification, which is the closest current equivalent to Strelok's signature feature."
       }
     },
     {
@@ -253,8 +259,8 @@
     <tr>
       <td>Zero Considerations</td>
       <td>$9.99 one-time</td>
-      <td>215 reticles, spec-verified, with holdover overlay</td>
-      <td>Yes — 100%, no account</td>
+      <td>215 reticles drawn to published subtensions, with holdover overlay</td>
+      <td>Yes — no account; only weather auto-fill uses the network</td>
       <td>Yes — holes auto-detected; coded markers set scale and correct camera tilt</td>
       <td>Yes — MV/BC from photographed drop</td>
       <td>iOS now; Android in beta (production ~Sept 2026)</td>
@@ -327,20 +333,26 @@
   <p>We built <a href="/">Zero Considerations</a> around the two things nothing else on this list
     combines: <strong>the reticle view Strelok users lost</strong>, and <strong>a photo-zeroing loop
     nobody else has</strong>.</p>
-  <p>The reticle side: 215 reticles, each drawn from the manufacturer's published subtension figures and
-    verified against them — not approximated from marketing images. Pick your scope, set your
-    magnification, and see your holdovers on the reticle you'll actually be looking through. Where a
-    manufacturer doesn't publish a number, the app says so rather than inventing one.</p>
+  <p>The reticle side: 215 reticle patterns, drawn from the manufacturer's own published subtension
+    figures wherever the maker publishes them — not traced off marketing images. Pick your scope, set
+    your magnification, and see your holdovers on the reticle you'll actually be looking through. Where
+    a manufacturer publishes no numbers under that name, the reticle is drawn from the closest
+    documented pattern instead of invented subtensions.</p>
   <p>The zeroing side: print a free target with coded corner markers (or lay a cartridge on any target
     for scale), shoot your group, photograph it. The markers set the photo's true scale and correct
     camera tilt, the bullet holes are detected automatically, and the app converts your group's offset
-    into exact turret clicks for your optic. From the same photo it can work backwards to true your
+    into a click count for your optic's click value and turret direction — dial it, then confirm with
+    a group. From the same photo it can work backwards to true your
     muzzle velocity and BC, so the solver matches the rifle you actually own — then feed that into DOPE
     cards and the reticle view. Also in the box: a full ballistic solver, height-over-bore computed from
     a 793-firearm / 596-optic mount database, offset and laser zeroing, proxy zeroing, and a photo
-    rangefinder. $9.99 once, 100% offline, no account, no ads.</p>
-  <p>The honest limits: our reticle catalog is 215 spec-verified patterns, not Strelok's thousands — we
-    chose verification over volume, and if your reticle isn't covered yet, tell us. Android is in free
+    rangefinder. $9.99 once, no account, no ads; measurement and ballistics run entirely on the phone,
+    and the only network call is the optional weather auto-fill you tap.</p>
+  <p>The honest limits: our reticle catalog is 215 patterns, not Strelok's thousands — we chose
+    sourcing over volume. Most entries come straight off a manufacturer subtension sheet; 14 of the 215
+    carry an explicit low-confidence flag in the data, because the catalog name doesn't match any
+    reticle the maker actually publishes and we drew the nearest documented pattern rather than guess.
+    If your reticle isn't covered yet, tell us. Android is in free
     beta with production planned around September 2026 (iOS is live now). And no app certifies a zero:
     ZC tells you the correction, and you confirm it with another group, every time.</p>
 
@@ -370,9 +382,9 @@
 
   <h3>What replaces Strelok's reticle view?</h3>
   <p>That's the hard one — most big-name solvers (AB Quantum, 4DOF, Shooter, GeoBallistics) give numeric
-    solutions and don't draw your reticle. Zero Considerations draws 215 reticles verified against
-    manufacturer subtension figures with holdovers overlaid at your magnification, which is the closest
-    current equivalent to what Strelok did.</p>
+    solutions and don't draw your reticle. Zero Considerations draws 215 reticle patterns from
+    manufacturers' published subtension figures with holdovers overlaid at your magnification, which is
+    the closest current equivalent to what Strelok did.</p>
 
   <h3>What's the best free Strelok alternative?</h3>
   <p>Hornady 4DOF — free, offline, and built on Doppler-derived drag data that's genuinely excellent for
@@ -401,10 +413,18 @@
     Android is in free beta ahead of production. And the printable marker targets are free for anyone,
     app or no app.</p>
 
-  <p style="margin-top:1.5rem">
-    <a class="btn" href="/">Get Zero Considerations — $9.99 once</a>
-    <a class="btn ghost" href="/targets/">Free printable zeroing targets</a>
-  </p>
+  <!-- cta:start -->
+  <div class="cta">
+    <p><strong>Zero Considerations</strong> — photograph the target, get the measured group
+      and the clicks to dial, then keep the DOPE. One-time <strong>$9.99</strong>, no
+      subscription, no account, works with no signal.</p>
+    <p class="cta-btns">
+      <a class="btn" href="https://apps.apple.com/app/id6792565250">Get it on the App&nbsp;Store — $9.99 once</a>
+      <a class="btn ghost" href="/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=strelok-alternative">What it does</a>
+      <a class="btn ghost" href="/targets/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=strelok-alternative">Free printable targets</a>
+    </p>
+  </div>
+  <!-- cta:end -->
 </div>
 </body>
 </html>

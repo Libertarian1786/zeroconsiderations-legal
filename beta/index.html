@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zero Considerations — Android Beta</title>
   <meta name="robots" content="noindex">
-  <meta name="description" content="Join the Zero Considerations Android beta — free during the beta window.">
+  <meta name="description" content="Join the Zero Considerations Android beta — $9.99 now, or a promo code at full launch.">
   <style>
     :root { color-scheme: light dark; }
     body {
@@ -48,8 +48,8 @@
 </head>
 <body>
   <h1>ZERO CONSIDERATIONS — ANDROID BETA</h1>
-  <p class="sub">Three taps — no code, no payment.</p>
-  <p class="eta">FREE for beta testers Aug 5&ndash;18. Full app, yours to keep.</p>
+  <p class="sub">Three steps — join the testers, and it's yours for good.</p>
+  <p class="eta">The free window has ended &mdash; $9.99 on Google Play now, or a promo code at full launch.</p>
   <p class="free" style="max-width:19rem;margin:0 auto 1rem;">⏱ Heads up: after step 1, Google
     takes <b>15&ndash;60 minutes</b> to unlock steps 2&ndash;3 for your account. If something
     says "no access," that's Google processing &mdash; not something broken. Do steps 1&ndash;2
@@ -71,28 +71,30 @@
   </div>
 
   <div class="step">
-    <h2>3 · Install — it's free</h2>
-    <p class="when">During the beta window (Aug 5&ndash;18) the price shows
-      <b style="color:#3DDC84">$0.00</b> &mdash; just tap Install. You keep the app
-      forever. (Before Aug 5 it still shows $9.99 &mdash; come back when the window opens.)</p>
-    <a class="btn" id="installBtn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Install free from Google Play</a>
+    <h2>3 · Install &mdash; $9.99, yours forever</h2>
+    <p class="when">The free window has ended, so Google Play now shows the real
+      price: <b>$9.99</b> once, yours forever, updates included. Rather not pay?
+      Use the email box below to reserve a promo code for the day Android
+      leaves beta.</p>
+    <a class="btn" id="installBtn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Open on Google Play</a>
   </div>
 
   <div class="step">
-    <h2>Optional · Get the steps by email</h2>
-    <p class="when">We'll send you these three taps and a heads-up when things change.
-      No spam, no code needed.</p>
+    <h2>Reserve a launch promo code</h2>
+    <p class="when">Google blocks promo-code redemption while an app is still in
+      closed testing, so sign up and a one-time code is set aside for you &mdash;
+      codes go out when the full launch opens. One per tester.</p>
     <input class="emailin" id="emailIn" type="email" placeholder="you@email.com" autocomplete="email">
-    <a class="btn" id="emailBtn" href="#">Email me the steps</a>
+    <a class="btn" id="emailBtn" href="#">Save me a code</a>
     <p class="free" id="emailMsg" hidden></p>
   </div>
 
   <!-- Personal code block: legacy ?c= links from earlier emails still work. -->
   <div class="step" id="codeStep" hidden>
     <h2 id="codeHeading">Your personal code</h2>
-    <p class="when">Good news — during the beta window (Aug 5&ndash;18) you don't even
-      need it: the app is simply free once you've done steps 1&ndash;2. Keep the code
-      as a backup for after the window.</p>
+    <p class="when">Single-use and yours alone. Heads up: Play codes only redeem
+      once the app leaves closed testing &mdash; keep it for the full launch, or
+      buy now if you don't want to wait.</p>
     <span class="code" id="codeText"></span>
     <a class="btn" id="redeemBtn" target="_blank" rel="noopener" href="https://play.google.com/redeem">Redeem on Google Play</a>
   </div>
@@ -106,7 +108,7 @@
       var DISPENSER =
         'https://script.google.com/macros/s/AKfycbwKfcpaI5uuBTlnkRsRYbGIL35AlB_lCvBNHureoG9zEYrMS5IEnVAESBWFyzejlkQ22Q/exec';
 
-      // Legacy ?c= links (from pre-sale emails): show the code as a backup.
+      // Personal ?c= links from the code emails: show the code + a prefilled redeem.
       var m = /[?&]c=([A-Za-z0-9]{8,32})\b/.exec(location.search);
       if (m) {
         document.getElementById('codeText').textContent = m[1];
@@ -115,8 +117,11 @@
           'https://play.google.com/redeem?code=' + encodeURIComponent(m[1]);
       }
 
-      // Optional email capture — sale mode: no code is vended, the dispenser
-      // just emails the three steps and keeps the tester list growing.
+      // Email capture — queue mode: the dispenser RECORDS the signup only. No
+      // automated email exists (owner rule 8/18: "Dont send emails"); codes go
+      // out in a launch-day batch the owner approves. Play blocks promo
+      // redemption during closed testing — see /faq. Do not promise any email
+      // timing here.
       var btn = document.getElementById('emailBtn');
       var input = document.getElementById('emailIn');
       var msg = document.getElementById('emailMsg');
@@ -136,15 +141,15 @@
               input.style.display = 'none';
               btn.style.display = 'none';
               msg.innerHTML =
-                '✅ <b>Sent.</b> Check your inbox (davidmccoybiz@gmail.com — spam folder the first time).';
+                '✅ <b>Saved.</b> Your one-time code is reserved — it goes out when the full launch opens.';
             } else {
-              btn.textContent = 'Email me the steps';
+              btn.textContent = 'Save me a code';
               msg.textContent = 'Something hiccuped — try again in a minute.';
             }
             msg.hidden = false;
           })
           .catch(function () {
-            btn.textContent = 'Email me the steps';
+            btn.textContent = 'Save me a code';
             msg.textContent = 'Something hiccuped — try again in a minute.';
             msg.hidden = false;
           });

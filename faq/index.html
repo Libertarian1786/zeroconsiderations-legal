@@ -142,15 +142,12 @@
 <h2 id="no-printer"><span class="num">6</span>Do I have to use your printed targets?</h2>
 <p>No. The printed sheets with corner markers are the <em>most accurate</em> path and the one
   to use if you have a printer, but they are not required.</p>
-<p>On any other target, the app needs one object of known size in the photo to set the scale.
-  The easiest one you already have is <strong>a cartridge of the caliber you are shooting</strong>:
-  lay a single round flat on the target before you shoot, in the same plane as the paper, and
-  photograph it with the target. The round is the size reference — the app knows the case
-  dimensions for the caliber you selected. Failing that, you can enter the scale by hand from
-  any known distance in the photo.</p>
-<p>This got clearer in the app because a tester said the original wording did not explain the
-  alternative properly. He was right, and every instruction screen in the app was rewritten to
-  name both paths and say <em>why</em> the round is there.</p>
+<p>On any other target — store-bought, club-printed, whatever's stapled up — you just type the
+  target's printed size when you take the photo (one number if it's square, width and height if
+  it's not). The app finds the target face in the photo on its own and scales everything from
+  it: no outlining, no reference objects, nothing laid on the paper.</p>
+<p>If the app ever can't find the target in your photo, it says so and lets you outline it by
+  hand — that's the fallback, not the normal path.</p>
 
 <h2 id="offline"><span class="num">7</span>Does it really work offline? What leaves my phone?</h2>
 <p>Yes, genuinely. There is no account, no sign-up, no ads and no analytics. Your rifles,
@@ -266,7 +263,7 @@
     {"@type":"Question","name":"It cannot find the corner markers on the target.","acceptedAnswer":{"@type":"Answer","text":"The app tells you how many of the four markers it saw. Zero markers seen is almost always framing too tight: back up so the whole sheet is in frame with a little margin, and do not zoom in on the group. One to three seen means a corner is glared, shadowed, folded or cropped. All four seen but rejected means the view was too oblique — stand square-on and retake."}},
     {"@type":"Question","name":"It says an engine failed to load.","acceptedAnswer":{"@type":"Answer","text":"Then it is an app fault, not your photo, and retaking the photo will not help. Open the Detection details disclosure on that screen — it lists each detection engine and whether it loaded, with the verbatim failure text. Send that text to support. The manual scale option still works in the meantime, and the ballistics, reticle and DOPE features are unaffected."}},
     {"@type":"Question","name":"How do I print the targets so the measurements are right?","acceptedAnswer":{"@type":"Answer","text":"Set the print dialog to 100% / Actual size — never Fit to page or Shrink to fit, which silently shrink the sheet by a few percent and make every measured inch wrong by the same amount. Every sheet has a 1-inch and a 50 mm ruler printed on it; check it once with a real ruler. Use the Letter PDF on Letter paper and the A4 PDF on A4."}},
-    {"@type":"Question","name":"Do I have to use your printed targets?","acceptedAnswer":{"@type":"Answer","text":"No. The printed sheets with corner markers are the most accurate path but are not required. On any other target the app needs one object of known size in the photo: lay a single cartridge of the caliber you are shooting flat on the target, in the same plane as the paper, and photograph it with the target — the round is the size reference. You can also enter the scale by hand."}},
+    {"@type":"Question","name":"Do I have to use your printed targets?","acceptedAnswer":{"@type":"Answer","text":"No. The printed sheets with corner markers are the most accurate path but are not required. On any other target the app needs one object of known size in the photo: type the target’s printed size when you take the photo (one number for a square target, width and height otherwise) — the app finds the target face itself and scales everything from it. If it cannot find the target it lets you outline it by hand as a fallback."}},
     {"@type":"Question","name":"Does it really work offline? What leaves my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. There is no account, no sign-up, no ads and no analytics; rifles, optics, loads, sessions and target photos are stored on the device and never uploaded. There is exactly one outbound network request in the whole app and it only happens if you tap for it: the optional Fill from my location weather lookup, which sends approximate coordinates (rounded, with no identifier attached) to a public weather API to fetch temperature, humidity and pressure. The provider is MET Norway in current versions; earlier versions used Open-Meteo. Nothing else is ever sent."}},
     {"@type":"Question","name":"Is it on iPhone? Is it on Android?","acceptedAnswer":{"@type":"Answer","text":"iPhone and iPad: out now on the App Store as a one-time $9.99 purchase. Android: in a closed beta on Google Play ahead of the public launch. Both are the same app from the same source. There is no web or desktop version planned."}},
     {"@type":"Question","name":"How do I get a refund?","acceptedAnswer":{"@type":"Answer","text":"Refunds are handled by the store you bought from. On the App Store, Apple processes every refund and developers have no mechanism to issue one: sign in to reportaproblem.apple.com, choose 'Request a refund', pick the reason and the item, and submit; Apple asks you to wait 24 to 48 hours for an update. On Google Play, within 48 hours you may be able to get a refund through Google; after 48 hours you contact the developer, who can process refunds according to their policies and applicable laws."}},

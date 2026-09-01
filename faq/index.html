@@ -69,21 +69,25 @@
 <p>Probably not. Automatic hole detection is a <strong>first pass, not a verdict</strong>, and
   the app is built on that assumption: every detected hole can be moved or deleted, and you can
   tap to add one it missed, before anything is measured or converted into clicks.</p>
-<p>Here is the honest number. On our own benchmark — real photographed targets that the
-  detection models were never trained on — the automatic pass finds roughly
-  <strong>two-thirds to four-fifths</strong> of the holes, depending on the target and which
-  build you are running. That is our internal measurement, not an independent test, and it is
-  the reason the correction step exists rather than being hidden.</p>
+<p>Here is the honest number. On our own benchmarks — real photographed targets the
+  detection model was never trained on — the automatic pass finds roughly
+  <strong>nine in ten</strong> holes on typical daylight targets. That is our internal
+  measurement, not an independent test, and it is the reason the correction step exists
+  rather than being hidden. Two things help it further: the app fences its search to the
+  target face it finds, and if you tell it how many rounds you fired it keeps only the
+  best-scoring candidates.</p>
 <p>The cases that are hardest, measured rather than guessed:</p>
 <ul>
-  <li><strong>Holes inside black or dark printed areas.</strong> A .22 hole in the middle of a
-    black bull is close to invisible to both the classical and the trained detector. This is the
-    single worst case in our bench. If you shoot dark bulls, expect to add holes by hand.</li>
-  <li><strong>Overlapping holes.</strong> Two rounds through nearly the same spot read as one.</li>
+  <li><strong>Small holes in black or dark printed areas.</strong> Much better than it used
+    to be, but a small-calibre hole centred in a dark bull is still the hardest case on our
+    bench. If one goes missing, expect to add it by hand.</li>
+  <li><strong>Overlapping holes.</strong> Two rounds through nearly the same spot can read as
+    one.</li>
   <li><strong>A soft or shaded photo.</strong> The app tells you when the frame looks blurry;
     flat, even light and a steady phone beat any amount of processing.</li>
-  <li><strong>Old holes in the backer.</strong> If the paper behind your sheet is already
-    shot up, those can be picked up too.</li>
+  <li><strong>Old holes in the backer.</strong> The fence around the detected target face
+    keeps the shot-up paper behind your sheet out of the count in almost all photos; a
+    stray pick-up near the sheet edge can still happen, and costs one tap to remove.</li>
 </ul>
 <p>Adding a missed hole by hand costs one tap and the result is exactly as accurate as an
   auto-detected one — the measurement comes from where the hole is, not from who found it.</p>
@@ -166,9 +170,9 @@
 <h2 id="platforms"><span class="num">8</span>Is it on iPhone? Is it on Android?</h2>
 <p><strong>iPhone and iPad:</strong> out now on the
   <a href="https://apps.apple.com/app/id6792565250">App Store</a> as a one-time $9.99 purchase.</p>
-<p><strong>Android:</strong> in a closed beta on Google Play ahead of the public launch.
-  There is no waiting list — see the <a href="/beta">Android beta page</a> for the current way
-  in. The Android and iPhone versions are the same app from the same source; feature parity is
+<p><strong>Android:</strong> out now on
+  <a href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Google Play</a> as the same one-time $9.99 purchase.
+  The Android and iPhone versions are the same app from the same source; feature parity is
   the default and anything platform-specific is called out in the release notes.</p>
 <p>Nothing else is planned. There is no web version, no desktop version, and no plan to add
   either — the whole product depends on the phone's camera and sensors.</p>
@@ -208,24 +212,7 @@
   enough to need paying for, it will be a separate one-time purchase or a paid major version,
   never a recurring charge on something you already bought.</p>
 
-<!-- BETA-BLOCK-START — remove this whole block when the Android public launch happens.
-     Contents are beta-window specific. See reports/zc_dated_flips.md. -->
-<div class="beta">
-  <h2 style="border:0" id="beta">While Android is still in beta</h2>
 
-  <h3>I joined the tester group but Google Play says I do not have access.</h3>
-  <p>That is Google syncing, not something broken. After you join the group it typically takes
-    <strong>15 to 60 minutes</strong> before Play recognises your account as a tester. Wait,
-    then reload the page. Doing the join today and installing tomorrow is one tap.</p>
-
-  <h3>My promo code will not redeem — it says the code is not valid.</h3>
-  <p>Play promo codes do not work while an app is still in closed testing; this was confirmed the
-    hard way on a known-good code and a fully opted-in account. Codes are not the way in right
-    now &mdash; join through the three steps on the <a href="/beta">Android beta page</a> and the app
-    can be bought at $9.99, or hold your code: it becomes redeemable at full launch. Any code
-    you were sent stays valid.</p>
-</div>
-<!-- BETA-BLOCK-END -->
 
 <hr>
 
@@ -263,9 +250,9 @@
     {"@type":"Question","name":"It cannot find the corner markers on the target.","acceptedAnswer":{"@type":"Answer","text":"The app tells you how many of the four markers it saw. Zero markers seen is almost always framing too tight: back up so the whole sheet is in frame with a little margin, and do not zoom in on the group. One to three seen means a corner is glared, shadowed, folded or cropped. All four seen but rejected means the view was too oblique — stand square-on and retake."}},
     {"@type":"Question","name":"It says an engine failed to load.","acceptedAnswer":{"@type":"Answer","text":"Then it is an app fault, not your photo, and retaking the photo will not help. Open the Detection details disclosure on that screen — it lists each detection engine and whether it loaded, with the verbatim failure text. Send that text to support. The manual scale option still works in the meantime, and the ballistics, reticle and DOPE features are unaffected."}},
     {"@type":"Question","name":"How do I print the targets so the measurements are right?","acceptedAnswer":{"@type":"Answer","text":"Set the print dialog to 100% / Actual size — never Fit to page or Shrink to fit, which silently shrink the sheet by a few percent and make every measured inch wrong by the same amount. Every sheet has a 1-inch and a 50 mm ruler printed on it; check it once with a real ruler. Use the Letter PDF on Letter paper and the A4 PDF on A4."}},
-    {"@type":"Question","name":"Do I have to use your printed targets?","acceptedAnswer":{"@type":"Answer","text":"No. The printed sheets with corner markers are the most accurate path but are not required. On any other target the app needs one object of known size in the photo: type the target’s printed size when you take the photo (one number for a square target, width and height otherwise) — the app finds the target face itself and scales everything from it. If it cannot find the target it lets you outline it by hand as a fallback."}},
+    {"@type":"Question","name":"Do I have to use your printed targets?","acceptedAnswer":{"@type":"Answer","text":"No. The printed sheets with corner markers are the most accurate path but are not required. On any other target, type the target’s printed size when you take the photo (one number for a square target, width and height otherwise) — the app finds the target face itself and scales everything from it. If it cannot find the target it lets you outline it by hand as a fallback."}},
     {"@type":"Question","name":"Does it really work offline? What leaves my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. There is no account, no sign-up, no ads and no analytics; rifles, optics, loads, sessions and target photos are stored on the device and never uploaded. There is exactly one outbound network request in the whole app and it only happens if you tap for it: the optional Fill from my location weather lookup, which sends approximate coordinates (rounded, with no identifier attached) to a public weather API to fetch temperature, humidity and pressure. The provider is MET Norway in current versions; earlier versions used Open-Meteo. Nothing else is ever sent."}},
-    {"@type":"Question","name":"Is it on iPhone? Is it on Android?","acceptedAnswer":{"@type":"Answer","text":"iPhone and iPad: out now on the App Store as a one-time $9.99 purchase. Android: in a closed beta on Google Play ahead of the public launch. Both are the same app from the same source. There is no web or desktop version planned."}},
+    {"@type":"Question","name":"Is it on iPhone? Is it on Android?","acceptedAnswer":{"@type":"Answer","text":"iPhone and iPad: out now on the App Store as a one-time $9.99 purchase. Android: out now on Google Play, same one-time $9.99 purchase. Both are the same app from the same source. There is no web or desktop version planned."}},
     {"@type":"Question","name":"How do I get a refund?","acceptedAnswer":{"@type":"Answer","text":"Refunds are handled by the store you bought from. On the App Store, Apple processes every refund and developers have no mechanism to issue one: sign in to reportaproblem.apple.com, choose 'Request a refund', pick the reason and the item, and submit; Apple asks you to wait 24 to 48 hours for an update. On Google Play, within 48 hours you may be able to get a refund through Google; after 48 hours you contact the developer, who can process refunds according to their policies and applicable laws."}},
     {"@type":"Question","name":"Is there a subscription, or will there be?","acceptedAnswer":{"@type":"Answer","text":"No, and no. One purchase, every feature, no second paywall inside the app, and improvements ship as free updates. There is no Pro tier holding features back and no plan to add one. If a future feature is big enough to need paying for, it will be a separate one-time purchase or a paid major version, never a recurring charge."}}
   ]

@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zero Considerations — Android Beta</title>
+  <title>Zero Considerations — the beta has ended</title>
   <meta name="robots" content="noindex">
-  <meta name="description" content="Join the Zero Considerations Android beta — $9.99 now, or a promo code at full launch.">
+  <meta name="description" content="The Zero Considerations Android beta has ended — the app is live on Google Play.">
   <style>
     :root { color-scheme: light dark; }
     body {
@@ -14,147 +14,32 @@
       font-family: -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center;
       background: #101418; color: #e8eaed;
     }
-    h1 { font-size: 1.4rem; margin: 0 0 .3rem; letter-spacing: .04em; }
-    .sub { margin: 0 0 .4rem; color: #9aa3ab; font-size: .9rem; }
-    .eta { margin: 0 0 1.2rem; color: #3DDC84; font-size: .82rem; font-weight: 600; }
-    .step {
-      width: 19rem; max-width: 92vw; margin: .5rem auto; padding: .9rem;
-      border-radius: .7rem; background: #171d23; border: 1px solid #2a323b;
-    }
-    .step h2 { font-size: .9rem; margin: 0 0 .35rem; color: #e8eaed; font-weight: 600; }
-    .step .when { font-size: .74rem; color: #9aa3ab; margin: 0 0 .6rem; }
+    h1 { font-size: 1.3rem; letter-spacing: .04em; margin: 0 0 .4rem; }
+    p { max-width: 26rem; color: #9aa3ab; line-height: 1.5; margin: .4rem 0 1.2rem; }
     .btn {
-      display: block; text-align: center; padding: .8rem 1rem; border-radius: .6rem;
-      text-decoration: none; font-weight: 700; font-size: .95rem;
-      background: #F59E0B; color: #0B0E11; /* app primary amber + ink */
+      display: block; width: 16rem; max-width: 90vw; padding: .9rem 1rem;
+      border-radius: 10px; background: #3DDC84; color: #101418; font-weight: 700;
+      text-decoration: none;
     }
-    #installBtn, #redeemBtn { background: #22C55E; } /* app success green for the money tap */
-    .code {
-      display: block; text-align: center; font-family: ui-monospace, Consolas, monospace;
-      font-size: 1rem; letter-spacing: .06em; padding: .65rem .5rem; margin: 0 0 .6rem;
-      border-radius: .5rem; background: #0b0e11; border: 1px dashed #3a434c; color: #e8eaed;
-      user-select: all; word-break: break-all;
-    }
-    .emailin {
-      display: block; width: 100%; box-sizing: border-box; margin: 0 0 .6rem;
-      padding: .7rem .8rem; border-radius: .5rem; font-size: .95rem;
-      background: #0b0e11; border: 1px solid #3a434c; color: #e8eaed;
-    }
-    .free { font-size: .8rem; color: #9aa3ab; margin: .55rem 0 0; }
-    .free b { color: #3DDC84; }
-    .fine { font-size: .78rem; color: #6b747d; margin-top: 1.3rem; }
+    .fine { font-size: .8rem; margin-top: 1.4rem; }
     .fine a { color: #9aa3ab; }
   </style>
-</head>
-<body>
-  <h1>ZERO CONSIDERATIONS — ANDROID BETA</h1>
-  <p class="sub">Three steps — join the testers, and it's yours for good.</p>
-  <p class="eta">The free window has ended &mdash; $9.99 on Google Play now, or a promo code at full launch.</p>
-  <p class="free" style="max-width:19rem;margin:0 auto 1rem;">⏱ Heads up: after step 1, Google
-    takes <b>15&ndash;60 minutes</b> to unlock steps 2&ndash;3 for your account. If something
-    says "no access," that's Google processing &mdash; not something broken. Do steps 1&ndash;2
-    today and installing tomorrow is one tap.</p>
-
-  <div class="step">
-    <h2>1 · Join the tester group</h2>
-    <p class="when">Instant — tap <b>Join group</b> on the page that opens. Don't see a
-      Join button? You're signed out of Google: tap <b>Sign in</b> (top right) first
-      and it appears.</p>
-    <a class="btn" target="_blank" rel="noopener" href="https://groups.google.com/g/zeroconsiderations-testers">Join the group</a>
-  </div>
-
-  <div class="step">
-    <h2>2 · Become a tester</h2>
-    <p class="when">One tap on the page that opens. If it says you don't have access
-      yet, Google is still syncing step 1 &mdash; wait 15&ndash;60 minutes and reload.</p>
-    <a class="btn" target="_blank" rel="noopener" href="https://play.google.com/apps/testing/com.zeroconsiderations.mobile">Join the test</a>
-  </div>
-
-  <div class="step">
-    <h2>3 · Install &mdash; $9.99, yours forever</h2>
-    <p class="when">The free window has ended, so Google Play now shows the real
-      price: <b>$9.99</b> once, yours forever, updates included. Rather not pay?
-      Use the email box below to reserve a promo code for the day Android
-      leaves beta.</p>
-    <a class="btn" id="installBtn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Open on Google Play</a>
-  </div>
-
-  <div class="step">
-    <h2>Reserve a launch promo code</h2>
-    <p class="when">Google blocks promo-code redemption while an app is still in
-      closed testing, so sign up and a one-time code is set aside for you &mdash;
-      codes go out when the full launch opens. One per tester.</p>
-    <input class="emailin" id="emailIn" type="email" placeholder="you@email.com" autocomplete="email">
-    <a class="btn" id="emailBtn" href="#">Save me a code</a>
-    <p class="free" id="emailMsg" hidden></p>
-  </div>
-
-  <!-- Personal code block: legacy ?c= links from earlier emails still work. -->
-  <div class="step" id="codeStep" hidden>
-    <h2 id="codeHeading">Your personal code</h2>
-    <p class="when">Single-use and yours alone. Heads up: Play codes only redeem
-      once the app leaves closed testing &mdash; keep it for the full launch, or
-      buy now if you don't want to wait.</p>
-    <span class="code" id="codeText"></span>
-    <a class="btn" id="redeemBtn" target="_blank" rel="noopener" href="https://play.google.com/redeem">Redeem on Google Play</a>
-  </div>
-
-  <p class="fine">
-    On iPhone? Get your free code at
-    <a href="/ios/">zeroconsiderations.com/ios</a>. · <a href="/privacy.html">Privacy</a></p>
-
   <script>
+    // The closed beta is over. Old beta links forward straight to the store.
     (function () {
-      var DISPENSER =
-        'https://script.google.com/macros/s/AKfycbwKfcpaI5uuBTlnkRsRYbGIL35AlB_lCvBNHureoG9zEYrMS5IEnVAESBWFyzejlkQ22Q/exec';
-
-      // Personal ?c= links from the code emails: show the code + a prefilled redeem.
-      var m = /[?&]c=([A-Za-z0-9]{8,32})\b/.exec(location.search);
-      if (m) {
-        document.getElementById('codeText').textContent = m[1];
-        document.getElementById('codeStep').hidden = false;
-        document.getElementById('redeemBtn').href =
-          'https://play.google.com/redeem?code=' + encodeURIComponent(m[1]);
+      if (/Android/.test(navigator.userAgent || '')) {
+        location.replace('https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile');
       }
-
-      // Email capture — queue mode: the dispenser RECORDS the signup only. No
-      // automated email exists (owner rule 8/18: "Dont send emails"); codes go
-      // out in a launch-day batch the owner approves. Play blocks promo
-      // redemption during closed testing — see /faq. Do not promise any email
-      // timing here.
-      var btn = document.getElementById('emailBtn');
-      var input = document.getElementById('emailIn');
-      var msg = document.getElementById('emailMsg');
-      btn.addEventListener('click', function (ev) {
-        ev.preventDefault();
-        var email = input.value.trim();
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          msg.textContent = "That doesn't look like an email address.";
-          msg.hidden = false;
-          return;
-        }
-        btn.textContent = 'Sending…';
-        fetch(DISPENSER + '?action=signup&platform=android&email=' + encodeURIComponent(email))
-          .then(function (r) { return r.json(); })
-          .then(function (d) {
-            if (d && d.ok) {
-              input.style.display = 'none';
-              btn.style.display = 'none';
-              msg.innerHTML =
-                '✅ <b>Saved.</b> Your one-time code is reserved — it goes out when the full launch opens.';
-            } else {
-              btn.textContent = 'Save me a code';
-              msg.textContent = 'Something hiccuped — try again in a minute.';
-            }
-            msg.hidden = false;
-          })
-          .catch(function () {
-            btn.textContent = 'Save me a code';
-            msg.textContent = 'Something hiccuped — try again in a minute.';
-            msg.hidden = false;
-          });
-      });
     })();
   </script>
+</head>
+<body>
+  <h1>THE BETA HAS ENDED</h1>
+  <p>Zero Considerations is live on Google Play — $9.99 one-time, no subscription.
+     Beta testers: your installed app updates to the release version automatically.</p>
+  <a class="btn" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile">Get it on Google&nbsp;Play</a>
+  <p class="fine">On iPhone? It's on the
+    <a href="https://apps.apple.com/app/id6792565250">App&nbsp;Store</a>.
+    &middot; <a href="/privacy.html">Privacy</a></p>
 </body>
 </html>

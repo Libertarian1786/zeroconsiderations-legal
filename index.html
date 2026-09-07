@@ -72,7 +72,7 @@
   .card p{margin:0;color:var(--dim);font-size:.95rem}
 
   .shots{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-top:1.5rem}
-  .shots img{width:100%;border-radius:12px;border:1px solid var(--line);display:block}
+  .shots img{width:100%;height:auto;aspect-ratio:640/1137;object-fit:cover;border-radius:12px;border:1px solid var(--line);display:block}
 
   .stats{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
          text-align:center;margin-top:1.5rem}
@@ -155,7 +155,7 @@
 <div class="wrap">
   <section class="watch" id="watch">
     <video autoplay loop controls muted playsinline preload="metadata" poster="/press/media/press-demo-poster.jpg" aria-label="22-second demo: photograph the target, mark the aim point, enter the target size, read the clicks">
-      <source src="/press/media/press-demo-clip-1080x1920.mp4?v=8" type="video/mp4">
+      <source src="/press/media/press-demo-clip-1080x1920.mp4?v=9" type="video/mp4">
     </video>
     <p>29 seconds, recorded on a phone at the range: photograph the target, tap where you were aiming, enter the target size, watch it find every hit, dial the clicks it gives you.</p>
   </section>

@@ -7,8 +7,12 @@
 <meta name="description" content="Honest answers about the Zero Considerations sight-in app: why hole detection misses shots, why marker detection fails, printing targets at 100%, offline behaviour, iPhone vs Android, and how refunds actually work on each store.">
 <link rel="canonical" href="https://zeroconsiderations.com/faq/">
 <meta property="og:title" content="Zero Considerations — Frequently Asked Questions">
-<meta property="og:description" content="Including the ones with awkward answers: what the detector misses, and why.">
+<meta property="og:description" content="Including the ones with awkward answers: what it can't read, and why.">
 <meta property="og:url" content="https://zeroconsiderations.com/faq/">
+<meta property="og:image" content="https://zeroconsiderations.com/store-assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root{--bg:#0B0E11;--card:#141920;--line:#232a33;--ink:#E8EDF2;--dim:#9AA6B2;--accent:#F5A524;--accent-ink:#0B0E11;--green:#3DDC84}
   *{box-sizing:border-box}
@@ -27,6 +31,13 @@
   .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;font-size:.94rem;margin:1.25rem 0}
   .note p:last-child{margin-bottom:0}
   .safety{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.28);border-radius:12px;padding:1rem 1.25rem;color:var(--dim);font-size:.92rem;margin-top:1.5rem}
+  /* --- standard CTA block (see scripts/seo_cta_retrofit.py) --- */
+  .cta{background:var(--card);border:1px solid var(--line);border-radius:14px;
+       padding:1.25rem 1.35rem;margin:2.25rem 0 0}
+  .cta p{margin:0 0 .9rem;color:var(--dim)}
+  .cta p.cta-btns{margin:0}
+  .cta strong{color:var(--ink)}
+  .cta p.cta-fine{margin:.9rem 0 0;font-size:.85rem}
   .beta{background:rgba(61,220,132,.06);border:1px solid rgba(61,220,132,.3);border-radius:12px;padding:1.1rem 1.25rem;margin:2rem 0}
   .beta h2{margin-top:.2rem;font-size:1.1rem}
   .beta h3{color:var(--ink)}
@@ -229,6 +240,25 @@
   confirm with a follow-up group of live fire. Follow all firearm safety rules and your range's
   procedures.
 </div>
+
+<!-- cta:start -->
+<div class="cta">
+  <p><strong>Zero Considerations</strong> — photograph the target, get the measured group
+    and the exact clicks to dial, then keep the DOPE. One-time <strong>$9.99</strong> on
+    both stores — no subscription, no account, works with no signal.</p>
+  <p class="cta-btns">
+    <!-- cpp:slot campaign=faq — swap this App Store URL for the matching Custom Product Page URL once CPPs are approved -->
+    <a class="btn" href="https://apps.apple.com/app/id6792565250">App&nbsp;Store — $9.99 once</a>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile&amp;referrer=utm_source%3Dzeroconsiderations.com%26utm_medium%3Dweb%26utm_campaign%3Dfaq">Google&nbsp;Play — $9.99 once</a>
+    <a class="btn ghost" href="/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=faq">What it does</a>
+    <a class="btn ghost" href="/targets/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=faq">Free printable targets</a>
+  </p>
+  <p class="cta-fine">On Android, Google Play gives you 48 hours to ask for a refund —
+    try it on your next range trip and keep it only if it earns its spot in your range bag.
+    Not ready today? <a href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile&amp;referrer=utm_source%3Dzeroconsiderations.com%26utm_medium%3Dweb%26utm_campaign%3Dfaq-wishlist">Wishlist it on Google&nbsp;Play</a> and Google will
+    notify you if the price drops before opening day.</p>
+</div>
+<!-- cta:end -->
 
 <footer>
   <p><a href="/">Zero Considerations</a> &middot;

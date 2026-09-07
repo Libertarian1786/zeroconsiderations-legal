@@ -9,6 +9,10 @@
   <meta property="og:title" content="Free Printable Zeroing Targets (PDF)">
   <meta property="og:description" content="Four free sight-in target styles with print-scale calibration rulers. Letter &amp; A4.">
   <meta property="og:url" content="https://zeroconsiderations.com/targets/">
+  <meta property="og:image" content="https://zeroconsiderations.com/store-assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     :root { color-scheme: light dark; }
     body {
@@ -42,6 +46,14 @@
     }
     .app a.btn { display: inline-block; flex: none; padding: .7rem 1.2rem; margin-top: .5rem; background: #F5A524; }
     a { color: #9aa3ab; }
+    /* --- standard CTA block (see scripts/seo_cta_retrofit.py) --- */
+    .cta { background: #171d23; border: 1px solid #2a323b; border-radius: .8rem; padding: 1.1rem 1.25rem; margin-top: 2.2rem; }
+    .cta p { margin: 0 0 .9rem; color: #9aa3ab; }
+    .cta p.cta-btns { margin: 0; }
+    .cta strong { color: #e8eaed; }
+    .cta p.cta-fine { margin: .9rem 0 0; font-size: .85rem; }
+    .cta .btn { display: inline-block; flex: none; padding: .7rem 1.2rem; margin: .2rem .5rem .2rem 0; background: #F5A524; color: #101418; }
+    .cta .btn.ghost { background: transparent; color: #e8eaed; border: 1px solid #3a434c; }
   </style>
 </head>
 <body>
@@ -113,15 +125,23 @@
     <p>Why the corner squares? They're ArUco registration markers. Photograph your shot-up target with the Zero Considerations app and the markers set the photo's scale and orientation automatically — the app measures your group and computes the turret clicks for your optic, no walking back and forth with a ruler.</p>
   </div>
 
-  <div class="app">
-    <h2>Turn the target into your turret clicks</h2>
-    <p class="lead" style="margin-bottom:0">Zero Considerations photographs this target after you shoot, measures the group, and tells you how many clicks to dial for your optic — then confirm with a group. No account, $9.99 once, no subscription. iPhone and Android.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6792565250">App&nbsp;Store</a>
-    <a class="btn" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile&amp;referrer=utm_source%3Dzeroconsiderations.com%26utm_medium%3Dweb%26utm_campaign%3Dtargets-index">Google&nbsp;Play</a>
-    <p style="font-size:.85rem;margin:.8rem 0 0">On Android, Google refunds any paid app within 48
-      hours — try it on your next range trip. Or
-      <a href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile&amp;referrer=utm_source%3Dzeroconsiderations.com%26utm_medium%3Dweb%26utm_campaign%3Dtargets-index-wishlist">wishlist
-      it on Google&nbsp;Play</a> and get notified if the price drops.</p>
+  <!-- cta:start -->
+  <div class="cta">
+    <p><strong>Zero Considerations</strong> — photograph the target, get the measured group
+      and the exact clicks to dial, then keep the DOPE. One-time <strong>$9.99</strong> on
+      both stores — no subscription, no account, works with no signal.</p>
+    <p class="cta-btns">
+      <!-- cpp:slot campaign=targets — swap this App Store URL for the matching Custom Product Page URL once CPPs are approved -->
+      <a class="btn" href="https://apps.apple.com/app/id6792565250">App&nbsp;Store — $9.99 once</a>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile&amp;referrer=utm_source%3Dzeroconsiderations.com%26utm_medium%3Dweb%26utm_campaign%3Dtargets">Google&nbsp;Play — $9.99 once</a>
+      <a class="btn ghost" href="/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=targets">What it does</a>
+      <a class="btn ghost" href="/targets/?utm_source=seo&amp;utm_medium=organic&amp;utm_campaign=targets">Free printable targets</a>
+    </p>
+    <p class="cta-fine">On Android, Google Play gives you 48 hours to ask for a refund —
+      try it on your next range trip and keep it only if it earns its spot in your range bag.
+      Not ready today? <a href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile&amp;referrer=utm_source%3Dzeroconsiderations.com%26utm_medium%3Dweb%26utm_campaign%3Dtargets-wishlist">Wishlist it on Google&nbsp;Play</a> and Google will
+      notify you if the price drops before opening day.</p>
   </div>
+  <!-- cta:end -->
 </body>
 </html>

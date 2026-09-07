@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zero Considerations — Sight In Your Rifle From a Photo | Offline Zeroing &amp; Ballistics</title>
 <meta name="description" content="Sight in your rifle or pistol from one photo: the app finds your bullet holes, measures the group, and gives exact turret clicks — then confirm with a group. Offline zeroing and ballistics: 852 firearms, 1,043 optics, 512 factory loads, 301 to-scale reticles.">
+<link rel="icon" type="image/png" sizes="64x64" href="/store-assets/favicon_64.png">
 <link rel="canonical" href="https://zeroconsiderations.com/">
 <meta property="og:title" content="Zero Considerations">
 <meta property="og:description" content="Photograph your target, get exact turret clicks. Offline firearm zeroing &amp; ballistics.">
@@ -118,7 +119,7 @@
   .badge-android .b-top{color:#3DDC84}
 
   .watch{text-align:center;padding:2.2rem 0 .5rem}
-  .watch video{width:min(330px,82vw);aspect-ratio:9/16;border-radius:22px;border:1px solid var(--line);background:#000;display:block;margin:0 auto}
+  .watch video{width:min(330px,82vw);max-height:62vh;aspect-ratio:9/16;border-radius:22px;border:1px solid var(--line);background:#000;display:block;margin:0 auto}
   .watch p{color:var(--dim);font-size:.95rem;margin:.9rem auto 0;max-width:34rem}
   footer{border-top:1px solid var(--line);padding:2.5rem 0 4rem;color:var(--dim);font-size:.9rem}
   footer a{color:var(--dim)}
@@ -138,11 +139,11 @@
     <div class="badges" style="margin:2rem 0 .9rem">
       <a class="badge badge-apple" href="https://apps.apple.com/app/id6792565250">
         <svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><path fill="#fff" d="M21.6 15.9c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-.9 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM18.6 6.6c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
-        <span class="b-lines"><span class="b-top">iPhone &middot; $9.99 one-time</span><span class="b-main">App&nbsp;Store</span></span>
+        <span class="b-lines"><span class="b-top">iPhone</span><span class="b-main">App&nbsp;Store</span></span>
       </a>
       <a class="badge badge-android" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile&amp;referrer=utm_source%3Dzeroconsiderations.com%26utm_medium%3Dweb%26utm_campaign%3Dhome-hero">
         <svg width="28" height="26" viewBox="0 0 28 26" aria-hidden="true"><g fill="#3DDC84"><path d="M20.4 4.6l1.7-2.9c.1-.2 0-.4-.2-.5-.2-.1-.4 0-.5.2l-1.7 3C18.2 3.6 16.2 3.2 14 3.2s-4.2.4-5.7 1.2l-1.7-3c-.1-.2-.3-.3-.5-.2-.2.1-.3.3-.2.5l1.7 2.9C4.6 6.3 2.5 9.4 2.2 13h23.6c-.3-3.6-2.4-6.7-5.4-8.4zM9.2 9.9c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1zm9.6 0c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1z"/></g></svg>
-        <span class="b-lines"><span class="b-top">Android &middot; $9.99 one-time</span><span class="b-main">Google&nbsp;Play</span></span>
+        <span class="b-lines"><span class="b-top">Android</span><span class="b-main">Google&nbsp;Play</span></span>
       </a>
     </div>
     <div class="cta" style="margin-top:.25rem">
@@ -153,7 +154,7 @@
 
 <div class="wrap">
   <section class="watch" id="watch">
-    <video controls muted playsinline preload="metadata" poster="/press/media/press-demo-poster.png" aria-label="22-second demo: photograph the target, mark the aim point, enter the target size, read the clicks">
+    <video autoplay loop controls muted playsinline preload="metadata" poster="/press/media/press-demo-poster.jpg" aria-label="22-second demo: photograph the target, mark the aim point, enter the target size, read the clicks">
       <source src="/press/media/press-demo-clip-1080x1920.mp4?v=8" type="video/mp4">
     </video>
     <p>29 seconds, recorded on a phone at the range: photograph the target, tap where you were aiming, enter the target size, watch it find every hit, dial the clicks it gives you.</p>
@@ -187,11 +188,11 @@
           <div class="badges" style="justify-content:flex-start">
             <a class="badge badge-apple" href="https://apps.apple.com/app/id6792565250">
               <svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><path fill="#fff" d="M21.6 15.9c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-.9 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.3 1 4 1c1.6 0 2.7-1.5 3.7-2.9 1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM18.6 6.6c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
-              <span class="b-lines"><span class="b-top">iPhone &middot; out now</span><span class="b-main">App&nbsp;Store</span></span>
+              <span class="b-lines"><span class="b-top">iPhone</span><span class="b-main">App&nbsp;Store</span></span>
             </a>
             <a class="badge badge-android" href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile&amp;referrer=utm_source%3Dzeroconsiderations.com%26utm_medium%3Dweb%26utm_campaign%3Dhome-get">
               <svg width="28" height="26" viewBox="0 0 28 26" aria-hidden="true"><g fill="#3DDC84"><path d="M20.4 4.6l1.7-2.9c.1-.2 0-.4-.2-.5-.2-.1-.4 0-.5.2l-1.7 3C18.2 3.6 16.2 3.2 14 3.2s-4.2.4-5.7 1.2l-1.7-3c-.1-.2-.3-.3-.5-.2-.2.1-.3.3-.2.5l1.7 2.9C4.6 6.3 2.5 9.4 2.2 13h23.6c-.3-3.6-2.4-6.7-5.4-8.4zM9.2 9.9c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1zm9.6 0c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1z"/></g></svg>
-              <span class="b-lines"><span class="b-top">Android &middot; $9.99 one-time</span><span class="b-main">Google&nbsp;Play</span></span>
+              <span class="b-lines"><span class="b-top">Android</span><span class="b-main">Google&nbsp;Play</span></span>
             </a>
           </div>
           <p class="note brk" style="margin-top:.6rem">
@@ -199,8 +200,7 @@
             your next range trip and keep it only if it earns its spot. Not ready today?
             <a href="https://play.google.com/store/apps/details?id=com.zeroconsiderations.mobile&amp;referrer=utm_source%3Dzeroconsiderations.com%26utm_medium%3Dweb%26utm_campaign%3Dhome-wishlist">Wishlist
             it on Google&nbsp;Play</a> and Google will notify you if the price ever drops.</p>
-          <p class="note brk" style="margin-top:.35rem">
-            <a class="plain" href="https://apps.apple.com/app/id6792565250">apps.apple.com/app/id6792565250</a></p>
+          <p class="note brk" style="margin-top:.35rem"></p>
         </div>
       </div>
     </div>
@@ -243,11 +243,10 @@
     </div>
 
     <div class="shots">
-      <img src="store-assets/marketing_01.png" alt="Detected bullet holes ringed on a real target photo">
-      <img src="store-assets/marketing_02.png" alt="Exact elevation and windage clicks for the measured group">
-      <img src="store-assets/marketing_03.png" alt="Group plot with POI shift, extreme spread and MOA">
-      <img src="store-assets/marketing_04.png" alt="Live analysis finding shots on the target">
-      <img src="store-assets/marketing_05.png" alt="Home screen — works with no signal">
+      <img src="store-assets/shot_clicks.png" width="640" height="1137" loading="lazy" decoding="async" alt="Exact elevation and windage clicks for the measured group">
+      <img src="store-assets/shot_holes.png" width="640" height="1137" loading="lazy" decoding="async" alt="Every hit found and ringed on a real target photo">
+      <img src="store-assets/shot_reticle.png" width="640" height="1137" loading="lazy" decoding="async" alt="Your reticle drawn to spec — an EOTech EXPS3 with holdovers">
+      <img src="store-assets/shot_nosignal.png" width="640" height="1137" loading="lazy" decoding="async" alt="Works with no signal — everything runs on the phone">
     </div>
   </section>
 
@@ -322,8 +321,7 @@
        <a href="/faq/">FAQ</a> &middot;
        <a href="privacy.html">Privacy policy</a> &middot;
        <a href="/targets/">Free targets</a> &middot;
-       <a href="/strelok-alternative/">Strelok alternative</a> &middot;
-       <a href="/strelok-alternative/">Strelok Pro alternatives (2026)</a> &middot;
+              <a href="/strelok-alternative/">Strelok Pro alternatives (2026)</a> &middot;
        <a href="/best-ballistic-calculator-apps/">Best ballistic apps 2026</a> &middot;
        <a href="/truing-ballistics-guide/">Truing guide</a> &middot;
        <a href="/no-subscription-ballistic-app/">No-subscription apps</a> &middot;

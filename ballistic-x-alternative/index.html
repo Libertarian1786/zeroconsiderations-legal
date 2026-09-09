@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ballistic-X Alternative (2026) — Zero Considerations</title>
-<meta name="description" content="Ballistic-X vs Zero Considerations: hole detection, tilt correction, and what happens after the group is measured — clicks, truing, DOPE.">
+<meta name="description" content="Ballistic-X vs Zero Considerations: finding the holes, tilt correction, and what happens after the group is measured — clicks, truing, DOPE.">
 <link rel="canonical" href="https://zeroconsiderations.com/ballistic-x-alternative/">
 <meta property="og:title" content="Ballistic-X Alternative (2026) — Zero Considerations">
 <meta property="og:description" content="A straight comparison of the two photo group-measurement workflows: hole marking, tilt correction, and what happens after the group is measured.">
@@ -67,7 +67,7 @@
     },
     {
       "@type": "Question",
-      "name": "Does automatic hole detection always work?",
+      "name": "Does it always find every hole?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "No detector is perfect. Torn paper, overlapping holes, and dark backers can hide a hole from any computer-vision system. Zero Considerations lets you add or remove holes with a tap, so a missed hole costs you one tap, not the workflow."
@@ -108,9 +108,9 @@ on top of the base price, while Zero Considerations has no subscription of any k
 
   <h2>Where the workflows differ</h2>
 
-  <h3>Marking holes: tap each one vs. auto-detect</h3>
+  <h3>Marking holes: tap each one vs. the app finding them</h3>
   <p>In Ballistic-X you mark each bullet hole by tapping it, per its own store description. That's precise and it works, but on a 10- or 20-round string it's real thumb time, and it's easy to fat-finger a mark half a caliber off on a small phone screen.</p>
-  <p>Zero Considerations <strong>detects the holes automatically</strong> from the photo, then shows you what it found so you can add a hole it missed or remove a false hit with a tap. No detector is 100% — torn paper and overlapping holes are hard for any computer-vision system — which is why manual correction is built in as a first-class step, not an afterthought. In practice you confirm a detection instead of placing every mark from scratch.</p>
+  <p>Zero Considerations <strong>finds the holes for you</strong> from the photo, then shows you what it found so you can add a hole it missed or remove a false hit with a tap. Nothing finds 100% — torn paper and overlapping holes are hard for any software that reads a photo — which is why manual correction is built in as a first-class step, not an afterthought. In practice you confirm what it found instead of placing every mark from scratch.</p>
 
   <h3>Scale is half the problem. Perspective is the other half.</h3>
   <p>Both apps read scale off their own printed targets. The difference is what else the target tells the app. The four corner markers on Zero Considerations' targets are <strong>coded</strong> — each corner is individually identifiable, like a QR code's finder patterns. Because the app knows exactly which corner is which and where each one sits in the frame, it can correct <strong>camera tilt and perspective</strong>, not just scale.</p>
@@ -135,7 +135,7 @@ on top of the base price, while Zero Considerations has no subscription of any k
     <tr><th>Feature</th><th>Ballistic-X</th><th>Zero Considerations</th></tr>
     <tr><td>Group size &amp; POI offset from photo</td><td>Yes</td><td>Yes</td></tr>
     <tr><td>Auto-scale reference targets</td><td>BX targets (since v3.0.3, June 2025)</td><td>Free printable targets with coded corner markers</td></tr>
-    <tr><td>Hole marking</td><td>Tap each hole (per store description)</td><td>Automatic detection, tap to add/remove</td></tr>
+    <tr><td>Hole marking</td><td>Tap each hole (per store description)</td><td>Finds the holes, tap to add or remove</td></tr>
     <tr><td>Camera tilt / perspective correction</td><td>Not advertised</td><td>Yes, from the four coded corners</td></tr>
     <tr><td>Turret clicks for your specific optic</td><td>Outside its scope</td><td>Yes — your click value and direction</td></tr>
     <tr><td>Velocity truing from drop</td><td>Outside its scope</td><td>Yes</td></tr>
@@ -171,10 +171,10 @@ on top of the base price, while Zero Considerations has no subscription of any k
   <p>Yes. After a quiet stretch following version 3.0.3 (June 2025) — the release that added the BX auto-reference targets — it shipped a complete v4 rewrite in spring 2026 and has continued updating since. It remains available on both stores.</p>
 
   <h3>Do I need to buy special targets for Zero Considerations?</h3>
-  <p>No. The marker targets are <a href="/targets/">free PDFs</a> — four styles, Letter and A4, printed at 100% on any home printer. Without a marked target you can still set scale from a known-size reference in the photo, and every step has a manual fallback.</p>
+  <p>No. The marker targets are <a href="/targets/">free PDFs</a> — four styles, Letter and A4, printed at 100% on any home printer. Without a marked target you can still use a store-bought target the app recognizes, or type a known span, and every step has a manual fallback.</p>
 
-  <h3>Does automatic hole detection always work?</h3>
-  <p>No detector is perfect, and any app that claims 100% is selling you something. Torn paper, ragged overlapping holes, and dark backers can hide a hole. When that happens you add or remove holes with a tap — a missed hole costs one tap, not the workflow.</p>
+  <h3>Does it always find every hole?</h3>
+  <p>Nothing that reads a photo is perfect, and any app that claims 100% is selling you something. Torn paper, ragged overlapping holes, and dark backers can hide a hole. When that happens you add or remove holes with a tap — a missed hole costs one tap, not the workflow.</p>
 
   <h3>Will either app guarantee my zero?</h3>
   <p>No app can, and you should distrust one that claims to. A group is a sample: it includes you, the wind, and the ammo. Zero Considerations gives you a click count for the offset it measured and the optic you selected, but that adjustment is a correction, not a certificate — always fire a confirmation group after dialing.</p>

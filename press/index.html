@@ -51,6 +51,11 @@
   .hero-wrap{margin:1rem 0}
   .hero-wrap img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
   video{display:block;width:100%;max-width:340px;border-radius:10px;border:1px solid var(--line)}
+  .vids{display:flex;flex-wrap:wrap;gap:1rem;margin:1rem 0;align-items:flex-start}
+  .vids figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.6rem}
+  .vids video{max-width:none}
+  .vids figcaption{font-size:.8rem;color:var(--dim);margin-top:.5rem}
+  .vids figcaption a{color:var(--accent)}
   @media (max-width:520px){.kv{grid-template-columns:1fr}.kv dd{margin-bottom:.5rem}}
 </style>
 </head>
@@ -167,12 +172,12 @@
 
 <h2>Demo video (26 seconds)</h2>
 <p>The production cut for the stores and the ads: photograph the target, tap the aim point, type the target size, it finds every hit and gives you the clicks, then the ballistic calculator and your reticle. App footage only, no people.</p>
-<div class="grid">
-  <figure>
+<div class="vids">
+  <figure style="flex:0 1 250px">
     <video src="/press/media/zc-demo-9x16-1080x1920.mp4" poster="/press/media/zc-demo-9x16-poster.jpg" controls preload="none" style="width:100%"></video>
     <figcaption>Vertical 9:16 &middot; MP4, 1080&times;1920, about 3.2&nbsp;MB &middot; <a href="/press/media/zc-demo-9x16-1080x1920.mp4">download</a> &middot; <a href="https://www.youtube.com/watch?v=4-lygIbleXc">on YouTube</a></figcaption>
   </figure>
-  <figure>
+  <figure style="flex:0 1 520px">
     <video src="/press/media/zc-demo-16x9-1920x1080.mp4" poster="/press/media/zc-demo-16x9-poster.jpg" controls preload="none" style="width:100%"></video>
     <figcaption>Landscape 16:9 &middot; MP4, 1920&times;1080, about 2.5&nbsp;MB &middot; <a href="/press/media/zc-demo-16x9-1920x1080.mp4">download</a> &middot; <a href="https://www.youtube.com/watch?v=dj_9UO0R074">on YouTube</a></figcaption>
   </figure>
